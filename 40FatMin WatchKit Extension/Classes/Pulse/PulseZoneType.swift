@@ -1,5 +1,5 @@
 //
-//  PulsZoneType.swift
+//  PulseZoneType.swift
 //  40FatMin
 //
 //  Created by Vadym on 412//16.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum PulsZoneType: String{
+enum PulseZoneType: String{
     case z0
     case z1
     case z2
@@ -74,13 +74,7 @@ enum PulsZoneType: String{
             switch self {
             case .z0:
                 return UIColor.init(red: 1.000 , green: 0.587, blue: 0.000, alpha: 1.000)
-            case .z1:
-                fallthrough
-            case .z2:
-                fallthrough
-            case .z3:
-                fallthrough
-            case .z4:
+            case .z1, .z2, .z3, .z4:
                 return UIColor.init(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
             }
         }

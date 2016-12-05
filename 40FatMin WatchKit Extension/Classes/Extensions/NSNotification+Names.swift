@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+extension NSNotification.Name{
+    
+    static let ShowSessionInfoInterfaceController: NSNotification.Name = NSNotification.Name.init(rawValue: "ShowSessionInfoInterfaceController")
+}
