@@ -118,13 +118,3 @@ class SessionZonesInterfaceController: WKInterfaceController{
         showSessionInfo()
     }
 }
-
-//// MARK: - Extension WorkoutSessionManagerDelegate
-//
-//extension SessionZonesInterfaceController: WorkoutSessionManagerDelegate{
-//    
-//    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, pulseZoneDidChangeTo toPulseZone: PulseZone, from fromPulseZone: PulseZone) {
-//        
-//        updateZoneButtons()
-//    }
-//}
