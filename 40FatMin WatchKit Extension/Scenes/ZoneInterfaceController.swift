@@ -28,8 +28,6 @@ class ZoneInterfaceController: WKInterfaceController{
             becomeCurrentPage()
         }
         
-        setTitle("< \(NSLocalizedString("Zones", comment: "Pulse Zones"))")
-        
         initText()
     }
     
@@ -45,6 +43,7 @@ class ZoneInterfaceController: WKInterfaceController{
 // MARK: - Private Methods
     
     fileprivate func initText(){
+        setTitle("< \(NSLocalizedString("Zones", comment: "Pulse Zones"))")
         
         zoneTitleLabel.setTextColor(zone.type.backgroundColor)
         zoneTitleLabel.setText(zone.type.title)
