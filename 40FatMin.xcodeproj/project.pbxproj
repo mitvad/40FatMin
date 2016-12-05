@@ -1,0 +1,830 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD0F1E9E1DEDD8EC00223E6F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F1E9D1DEDD8EC00223E6F /* HealthKit.framework */; };
+		CD0F1EA11DEDDBBF00223E6F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0F1EA01DEDDBBF00223E6F /* HealthKit.framework */; };
+		CD0F1EAB1DF1974000223E6F /* Workouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EAA1DF1974000223E6F /* Workouts.swift */; };
+		CD0F1EAD1DF1975500223E6F /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EAC1DF1975500223E6F /* Workout.swift */; };
+		CD0F1EB11DF19D7B00223E6F /* PulseZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EB01DF19D7B00223E6F /* PulseZones.swift */; };
+		CD0F1EB31DF19D9200223E6F /* PulseZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EB21DF19D9200223E6F /* PulseZone.swift */; };
+		CD0F1EB51DF1A31900223E6F /* WorkoutPrograms.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EB41DF1A31900223E6F /* WorkoutPrograms.swift */; };
+		CD0F1EB71DF1A33500223E6F /* WorkoutProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EB61DF1A33500223E6F /* WorkoutProgram.swift */; };
+		CD0F1EB91DF1A48900223E6F /* WorkoutProgramPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EB81DF1A48900223E6F /* WorkoutProgramPart.swift */; };
+		CD0F1EC11DF1B15F00223E6F /* WorkoutSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EC01DF1B15F00223E6F /* WorkoutSessionManager.swift */; };
+		CD0F1EC31DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EC21DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift */; };
+		CD1340861DEB82F90091625A /* ProgramInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1340851DEB82F90091625A /* ProgramInterfaceController.swift */; };
+		CD1340881DEB860B0091625A /* ZonesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1340871DEB860B0091625A /* ZonesInterfaceController.swift */; };
+		CD13408A1DEB89A00091625A /* ZoneInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1340891DEB89A00091625A /* ZoneInterfaceController.swift */; };
+		CD13408E1DEC3DBE0091625A /* SessionInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */; };
+		CD595E7A1DEB7658003AD8EF /* CellWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD595E791DEB7658003AD8EF /* CellWorkout.swift */; };
+		CD5DDAAA1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */; };
+		CD5DDAAB1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */; };
+		CD5DDAAE1DF563FC00C69F25 /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAAD1DF563FC00C69F25 /* UserDefaults+Keys.swift */; };
+		CD5DDAB11DF5755C00C69F25 /* SessionActionsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAB01DF5755C00C69F25 /* SessionActionsInterfaceController.swift */; };
+		CD5DDAB31DF5757A00C69F25 /* SessionZonesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAB21DF5757A00C69F25 /* SessionZonesInterfaceController.swift */; };
+		CD5DDAB51DF5C40000C69F25 /* NSNotification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAB41DF5C40000C69F25 /* NSNotification+Names.swift */; };
+		CD8647741DE73C610042349F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8647731DE73C610042349F /* AppDelegate.swift */; };
+		CD8647761DE73C610042349F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8647751DE73C610042349F /* ViewController.swift */; };
+		CD8647791DE73C610042349F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8647771DE73C610042349F /* Main.storyboard */; };
+		CD86477B1DE73C610042349F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD86477A1DE73C610042349F /* Assets.xcassets */; };
+		CD86477E1DE73C610042349F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD86477C1DE73C610042349F /* LaunchScreen.storyboard */; };
+		CD8647831DE73C610042349F /* 40FatMin WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CD8647821DE73C610042349F /* 40FatMin WatchKit App.app */; };
+		CD8647891DE73C610042349F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8647871DE73C610042349F /* Interface.storyboard */; };
+		CD86478B1DE73C610042349F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD86478A1DE73C610042349F /* Assets.xcassets */; };
+		CD8647921DE73C610042349F /* 40FatMin WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CD8647911DE73C610042349F /* 40FatMin WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CD8647991DE73C610042349F /* WorkoutsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8647981DE73C610042349F /* WorkoutsInterfaceController.swift */; };
+		CD86479B1DE73C610042349F /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86479A1DE73C610042349F /* ExtensionDelegate.swift */; };
+		CD86479D1DE73C610042349F /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86479C1DE73C610042349F /* NotificationController.swift */; };
+		CD86479F1DE73C610042349F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86479E1DE73C610042349F /* ComplicationController.swift */; };
+		CD8647A11DE73C610042349F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD8647A01DE73C610042349F /* Assets.xcassets */; };
+		CD8DA6011DF2D58B00ABA050 /* DefaultPulseZones.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */; };
+		CD8DA6031DF2D5B400ABA050 /* DefaultWorkoutPrograms.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */; };
+		CD8DA6051DF2EC0200ABA050 /* PulseZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EB21DF19D9200223E6F /* PulseZone.swift */; };
+		CD8DA6061DF2EC5600ABA050 /* PulseZones.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0F1EB01DF19D7B00223E6F /* PulseZones.swift */; };
+		CD8DA6081DF2EE2F00ABA050 /* DefaultWorkoutPrograms.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */; };
+		CD8DA6091DF2EEC500ABA050 /* DefaultPulseZones.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */; };
+		CD8DA60B1DF35FBB00ABA050 /* AppFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD8647841DE73C610042349F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD8647681DE73C610042349F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD8647811DE73C610042349F;
+			remoteInfo = "40FatMin WatchKit App";
+		};
+		CD8647931DE73C610042349F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD8647681DE73C610042349F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD8647901DE73C610042349F;
+			remoteInfo = "40FatMin WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CD8647A81DE73C610042349F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CD8647921DE73C610042349F /* 40FatMin WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD8647AC1DE73C610042349F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CD8647831DE73C610042349F /* 40FatMin WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CD0F1E991DEDA4DC00223E6F /* 40FatMin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 40FatMin.entitlements; sourceTree = "<group>"; };
+		CD0F1E9D1DEDD8EC00223E6F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		CD0F1E9F1DEDD8EC00223E6F /* 40FatMin WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "40FatMin WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		CD0F1EA01DEDDBBF00223E6F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		CD0F1EAA1DF1974000223E6F /* Workouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workouts.swift; sourceTree = "<group>"; };
+		CD0F1EAC1DF1975500223E6F /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		CD0F1EB01DF19D7B00223E6F /* PulseZones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseZones.swift; sourceTree = "<group>"; };
+		CD0F1EB21DF19D9200223E6F /* PulseZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseZone.swift; sourceTree = "<group>"; };
+		CD0F1EB41DF1A31900223E6F /* WorkoutPrograms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPrograms.swift; sourceTree = "<group>"; };
+		CD0F1EB61DF1A33500223E6F /* WorkoutProgram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutProgram.swift; sourceTree = "<group>"; };
+		CD0F1EB81DF1A48900223E6F /* WorkoutProgramPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutProgramPart.swift; sourceTree = "<group>"; };
+		CD0F1EC01DF1B15F00223E6F /* WorkoutSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionManager.swift; sourceTree = "<group>"; };
+		CD0F1EC21DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionManagerDelegate.swift; sourceTree = "<group>"; };
+		CD1340851DEB82F90091625A /* ProgramInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramInterfaceController.swift; sourceTree = "<group>"; };
+		CD1340871DEB860B0091625A /* ZonesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZonesInterfaceController.swift; sourceTree = "<group>"; };
+		CD1340891DEB89A00091625A /* ZoneInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoneInterfaceController.swift; sourceTree = "<group>"; };
+		CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInfoInterfaceController.swift; sourceTree = "<group>"; };
+		CD595E791DEB7658003AD8EF /* CellWorkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWorkout.swift; sourceTree = "<group>"; };
+		CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseZoneType.swift; sourceTree = "<group>"; };
+		CD5DDAAD1DF563FC00C69F25 /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
+		CD5DDAB01DF5755C00C69F25 /* SessionActionsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionActionsInterfaceController.swift; sourceTree = "<group>"; };
+		CD5DDAB21DF5757A00C69F25 /* SessionZonesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionZonesInterfaceController.swift; sourceTree = "<group>"; };
+		CD5DDAB41DF5C40000C69F25 /* NSNotification+Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotification+Names.swift"; sourceTree = "<group>"; };
+		CD8647701DE73C610042349F /* 40FatMin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 40FatMin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD8647731DE73C610042349F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CD8647751DE73C610042349F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD8647781DE73C610042349F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD86477A1DE73C610042349F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD86477D1DE73C610042349F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD86477F1DE73C610042349F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD8647821DE73C610042349F /* 40FatMin WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "40FatMin WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD8647881DE73C610042349F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		CD86478A1DE73C610042349F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD86478C1DE73C610042349F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD8647911DE73C610042349F /* 40FatMin WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "40FatMin WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD8647971DE73C610042349F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		CD8647981DE73C610042349F /* WorkoutsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsInterfaceController.swift; sourceTree = "<group>"; };
+		CD86479A1DE73C610042349F /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		CD86479C1DE73C610042349F /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		CD86479E1DE73C610042349F /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		CD8647A01DE73C610042349F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD8647A21DE73C610042349F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultPulseZones.json; sourceTree = "<group>"; };
+		CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultWorkoutPrograms.json; sourceTree = "<group>"; };
+		CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFileManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD86476D1DE73C610042349F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0F1EA11DEDDBBF00223E6F /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD86478E1DE73C610042349F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0F1E9E1DEDD8EC00223E6F /* HealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD0F1E9A1DEDA4DC00223E6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD0F1EA01DEDDBBF00223E6F /* HealthKit.framework */,
+				CD0F1E9D1DEDD8EC00223E6F /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD0F1EA91DF04D1400223E6F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CD5DDAAC1DF563B200C69F25 /* Extensions */,
+				CD0F1EC41DF1CC8C00223E6F /* Utils */,
+				CD0F1EBF1DF1AFD000223E6F /* Session */,
+				CD0F1EBB1DF1A51800223E6F /* Workout */,
+				CD0F1EBA1DF1A4B500223E6F /* Program */,
+				CD0F1EBC1DF1A56600223E6F /* Pulse */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CD0F1EBA1DF1A4B500223E6F /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				CD0F1EB41DF1A31900223E6F /* WorkoutPrograms.swift */,
+				CD0F1EB61DF1A33500223E6F /* WorkoutProgram.swift */,
+				CD0F1EB81DF1A48900223E6F /* WorkoutProgramPart.swift */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		CD0F1EBB1DF1A51800223E6F /* Workout */ = {
+			isa = PBXGroup;
+			children = (
+				CD0F1EAA1DF1974000223E6F /* Workouts.swift */,
+				CD0F1EAC1DF1975500223E6F /* Workout.swift */,
+			);
+			path = Workout;
+			sourceTree = "<group>";
+		};
+		CD0F1EBC1DF1A56600223E6F /* Pulse */ = {
+			isa = PBXGroup;
+			children = (
+				CD0F1EB01DF19D7B00223E6F /* PulseZones.swift */,
+				CD0F1EB21DF19D9200223E6F /* PulseZone.swift */,
+				CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */,
+			);
+			path = Pulse;
+			sourceTree = "<group>";
+		};
+		CD0F1EBD1DF1A68E00223E6F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CD0F1EBE1DF1AB1B00223E6F /* Workouts */,
+				CD5DDAAF1DF574A100C69F25 /* Session */,
+				CD1340851DEB82F90091625A /* ProgramInterfaceController.swift */,
+				CD1340891DEB89A00091625A /* ZoneInterfaceController.swift */,
+				CD1340871DEB860B0091625A /* ZonesInterfaceController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CD0F1EBE1DF1AB1B00223E6F /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				CD8647981DE73C610042349F /* WorkoutsInterfaceController.swift */,
+				CD595E791DEB7658003AD8EF /* CellWorkout.swift */,
+			);
+			path = Workouts;
+			sourceTree = "<group>";
+		};
+		CD0F1EBF1DF1AFD000223E6F /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				CD0F1EC01DF1B15F00223E6F /* WorkoutSessionManager.swift */,
+				CD0F1EC21DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		CD0F1EC41DF1CC8C00223E6F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CD5DDAAC1DF563B200C69F25 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD5DDAAD1DF563FC00C69F25 /* UserDefaults+Keys.swift */,
+				CD5DDAB41DF5C40000C69F25 /* NSNotification+Names.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CD5DDAAF1DF574A100C69F25 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */,
+				CD5DDAB01DF5755C00C69F25 /* SessionActionsInterfaceController.swift */,
+				CD5DDAB21DF5757A00C69F25 /* SessionZonesInterfaceController.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		CD8647671DE73C610042349F = {
+			isa = PBXGroup;
+			children = (
+				CD8647721DE73C610042349F /* 40FatMin */,
+				CD8647861DE73C610042349F /* 40FatMin WatchKit App */,
+				CD8647951DE73C610042349F /* 40FatMin WatchKit Extension */,
+				CD8647711DE73C610042349F /* Products */,
+				CD0F1E9A1DEDA4DC00223E6F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CD8647711DE73C610042349F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD8647701DE73C610042349F /* 40FatMin.app */,
+				CD8647821DE73C610042349F /* 40FatMin WatchKit App.app */,
+				CD8647911DE73C610042349F /* 40FatMin WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD8647721DE73C610042349F /* 40FatMin */ = {
+			isa = PBXGroup;
+			children = (
+				CD8DA5FF1DF2D53000ABA050 /* JSON */,
+				CD0F1E991DEDA4DC00223E6F /* 40FatMin.entitlements */,
+				CD8647731DE73C610042349F /* AppDelegate.swift */,
+				CD8647751DE73C610042349F /* ViewController.swift */,
+				CD8647771DE73C610042349F /* Main.storyboard */,
+				CD86477A1DE73C610042349F /* Assets.xcassets */,
+				CD86477C1DE73C610042349F /* LaunchScreen.storyboard */,
+				CD86477F1DE73C610042349F /* Info.plist */,
+			);
+			path = 40FatMin;
+			sourceTree = "<group>";
+		};
+		CD8647861DE73C610042349F /* 40FatMin WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				CD8647871DE73C610042349F /* Interface.storyboard */,
+				CD86478A1DE73C610042349F /* Assets.xcassets */,
+				CD86478C1DE73C610042349F /* Info.plist */,
+			);
+			path = "40FatMin WatchKit App";
+			sourceTree = "<group>";
+		};
+		CD8647951DE73C610042349F /* 40FatMin WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CD0F1EA91DF04D1400223E6F /* Classes */,
+				CD0F1EBD1DF1A68E00223E6F /* Scenes */,
+				CD86479A1DE73C610042349F /* ExtensionDelegate.swift */,
+				CD86479C1DE73C610042349F /* NotificationController.swift */,
+				CD86479E1DE73C610042349F /* ComplicationController.swift */,
+				CD8647A01DE73C610042349F /* Assets.xcassets */,
+				CD8647A21DE73C610042349F /* Info.plist */,
+				CD0F1E9F1DEDD8EC00223E6F /* 40FatMin WatchKit Extension.entitlements */,
+				CD8647961DE73C610042349F /* Supporting Files */,
+			);
+			path = "40FatMin WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		CD8647961DE73C610042349F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD8647971DE73C610042349F /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD8DA5FF1DF2D53000ABA050 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */,
+				CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD86476F1DE73C610042349F /* 40FatMin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD8647AD1DE73C610042349F /* Build configuration list for PBXNativeTarget "40FatMin" */;
+			buildPhases = (
+				CD86476C1DE73C610042349F /* Sources */,
+				CD86476D1DE73C610042349F /* Frameworks */,
+				CD86476E1DE73C610042349F /* Resources */,
+				CD8647AC1DE73C610042349F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD8647851DE73C610042349F /* PBXTargetDependency */,
+			);
+			name = 40FatMin;
+			productName = 40FatMin;
+			productReference = CD8647701DE73C610042349F /* 40FatMin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD8647811DE73C610042349F /* 40FatMin WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD8647A91DE73C610042349F /* Build configuration list for PBXNativeTarget "40FatMin WatchKit App" */;
+			buildPhases = (
+				CD8647801DE73C610042349F /* Resources */,
+				CD8647A81DE73C610042349F /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD8647941DE73C610042349F /* PBXTargetDependency */,
+			);
+			name = "40FatMin WatchKit App";
+			productName = "40FatMin WatchKit App";
+			productReference = CD8647821DE73C610042349F /* 40FatMin WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CD8647901DE73C610042349F /* 40FatMin WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD8647A51DE73C610042349F /* Build configuration list for PBXNativeTarget "40FatMin WatchKit Extension" */;
+			buildPhases = (
+				CD86478D1DE73C610042349F /* Sources */,
+				CD86478E1DE73C610042349F /* Frameworks */,
+				CD86478F1DE73C610042349F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "40FatMin WatchKit Extension";
+			productName = "40FatMin WatchKit Extension";
+			productReference = CD8647911DE73C610042349F /* 40FatMin WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD8647681DE73C610042349F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Vadym Mitin";
+				TargetAttributes = {
+					CD86476F1DE73C610042349F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = P894D32A7T;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
+					};
+					CD8647811DE73C610042349F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = P894D32A7T;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
+					CD8647901DE73C610042349F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = P894D32A7T;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = CD86476B1DE73C610042349F /* Build configuration list for PBXProject "40FatMin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD8647671DE73C610042349F;
+			productRefGroup = CD8647711DE73C610042349F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD86476F1DE73C610042349F /* 40FatMin */,
+				CD8647811DE73C610042349F /* 40FatMin WatchKit App */,
+				CD8647901DE73C610042349F /* 40FatMin WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD86476E1DE73C610042349F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD86477E1DE73C610042349F /* LaunchScreen.storyboard in Resources */,
+				CD8DA6011DF2D58B00ABA050 /* DefaultPulseZones.json in Resources */,
+				CD8DA6031DF2D5B400ABA050 /* DefaultWorkoutPrograms.json in Resources */,
+				CD86477B1DE73C610042349F /* Assets.xcassets in Resources */,
+				CD8647791DE73C610042349F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD8647801DE73C610042349F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD86478B1DE73C610042349F /* Assets.xcassets in Resources */,
+				CD8647891DE73C610042349F /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD86478F1DE73C610042349F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD8647A11DE73C610042349F /* Assets.xcassets in Resources */,
+				CD8DA6081DF2EE2F00ABA050 /* DefaultWorkoutPrograms.json in Resources */,
+				CD8DA6091DF2EEC500ABA050 /* DefaultPulseZones.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD86476C1DE73C610042349F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD8647761DE73C610042349F /* ViewController.swift in Sources */,
+				CD8DA6051DF2EC0200ABA050 /* PulseZone.swift in Sources */,
+				CD8647741DE73C610042349F /* AppDelegate.swift in Sources */,
+				CD8DA6061DF2EC5600ABA050 /* PulseZones.swift in Sources */,
+				CD5DDAAA1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD86478D1DE73C610042349F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD5DDAB11DF5755C00C69F25 /* SessionActionsInterfaceController.swift in Sources */,
+				CD86479D1DE73C610042349F /* NotificationController.swift in Sources */,
+				CD1340861DEB82F90091625A /* ProgramInterfaceController.swift in Sources */,
+				CD5DDAB31DF5757A00C69F25 /* SessionZonesInterfaceController.swift in Sources */,
+				CD0F1EB11DF19D7B00223E6F /* PulseZones.swift in Sources */,
+				CD5DDAAB1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */,
+				CD8DA60B1DF35FBB00ABA050 /* AppFileManager.swift in Sources */,
+				CD86479F1DE73C610042349F /* ComplicationController.swift in Sources */,
+				CD0F1EB51DF1A31900223E6F /* WorkoutPrograms.swift in Sources */,
+				CD13408A1DEB89A00091625A /* ZoneInterfaceController.swift in Sources */,
+				CD0F1EB71DF1A33500223E6F /* WorkoutProgram.swift in Sources */,
+				CD0F1EB31DF19D9200223E6F /* PulseZone.swift in Sources */,
+				CD5DDAAE1DF563FC00C69F25 /* UserDefaults+Keys.swift in Sources */,
+				CD86479B1DE73C610042349F /* ExtensionDelegate.swift in Sources */,
+				CD1340881DEB860B0091625A /* ZonesInterfaceController.swift in Sources */,
+				CD8647991DE73C610042349F /* WorkoutsInterfaceController.swift in Sources */,
+				CD0F1EB91DF1A48900223E6F /* WorkoutProgramPart.swift in Sources */,
+				CD13408E1DEC3DBE0091625A /* SessionInfoInterfaceController.swift in Sources */,
+				CD0F1EC31DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift in Sources */,
+				CD0F1EC11DF1B15F00223E6F /* WorkoutSessionManager.swift in Sources */,
+				CD5DDAB51DF5C40000C69F25 /* NSNotification+Names.swift in Sources */,
+				CD0F1EAB1DF1974000223E6F /* Workouts.swift in Sources */,
+				CD595E7A1DEB7658003AD8EF /* CellWorkout.swift in Sources */,
+				CD0F1EAD1DF1975500223E6F /* Workout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD8647851DE73C610042349F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD8647811DE73C610042349F /* 40FatMin WatchKit App */;
+			targetProxy = CD8647841DE73C610042349F /* PBXContainerItemProxy */;
+		};
+		CD8647941DE73C610042349F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD8647901DE73C610042349F /* 40FatMin WatchKit Extension */;
+			targetProxy = CD8647931DE73C610042349F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD8647771DE73C610042349F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD8647781DE73C610042349F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD86477C1DE73C610042349F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD86477D1DE73C610042349F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CD8647871DE73C610042349F /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD8647881DE73C610042349F /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD8647A31DE73C610042349F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD8647A41DE73C610042349F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD8647A61DE73C610042349F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "40FatMin WatchKit Extension/40FatMin WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = P894D32A7T;
+				INFOPLIST_FILE = "40FatMin WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.mitin.vadym.40FatMin.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		CD8647A71DE73C610042349F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "40FatMin WatchKit Extension/40FatMin WatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = P894D32A7T;
+				INFOPLIST_FILE = "40FatMin WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.mitin.vadym.40FatMin.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		CD8647AA1DE73C610042349F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = P894D32A7T;
+				IBSC_MODULE = _0FatMin_WatchKit_Extension;
+				INFOPLIST_FILE = "40FatMin WatchKit App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.mitin.vadym.40FatMin.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		CD8647AB1DE73C610042349F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = P894D32A7T;
+				IBSC_MODULE = _0FatMin_WatchKit_Extension;
+				INFOPLIST_FILE = "40FatMin WatchKit App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.mitin.vadym.40FatMin.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		CD8647AE1DE73C610042349F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = 40FatMin/40FatMin.entitlements;
+				DEVELOPMENT_TEAM = P894D32A7T;
+				INFOPLIST_FILE = 40FatMin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.mitin.vadym.40FatMin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CD8647AF1DE73C610042349F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = 40FatMin/40FatMin.entitlements;
+				DEVELOPMENT_TEAM = P894D32A7T;
+				INFOPLIST_FILE = 40FatMin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.mitin.vadym.40FatMin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD86476B1DE73C610042349F /* Build configuration list for PBXProject "40FatMin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD8647A31DE73C610042349F /* Debug */,
+				CD8647A41DE73C610042349F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD8647A51DE73C610042349F /* Build configuration list for PBXNativeTarget "40FatMin WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD8647A61DE73C610042349F /* Debug */,
+				CD8647A71DE73C610042349F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD8647A91DE73C610042349F /* Build configuration list for PBXNativeTarget "40FatMin WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD8647AA1DE73C610042349F /* Debug */,
+				CD8647AB1DE73C610042349F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD8647AD1DE73C610042349F /* Build configuration list for PBXNativeTarget "40FatMin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD8647AE1DE73C610042349F /* Debug */,
+				CD8647AF1DE73C610042349F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD8647681DE73C610042349F /* Project object */;
+}

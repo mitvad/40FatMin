@@ -1,0 +1,10 @@
+{
+    "formula": "f1",
+    "zones": [
+        {"type": "z1", "lower": 74, "upper": 112},
+        {"type": "z2", "lower": 112, "upper": 140},
+        {"type": "z3", "lower": 140, "upper": 158},
+        {"type": "z4", "lower": 158, "upper": 177},
+        {"type": "z0", "lower": 0, "upper": 200}
+    ]
+}
