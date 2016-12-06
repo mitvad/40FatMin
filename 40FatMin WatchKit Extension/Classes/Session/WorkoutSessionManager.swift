@@ -111,6 +111,12 @@ class WorkoutSessionManager: NSObject{
     
     fileprivate var currentWorkoutSession: HKWorkoutSession?
     fileprivate var workoutSessions = [(start: Date, end: Date)]()
+    
+    fileprivate let heartRateUnit = HKUnit(from: "count/min")
+    fileprivate var heartRateQuery: HKAnchoredObjectQuery?
+    
+// MARK: - Private Computed Properties
+    
     fileprivate var dateForTimer: Date{
         get{
             var duration = 0.0
@@ -122,10 +128,6 @@ class WorkoutSessionManager: NSObject{
             return Date(timeInterval: -duration, since: Date())
         }
     }
-    
-    fileprivate let heartRateUnit = HKUnit(from: "count/min")
-    fileprivate var heartRateQuery: HKAnchoredObjectQuery?
-    
     
 // MARK: - Private Methods
     
