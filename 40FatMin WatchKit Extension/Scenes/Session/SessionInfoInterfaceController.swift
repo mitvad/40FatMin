@@ -36,7 +36,7 @@ class SessionInfoInterfaceController: WKInterfaceController{
         
         updatePulseZone()
         updateProgramParts()
-        updateHeartRate(workoutSessionManager.lastHeartRateValue)
+        updateHeartRate(0.0)
     }
     
 // MARK: - Private Properties
@@ -211,9 +211,10 @@ extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
         updatePulseZone()
     }
     
-    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, sessionDidChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, sessionDidChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, dateForTimer date: Date) {
         
         if toState == .running{
+            sessionTimer.setDate(date)
             sessionTimer.start()
             
             content.setAlpha(1.0)

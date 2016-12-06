@@ -46,20 +46,18 @@ class WorkoutSessionManager: NSObject{
         }
     }
     
-    var lastHeartRateValue = 0.0
-    
 // MARK: - Public Computed Properties
     
     var sessionState: HKWorkoutSessionState{
         get{
-            return workoutSession?.state ?? .notStarted
+            return currentWorkoutSession?.state ?? .notStarted
         }
     }
     
 // MARK: - Public Methods
     
     func startSession(){
-        guard self.workoutSession == nil else{
+        guard self.currentWorkoutSession == nil else{
             print("Warning: workout session is already started")
             return
         }
@@ -74,7 +72,7 @@ class WorkoutSessionManager: NSObject{
             session.delegate = self
             healthStore.start(session)
             
-            self.workoutSession = session
+            self.currentWorkoutSession = session
         }
         catch let error as NSError {
             // Perform proper error handling here...
@@ -83,19 +81,19 @@ class WorkoutSessionManager: NSObject{
     }
     
     func stopSession(){
-        if let session = self.workoutSession{
+        if let session = self.currentWorkoutSession{
             healthStore.end(session)
         }
     }
     
     func pauseSession(){
-        if let session = self.workoutSession{
+        if let session = self.currentWorkoutSession{
             healthStore.pause(session)
         }
     }
     
     func resumeSession(){
-        if let session = self.workoutSession{
+        if let session = self.currentWorkoutSession{
             healthStore.resumeWorkoutSession(session)
         }
     }
@@ -111,7 +109,19 @@ class WorkoutSessionManager: NSObject{
     fileprivate var healthStore: HKHealthStore
     fileprivate var pulseZones: PulseZones
     
-    fileprivate var workoutSession: HKWorkoutSession?
+    fileprivate var currentWorkoutSession: HKWorkoutSession?
+    fileprivate var workoutSessions = [(start: Date, end: Date)]()
+    fileprivate var dateForTimer: Date{
+        get{
+            var duration = 0.0
+            
+            for (start, end) in workoutSessions{
+                duration += end.timeIntervalSince(start)
+            }
+            
+            return Date(timeInterval: -duration, since: Date())
+        }
+    }
     
     fileprivate let heartRateUnit = HKUnit(from: "count/min")
     fileprivate var heartRateQuery: HKAnchoredObjectQuery?
@@ -128,6 +138,12 @@ class WorkoutSessionManager: NSObject{
             healthStore.stop(heartRateQuery)
             self.heartRateQuery = nil
         }
+        
+        if let session = self.currentWorkoutSession{
+            guard let start = session.startDate else {return}
+            
+            workoutSessions.append((start: start, end: Date()))
+        }
     }
     
     fileprivate func sessionDidEnd(){
@@ -136,7 +152,7 @@ class WorkoutSessionManager: NSObject{
             self.heartRateQuery = nil
         }
         
-        workoutSession = nil
+        currentWorkoutSession = nil
     }
     
     fileprivate func createHeartRateStreamingQuery(_ sessionStartDate: Date){
@@ -174,12 +190,11 @@ class WorkoutSessionManager: NSObject{
         
         print("Heart rate: \(value)")
         
-        self.lastHeartRateValue = value
-        
         DispatchQueue.main.async {
             self.delegate?.workoutSessionManager?(self, heartRateDidChangeTo: value)
         }
     }
+    
 }
 
 // MARK: - Extension HKWorkoutSessionDelegate
@@ -190,17 +205,16 @@ extension WorkoutSessionManager: HKWorkoutSessionDelegate{
         print("Workout session did fail with error: \(error)")
     }
     
-    func workoutSession(_ workoutSession: HKWorkoutSession, didGenerate event: HKWorkoutEvent) {
-        print(event)
-    }
-    
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         
         print("Workout state changed from: \(fromState.rawValue) to: \(toState.rawValue)")
         
+        var dateForTimer = date
+        
         switch toState {
         case .running:
             sessionDidStart(date)
+            dateForTimer = self.dateForTimer
         case .ended:
             sessionDidEnd()
         case .paused:
@@ -209,6 +223,6 @@ extension WorkoutSessionManager: HKWorkoutSessionDelegate{
             break
         }
         
-        delegate?.workoutSessionManager?(self, sessionDidChangeTo: toState, from: fromState, date: date)
+        delegate?.workoutSessionManager?(self, sessionDidChangeTo: toState, from: fromState, dateForTimer: dateForTimer)
     }
 }
