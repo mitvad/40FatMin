@@ -31,10 +31,14 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
     override func willActivate(){
-        workoutSessionManager?.delegate = self
-        
-        updatePulseZone()
-        updateProgramParts()
+        if let workoutSessionManager = workoutSessionManager{
+            workoutSessionManager.delegate = self
+            
+            updatePulseZone()
+            updateProgramParts()
+            
+            updateHeartRate(workoutSessionManager.lastHeartRateValue)
+        }
     }
 
 // MARK: - Private Properties
@@ -135,10 +139,40 @@ class SessionInfoInterfaceController: WKInterfaceController{
         }
     }
     
+    fileprivate func updateHeartRate(_ heartRate: Double){
+        if heartRate > 0{
+            heartRateLabel.setTextColor(PulseZoneType.z4.backgroundColor)
+            heartRateLabel.setText(String(Int(heartRate)))
+            
+            animateHeart()
+        }
+        else{
+            heartRateLabel.setTextColor(UIColor.lightGray)
+            heartRateLabel.setText("--")
+        }
+    }
+    
+    fileprivate func animateHeart() {
+        self.animate(withDuration: 0.5) {
+            self.heartRateImage.setWidth(35)
+            self.heartRateImage.setHeight(35)
+        }
+        
+        let when = DispatchTime.now() + 0.5
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.animate(withDuration: 0.7, animations: {
+                self.heartRateImage.setWidth(30)
+                self.heartRateImage.setHeight(30)
+            })
+        }
+    }
+    
 // MARK: - IBOutlets
     
     @IBOutlet var sessionTimer: WKInterfaceTimer!
-    @IBOutlet var heartRate: WKInterfaceLabel!
+    @IBOutlet var heartRateLabel: WKInterfaceLabel!
+    @IBOutlet var heartRateImage: WKInterfaceImage!
     
     @IBOutlet var pulseZoneGroup: WKInterfaceGroup!
     @IBOutlet var pulseZoneTitleLabel: WKInterfaceLabel!
@@ -185,5 +219,10 @@ extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
         else if fromState == .running{
             sessionTimer.stop()
         }
+    }
+    
+    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, heartRateDidChangeTo toHeartRate: Double) {
+        
+        updateHeartRate(toHeartRate)
     }
 }

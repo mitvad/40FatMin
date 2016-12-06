@@ -391,7 +391,7 @@
                             </items>
                             <edgeInsets key="margins" left="2" right="2" top="0.0" bottom="0.0"/>
                         </group>
-                        <group width="1" height="20" alignment="left" radius="10" spacing="0.0" id="cdZ-pM-6vT">
+                        <group width="1" height="20" alignment="left" verticalAlignment="bottom" radius="10" spacing="0.0" id="cdZ-pM-6vT">
                             <items>
                                 <group width="25" height="1" alignment="left" radius="0.0" id="b0E-TP-iL6">
                                     <items>
@@ -461,23 +461,28 @@
                                 </group>
                             </items>
                         </group>
-                        <group alignment="center" verticalAlignment="bottom" id="Oxh-da-Zuo">
+                        <group width="1" alignment="center" verticalAlignment="bottom" id="Oxh-da-Zuo">
                             <items>
-                                <label alignment="left" verticalAlignment="bottom" text="188" id="rEc-V5-Y6n">
+                                <label alignment="center" verticalAlignment="center" text="--" id="rEc-V5-Y6n">
                                     <color key="textColor" red="0.97955745459999999" green="0.068956233559999996" blue="0.31090652940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="boldSystem" pointSize="28"/>
                                 </label>
-                                <label alignment="left" verticalAlignment="center" text="BPM" id="iKb-bS-ZGY">
+                                <label alignment="center" verticalAlignment="center" text="BPM" id="iKb-bS-ZGY">
                                     <color key="textColor" red="0.97955745459999999" green="0.068956233559999996" blue="0.31090652940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="system" pointSize="16"/>
                                 </label>
-                                <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="heart" contentMode="scaleAspectFit" id="mtM-Ji-nfk"/>
+                                <group width="35" height="35" alignment="center" id="tMu-qT-iXg">
+                                    <items>
+                                        <imageView width="30" height="30" alignment="center" verticalAlignment="center" image="heart" contentMode="scaleAspectFit" id="mtM-Ji-nfk"/>
+                                    </items>
+                                </group>
                             </items>
                         </group>
                     </items>
                     <connections>
                         <outlet property="allParts" destination="cdZ-pM-6vT" id="LwN-84-Kll"/>
-                        <outlet property="heartRate" destination="rEc-V5-Y6n" id="NSK-O4-OaN"/>
+                        <outlet property="heartRateImage" destination="mtM-Ji-nfk" id="bYd-J4-Rng"/>
+                        <outlet property="heartRateLabel" destination="rEc-V5-Y6n" id="DMe-yu-Bv5"/>
                         <outlet property="part1" destination="b0E-TP-iL6" id="bxB-W7-PhG"/>
                         <outlet property="part10" destination="4yJ-1P-i6c" id="ShX-zH-BLi"/>
                         <outlet property="part11" destination="rA8-We-e3Z" id="dWU-G8-lmB"/>
@@ -493,7 +498,7 @@
                         <outlet property="pulseZoneLowerLabel" destination="G1p-WF-L8w" id="VcU-Bj-JMf"/>
                         <outlet property="pulseZoneTitleLabel" destination="HvG-5S-7tq" id="lzf-Sm-e8O"/>
                         <outlet property="pulseZoneUpperLabel" destination="c0d-yZ-yIf" id="wpQ-GG-Wi5"/>
-                        <outlet property="sessionTimer" destination="DSQ-Nj-Fg5" id="Gss-gQ-GIB"/>
+                        <outlet property="sessionTimer" destination="DSQ-Nj-Fg5" id="jjD-M8-tPl"/>
                     </connections>
                 </controller>
             </objects>
