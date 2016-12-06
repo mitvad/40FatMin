@@ -361,12 +361,20 @@
                                             <items>
                                                 <timer alignment="left" minimumScaleFactor="0.80000000000000004" previewedSeconds="7202" id="DSQ-Nj-Fg5">
                                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="font" type="system" pointSize="22"/>
+                                                    <fontDescription key="font" type="system" pointSize="24"/>
                                                 </timer>
-                                                <label alignment="left" text="10m" minimumScaleFactor="0.80000000000000004" id="HHb-Ie-46W">
-                                                    <color key="textColor" red="0.18600802951388884" green="0.78482560346156027" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="font" type="system" pointSize="22"/>
-                                                </label>
+                                                <group alignment="left" id="rhE-Jh-Qld">
+                                                    <items>
+                                                        <label alignment="left" verticalAlignment="bottom" text="20.50" minimumScaleFactor="0.80000000000000004" id="2LZ-Zc-YPa">
+                                                            <color key="textColor" red="0.18600802950000001" green="0.78482560349999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="font" type="system" pointSize="24"/>
+                                                        </label>
+                                                        <label alignment="left" verticalAlignment="bottom" text="KM" minimumScaleFactor="0.80000000000000004" id="HHb-Ie-46W">
+                                                            <color key="textColor" red="0.18600802951388884" green="0.78482560346156027" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="font" type="system" pointSize="18"/>
+                                                        </label>
+                                                    </items>
+                                                </group>
                                             </items>
                                         </group>
                                         <group width="44" height="76" alignment="right" layout="vertical" spacing="1" id="pDn-nn-FlV">
@@ -391,7 +399,7 @@
                                             </items>
                                         </group>
                                     </items>
-                                    <edgeInsets key="margins" left="2" right="2" top="0.0" bottom="0.0"/>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
                                 <group width="1" height="20" alignment="left" verticalAlignment="bottom" radius="10" spacing="0.0" id="cdZ-pM-6vT">
                                     <items>
@@ -465,7 +473,7 @@
                                 </group>
                                 <group width="1" alignment="center" verticalAlignment="bottom" id="Oxh-da-Zuo">
                                     <items>
-                                        <label alignment="center" verticalAlignment="center" text="--" id="rEc-V5-Y6n">
+                                        <label alignment="center" verticalAlignment="center" text="120" id="rEc-V5-Y6n">
                                             <color key="textColor" red="0.97955745459999999" green="0.068956233559999996" blue="0.31090652940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="font" type="boldSystem" pointSize="28"/>
                                         </label>
@@ -486,6 +494,8 @@
                     <connections>
                         <outlet property="allParts" destination="cdZ-pM-6vT" id="LwN-84-Kll"/>
                         <outlet property="content" destination="zrr-fu-7BQ" id="82q-zw-N7h"/>
+                        <outlet property="distanceLabel" destination="2LZ-Zc-YPa" id="Tz1-ON-4zn"/>
+                        <outlet property="distanceUnitLabel" destination="HHb-Ie-46W" id="irn-Vw-ZKk"/>
                         <outlet property="heartRateImage" destination="mtM-Ji-nfk" id="bYd-J4-Rng"/>
                         <outlet property="heartRateLabel" destination="rEc-V5-Y6n" id="DMe-yu-Bv5"/>
                         <outlet property="part1" destination="b0E-TP-iL6" id="bxB-W7-PhG"/>

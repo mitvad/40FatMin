@@ -115,6 +115,10 @@ class WorkoutSessionManager: NSObject{
     fileprivate let heartRateUnit = HKUnit(from: "count/min")
     fileprivate var heartRateQuery: HKAnchoredObjectQuery?
     
+    fileprivate var distanceQuery: HKAnchoredObjectQuery?
+    fileprivate var distanceUnit = HKUnit(from: "m")
+    fileprivate var distanceTotal = 0.0
+    
 // MARK: - Private Computed Properties
     
     fileprivate var dateForTimer: Date{
@@ -133,13 +137,11 @@ class WorkoutSessionManager: NSObject{
     
     fileprivate func sessionDidStart(_ sessionStartDate: Date){
         createHeartRateStreamingQuery(sessionStartDate)
+        createDistanceStreamingQuery(sessionStartDate)
     }
     
     fileprivate func sessionDidPaused(){
-        if let heartRateQuery = heartRateQuery{
-            healthStore.stop(heartRateQuery)
-            self.heartRateQuery = nil
-        }
+        stopQueries()
         
         if let session = self.currentWorkoutSession{
             guard let start = session.startDate else {return}
@@ -149,12 +151,21 @@ class WorkoutSessionManager: NSObject{
     }
     
     fileprivate func sessionDidEnd(){
+        stopQueries()
+        
+        currentWorkoutSession = nil
+    }
+    
+    fileprivate func stopQueries(){
         if let heartRateQuery = heartRateQuery{
             healthStore.stop(heartRateQuery)
             self.heartRateQuery = nil
         }
         
-        currentWorkoutSession = nil
+        if let distanceQuery = distanceQuery{
+            healthStore.stop(distanceQuery)
+            self.distanceQuery = nil
+        }
     }
     
     fileprivate func createHeartRateStreamingQuery(_ sessionStartDate: Date){
@@ -177,6 +188,46 @@ class WorkoutSessionManager: NSObject{
         }
         
         healthStore.execute(heartRateQuery!)
+    }
+    
+    fileprivate func createDistanceStreamingQuery(_ sessionStartDate: Date){
+        guard let quantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning) else {
+            return
+        }
+        
+        let datePredicate = HKQuery.predicateForSamples(withStart: sessionStartDate, end: nil, options: .strictEndDate )
+        
+        distanceQuery = HKAnchoredObjectQuery(type: quantityType,
+                                               predicate: datePredicate,
+                                               anchor: nil,
+                                               limit: HKObjectQueryNoLimit)
+        { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+            self.updateDistance(sampleObjects)
+        }
+        
+        distanceQuery!.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+            self.updateDistance(samples)
+        }
+        
+        healthStore.execute(distanceQuery!)
+    }
+    
+    fileprivate func updateDistance(_ samples: [HKSample]?){
+        guard let distanceSamples = samples as? [HKQuantitySample] else {
+            return
+        }
+        
+        guard let sample = distanceSamples.first else{
+            return
+        }
+        
+        distanceTotal += sample.quantity.doubleValue(for: self.distanceUnit)
+        
+        print("updateDistance \(distanceTotal)")
+        
+        DispatchQueue.main.async {
+            self.delegate?.workoutSessionManager?(self, distanceDidChangeTo: self.distanceTotal)
+        }
     }
     
     fileprivate func updateHeartRate(_ samples: [HKSample]?){

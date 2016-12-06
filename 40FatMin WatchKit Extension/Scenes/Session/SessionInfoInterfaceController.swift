@@ -37,6 +37,7 @@ class SessionInfoInterfaceController: WKInterfaceController{
         updatePulseZone()
         updateProgramParts()
         updateHeartRate(0.0)
+        updateDistance(0)
     }
     
 // MARK: - Private Properties
@@ -166,11 +167,41 @@ class SessionInfoInterfaceController: WKInterfaceController{
         }
     }
     
+    fileprivate func updateDistance(_ distance: Double){
+        var measurement = Measurement(value: distance, unit: UnitLength.meters)
+        
+        if Locale.current.usesMetricSystem == false{
+            measurement.convert(to: UnitLength.yards)
+            
+            distanceUnitLabel.setText(NSLocalizedString("yd", comment: "Yard short name"))
+        }
+        
+        if measurement.value < 100.0{
+            distanceLabel.setText(String(format: "%.0f", measurement.value))
+        }
+        else{
+            if Locale.current.usesMetricSystem == false{
+                measurement.convert(to: UnitLength.miles)
+                
+                distanceUnitLabel.setText(NSLocalizedString("mi", comment: "Mile short name"))
+            }
+            else{
+                measurement.convert(to: UnitLength.kilometers)
+                
+                distanceUnitLabel.setText(NSLocalizedString("km", comment: "Kilometer short name"))
+            }
+            
+            distanceLabel.setText(String(format: "%.2f", measurement.value))
+        }
+    }
+    
 // MARK: - IBOutlets
     
     @IBOutlet var content: WKInterfaceGroup!
     
     @IBOutlet var sessionTimer: WKInterfaceTimer!
+    @IBOutlet var distanceLabel: WKInterfaceLabel!
+    @IBOutlet var distanceUnitLabel: WKInterfaceLabel!
     @IBOutlet var heartRateLabel: WKInterfaceLabel!
     @IBOutlet var heartRateImage: WKInterfaceImage!
     
@@ -231,5 +262,10 @@ extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
     func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, heartRateDidChangeTo toHeartRate: Double) {
         
         updateHeartRate(toHeartRate)
+    }
+    
+    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, distanceDidChangeTo toDistance: Double) {
+        
+        updateDistance(toDistance)
     }
 }
