@@ -124,11 +124,18 @@ class WorkoutSessionManager: NSObject{
     }
     
     fileprivate func sessionDidPaused(){
-        healthStore.stop(heartRateQuery!)
+        if let heartRateQuery = heartRateQuery{
+            healthStore.stop(heartRateQuery)
+            self.heartRateQuery = nil
+        }
     }
     
     fileprivate func sessionDidEnd(){
-        healthStore.stop(heartRateQuery!)
+        if let heartRateQuery = heartRateQuery{
+            healthStore.stop(heartRateQuery)
+            self.heartRateQuery = nil
+        }
+        
         workoutSession = nil
     }
     
@@ -159,17 +166,17 @@ class WorkoutSessionManager: NSObject{
             return
         }
         
+        guard let sample = heartRateSamples.first else{
+            return
+        }
+        
+        let value = sample.quantity.doubleValue(for: self.heartRateUnit)
+        
+        print("Heart rate: \(value)")
+        
+        self.lastHeartRateValue = value
+        
         DispatchQueue.main.async {
-            guard let sample = heartRateSamples.first else{
-                return
-            }
-            
-            let value = sample.quantity.doubleValue(for: self.heartRateUnit)
-            
-            print("Heart rate: \(value)")
-            
-            self.lastHeartRateValue = value
-            
             self.delegate?.workoutSessionManager?(self, heartRateDidChangeTo: value)
         }
     }

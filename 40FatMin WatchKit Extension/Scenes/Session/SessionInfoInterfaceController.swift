@@ -17,7 +17,12 @@ class SessionInfoInterfaceController: WKInterfaceController{
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        workoutSessionManager = (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager
+        self.workoutSessionManager = (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager
+        
+        guard let workoutSessionManager = self.workoutSessionManager else{
+            print("Error: there is no workoutSessionManager")
+            return
+        }
         
         initText()
         
@@ -25,22 +30,15 @@ class SessionInfoInterfaceController: WKInterfaceController{
         
         observerShowSessionInfo = NotificationCenter.default.addObserver(forName: Notification.Name.ShowSessionInfoInterfaceController, object: nil, queue: nil, using: { [unowned self] (notification) in self.becomeCurrentPage()})
         
-        workoutSessionManager?.delegate = self
+        workoutSessionManager.delegate = self
         
-        workoutSessionManager?.startSession()
+        workoutSessionManager.startSession()
+        
+        updatePulseZone()
+        updateProgramParts()
+        updateHeartRate(workoutSessionManager.lastHeartRateValue)
     }
     
-    override func willActivate(){
-        if let workoutSessionManager = workoutSessionManager{
-            workoutSessionManager.delegate = self
-            
-            updatePulseZone()
-            updateProgramParts()
-            
-            updateHeartRate(workoutSessionManager.lastHeartRateValue)
-        }
-    }
-
 // MARK: - Private Properties
     
     fileprivate var workoutSessionManager: WorkoutSessionManager?
@@ -170,6 +168,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
     
 // MARK: - IBOutlets
     
+    @IBOutlet var content: WKInterfaceGroup!
+    
     @IBOutlet var sessionTimer: WKInterfaceTimer!
     @IBOutlet var heartRateLabel: WKInterfaceLabel!
     @IBOutlet var heartRateImage: WKInterfaceImage!
@@ -215,9 +215,15 @@ extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
         
         if toState == .running{
             sessionTimer.start()
+            
+            content.setAlpha(1.0)
         }
         else if fromState == .running{
             sessionTimer.stop()
+            
+            updateHeartRate(0.0)
+            
+            content.setAlpha(0.6)
         }
     }
     
