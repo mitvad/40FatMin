@@ -379,7 +379,7 @@
                                         </group>
                                         <group width="44" height="76" alignment="right" layout="vertical" spacing="1" id="pDn-nn-FlV">
                                             <items>
-                                                <label alignment="center" text="145" id="c0d-yZ-yIf">
+                                                <label alignment="center" text="145" minimumScaleFactor="0.80000000000000004" id="c0d-yZ-yIf">
                                                     <color key="textColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="12"/>
                                                 </label>
@@ -392,14 +392,14 @@
                                                     </items>
                                                     <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </group>
-                                                <label alignment="center" verticalAlignment="bottom" text="123" id="G1p-WF-L8w">
+                                                <label alignment="center" verticalAlignment="bottom" text="123" minimumScaleFactor="0.80000000000000004" id="G1p-WF-L8w">
                                                     <color key="textColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="12"/>
                                                 </label>
                                             </items>
                                         </group>
                                     </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                    <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="0.0"/>
                                 </group>
                                 <group width="1" height="20" alignment="left" verticalAlignment="bottom" radius="10" spacing="0.0" id="cdZ-pM-6vT">
                                     <items>
