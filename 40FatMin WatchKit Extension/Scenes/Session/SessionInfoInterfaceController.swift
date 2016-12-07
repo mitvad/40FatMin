@@ -168,30 +168,37 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
     fileprivate func updateDistance(_ distance: Double){
-        var measurement = Measurement(value: distance, unit: UnitLength.meters)
+        var measurement = Measurement(value: distance / 1000, unit: UnitLength.kilometers)
         
         if Locale.current.usesMetricSystem == false{
-            measurement.convert(to: UnitLength.yards)
-            
-            distanceUnitLabel.setText(NSLocalizedString("yd", comment: "Yard short name"))
+            measurement.convert(to: UnitLength.miles)
         }
         
-        if measurement.value < 100.0{
+        if measurement.value < 0.10{
+            if Locale.current.usesMetricSystem == false{
+                measurement.convert(to: UnitLength.yards)
+            }
+            else{
+                measurement.convert(to: UnitLength.meters)
+            }
+            
             distanceLabel.setText(String(format: "%.0f", measurement.value))
         }
         else{
-            if Locale.current.usesMetricSystem == false{
-                measurement.convert(to: UnitLength.miles)
-                
-                distanceUnitLabel.setText(NSLocalizedString("mi", comment: "Mile short name"))
-            }
-            else{
-                measurement.convert(to: UnitLength.kilometers)
-                
-                distanceUnitLabel.setText(NSLocalizedString("km", comment: "Kilometer short name"))
-            }
-            
             distanceLabel.setText(String(format: "%.2f", measurement.value))
+        }
+        
+        switch measurement.unit {
+        case UnitLength.kilometers:
+            distanceUnitLabel.setText(NSLocalizedString("km", comment: "Kilometer short name"))
+        case UnitLength.meters:
+            distanceUnitLabel.setText(NSLocalizedString("m", comment: "Meter short name"))
+        case UnitLength.miles:
+            distanceUnitLabel.setText(NSLocalizedString("mi", comment: "Mile short name"))
+        case UnitLength.yards:
+            distanceUnitLabel.setText(NSLocalizedString("yd", comment: "Yard short name"))
+        default:
+            break
         }
     }
     
