@@ -38,11 +38,29 @@ class WorkoutSessionManager: NSObject{
     weak var delegate: WorkoutSessionManagerDelegate?
     
     var workoutProgram: WorkoutProgram?
-    var currentWorkoutProgramPart: WorkoutProgramPart?
+    var currentWorkoutProgramPart: WorkoutProgramPart?{
+        didSet{
+            guard let pulseZones = ((WKExtension.shared().delegate as? ExtensionDelegate)?.pulseZones) else {return}
+            
+            guard let currentWorkoutProgramPart = currentWorkoutProgramPart else {
+                if oldValue != nil{
+                    delegate?.workoutSessionManager?(self, programDidFinish: true)
+                    
+                    currentPulseZone = pulseZones.pulseZone(forType: PulseZoneType.z0)
+                }
+                
+                return
+            }
+            
+            currentPulseZone = pulseZones.pulseZone(forType: currentWorkoutProgramPart.pulseZoneType)
+        }
+    }
     
     var currentPulseZone: PulseZone!{
         didSet{
-            delegate?.workoutSessionManager?(self, pulseZoneDidChangeTo: currentPulseZone, from: oldValue)
+            if currentPulseZone != oldValue{
+                delegate?.workoutSessionManager?(self, pulseZoneDidChangeTo: currentPulseZone, from: oldValue)
+            }
         }
     }
     
@@ -276,6 +294,6 @@ extension WorkoutSessionManager: HKWorkoutSessionDelegate{
             break
         }
         
-        delegate?.workoutSessionManager?(self, sessionDidChangeTo: toState, from: fromState, dateForTimer: dateForTimer)
+        delegate?.workoutSessionManager?(self, sessionDidChangeTo: toState, from: fromState, date: dateForTimer)
     }
 }

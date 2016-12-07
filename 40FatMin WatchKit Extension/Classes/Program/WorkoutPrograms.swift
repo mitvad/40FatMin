@@ -46,6 +46,8 @@ class WorkoutPrograms{
                         
                         var parts = [WorkoutProgramPart]()
                         
+                        var startOffset = 0.0
+                        
                         for part in partsArray{
                             guard let pulseZoneTypeString = part["zoneType"] as? String else{
                                 print("Error: cannot read part 'type' from program=\(title)")
@@ -62,10 +64,14 @@ class WorkoutPrograms{
                                 continue
                             }
                             
-                            parts.append(WorkoutProgramPart(pulseZoneType: pulseZoneType, duration: duration))
+                            parts.append(WorkoutProgramPart(pulseZoneType: pulseZoneType, duration: duration, startTime: startOffset))
+                            
+                            startOffset += duration
                         }
                         
-                        programs.append(WorkoutProgram(title: title, parts: parts))
+                        if !parts.isEmpty{
+                            programs.append(WorkoutProgram(title: title, parts: parts))
+                        }
                     }
                 }
             }

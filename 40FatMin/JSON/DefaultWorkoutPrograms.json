@@ -1,20 +1,28 @@
 {
     "programs": [
-        {
-            "title": "40FatMin",
-            "parts": [
-                {"zoneType": "z2", "duration": 2400}
-            ]
-        },
-        {
-            "title": "40FatMin Plus",
-            "parts": [
-                {"zoneType": "z1", "duration": 300},
-                {"zoneType": "z2", "duration": 1200},
-                {"zoneType": "z3", "duration": 300},
-                {"zoneType": "z4", "duration": 300},
-                {"zoneType": "z0", "duration": 300}
-            ]
-        }
-    ]
+                 {
+                 "title": "Test",
+                 "parts": [
+                           {"zoneType": "z1", "duration": 60},
+                           {"zoneType": "z2", "duration": 120},
+                           {"zoneType": "z3", "duration": 60}
+                           ]
+                 },
+                 {
+                 "title": "40FatMin",
+                 "parts": [
+                           {"zoneType": "z2", "duration": 2400}
+                           ]
+                 },
+                 {
+                 "title": "40FatMin Plus",
+                 "parts": [
+                           {"zoneType": "z1", "duration": 300},
+                           {"zoneType": "z2", "duration": 1200},
+                           {"zoneType": "z3", "duration": 300},
+                           {"zoneType": "z4", "duration": 300},
+                           {"zoneType": "z0", "duration": 300}
+                           ]
+                 }
+                 ]
 }

@@ -380,7 +380,6 @@
                                         <group width="44" height="76" alignment="right" layout="vertical" spacing="1" id="pDn-nn-FlV">
                                             <items>
                                                 <label alignment="center" text="145" minimumScaleFactor="0.80000000000000004" id="c0d-yZ-yIf">
-                                                    <color key="textColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="12"/>
                                                 </label>
                                                 <group width="44" height="44" alignment="right" verticalAlignment="center" radius="22" id="LyS-TC-FdK">
@@ -390,10 +389,9 @@
                                                             <fontDescription key="font" type="boldSystem" pointSize="18"/>
                                                         </label>
                                                     </items>
-                                                    <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </group>
                                                 <label alignment="center" verticalAlignment="bottom" text="123" minimumScaleFactor="0.80000000000000004" id="G1p-WF-L8w">
-                                                    <color key="textColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="12"/>
                                                 </label>
                                             </items>

@@ -15,10 +15,6 @@ class WorkoutProgram{
     init(title: String, parts: [WorkoutProgramPart]){
         self.title = title
         self.parts = parts
-        
-        if self.parts.isEmpty{
-            self.parts.append(WorkoutProgramPart(pulseZoneType: .z0, duration: 0))
-        }
     }
     
 // MARK: - Public Properties
@@ -26,22 +22,29 @@ class WorkoutProgram{
     var title: String
     var parts: [WorkoutProgramPart]
     
-    lazy var duration: TimeInterval = { [unowned self] in
-        var result: TimeInterval = 0
-        
-        for part in self.parts{
-            result += part.duration
+    var duration: TimeInterval{
+        get{
+            return self.parts.last?.endTime ?? 0
         }
-        
-        return result
-    }()
+    }
     
 // MARK: - Public Computed Properties
     
     var firstPart: WorkoutProgramPart{
         get{
-            return parts[0]
+            return parts.first!
         }
     }
     
+// MARK: - Public Methods
+    
+    func part(forTime time: TimeInterval) -> WorkoutProgramPart?{
+        for part in parts{
+            if part.contains(time: time){
+                return part
+            }
+        }
+        
+        return nil
+    }
 }
