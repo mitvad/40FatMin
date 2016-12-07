@@ -15,8 +15,6 @@ class WorkoutSessionManager: NSObject{
 // MARK: - Initializers
     
     init(workout: Workout, pulseZone: PulseZone){
-        self.healthStore = ((WKExtension.shared().delegate as? ExtensionDelegate)?.healthStore)!
-        self.pulseZones = ((WKExtension.shared().delegate as? ExtensionDelegate)?.pulseZones)!
         self.workout = workout
         self.currentPulseZone = pulseZone
         
@@ -74,6 +72,23 @@ class WorkoutSessionManager: NSObject{
     
 // MARK: - Public Methods
     
+    func reinit(workout: Workout, pulseZone: PulseZone){
+        initDefaults()
+        
+        self.workout = workout
+        self.currentPulseZone = pulseZone
+    }
+    
+    func reinit(workout: Workout, workoutProgram: WorkoutProgram){
+        let pulseZone = ((WKExtension.shared().delegate as? ExtensionDelegate)?.pulseZones)!.pulseZone(forType: workoutProgram.firstPart.pulseZoneType)
+        
+        reinit(workout: workout, pulseZone: pulseZone)
+        
+        self.workoutProgram = workoutProgram
+        
+        self.currentWorkoutProgramPart = workoutProgram.firstPart
+    }
+    
     func startSession(){
         guard self.currentWorkoutSession == nil else{
             print("Warning: workout session is already started")
@@ -102,6 +117,9 @@ class WorkoutSessionManager: NSObject{
         if let session = self.currentWorkoutSession{
             healthStore.end(session)
         }
+        
+        workoutProgram = nil
+        currentWorkoutProgramPart = nil
     }
     
     func pauseSession(){
@@ -123,10 +141,7 @@ class WorkoutSessionManager: NSObject{
 // MARK: - Private Properties
     
     fileprivate var workout: Workout
-    
-    fileprivate var healthStore: HKHealthStore
-    fileprivate var pulseZones: PulseZones
-    
+
     fileprivate var currentWorkoutSession: HKWorkoutSession?
     fileprivate var workoutSessions = [(start: Date, end: Date)]()
     
@@ -138,6 +153,18 @@ class WorkoutSessionManager: NSObject{
     fileprivate var distanceTotal = 0.0
     
 // MARK: - Private Computed Properties
+    
+    fileprivate var healthStore: HKHealthStore{
+        get{
+            return ((WKExtension.shared().delegate as? ExtensionDelegate)?.healthStore)!
+        }
+    }
+    
+    fileprivate var pulseZones: PulseZones{
+        get{
+            return ((WKExtension.shared().delegate as? ExtensionDelegate)?.pulseZones)!
+        }
+    }
     
     fileprivate var dateForTimer: Date{
         get{
@@ -152,6 +179,20 @@ class WorkoutSessionManager: NSObject{
     }
     
 // MARK: - Private Methods
+    
+    fileprivate func initDefaults(){
+        self.delegate = nil
+        self.workoutProgram = nil
+        self.currentWorkoutProgramPart = nil
+        
+        currentWorkoutSession = nil
+        workoutSessions = [(start: Date, end: Date)]()
+        
+        heartRateQuery = nil
+        
+        distanceQuery = nil
+        distanceTotal = 0.0
+    }
     
     fileprivate func sessionDidStart(_ sessionStartDate: Date){
         createHeartRateStreamingQuery(sessionStartDate)

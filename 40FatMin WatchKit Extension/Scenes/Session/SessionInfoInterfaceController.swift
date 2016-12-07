@@ -16,14 +16,7 @@ class SessionInfoInterfaceController: WKInterfaceController{
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        self.workoutSessionManager = (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager
-        
-        guard workoutSessionManager != nil else{
-            print("Error: there is no workoutSessionManager")
-            return
-        }
-        
+
         initText()
         
         becomeCurrentPage()
@@ -41,9 +34,7 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
 // MARK: - Private Properties
-    
-    fileprivate var workoutSessionManager: WorkoutSessionManager!
-    
+
     fileprivate var observerShowSessionInfo: Any?
     
     fileprivate var currentProgramPartGroup: (passed: WKInterfaceGroup, leftover: WKInterfaceGroup, width: CGFloat)?
@@ -51,6 +42,12 @@ class SessionInfoInterfaceController: WKInterfaceController{
     fileprivate var sessionStartDate: Date?
     
 // MARK: - Private Computed Properties
+    
+    fileprivate var workoutSessionManager: WorkoutSessionManager{
+        get{
+            return ((WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager)!
+        }
+    }
     
     fileprivate var isPulseZoneShouldChangeAutomatically: Bool{
         get{
@@ -344,10 +341,6 @@ class SessionInfoInterfaceController: WKInterfaceController{
     deinit {
         if let observerShowSessionInfo = observerShowSessionInfo{
             NotificationCenter.default.removeObserver(observerShowSessionInfo)
-        }
-        
-        if workoutSessionManager != nil{
-            workoutSessionManager.delegate = nil
         }
     }
 }

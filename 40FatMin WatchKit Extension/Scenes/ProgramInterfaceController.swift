@@ -117,7 +117,12 @@ class ProgramInterfaceController: WKInterfaceController{
 // MARK: - IBActions
     
     @IBAction func startSession() {
-        (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager = WorkoutSessionManager(workout: workout, workoutProgram: program)
+        if let workoutSessionManager = (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager{
+            workoutSessionManager.reinit(workout: workout, workoutProgram: program)
+        }
+        else{
+            (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager = WorkoutSessionManager(workout: workout, workoutProgram: program)
+        }
         
         WKInterfaceController.reloadRootControllers(withNames: ["SessionActions", "SessionInfo", "SessionZones"], contexts: ["SessionActions", "Session", "SessionZones"])
     }

@@ -17,8 +17,6 @@ class SessionZonesInterfaceController: WKInterfaceController{
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        workoutSessionManager = (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager
-        
         initText()
     }
     
@@ -27,18 +25,24 @@ class SessionZonesInterfaceController: WKInterfaceController{
     }
 
 // MARK: - Private Properties
-    
-    fileprivate var workoutSessionManager: WorkoutSessionManager?
-    
+
     fileprivate var pulseZone1: PulseZone?
     fileprivate var pulseZone2: PulseZone?
     fileprivate var pulseZone3: PulseZone?
     fileprivate var pulseZone4: PulseZone?
 
+// MARK: - Private Computed Properties
+    
+    fileprivate var workoutSessionManager: WorkoutSessionManager{
+        get{
+            return ((WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager)!
+        }
+    }
+    
 // MARK: - Private Methods
     
     fileprivate func initText(){
-        if let title = workoutSessionManager?.workoutProgram?.title{
+        if let title = workoutSessionManager.workoutProgram?.title{
             setTitle(title)
         }
         else{
@@ -48,7 +52,7 @@ class SessionZonesInterfaceController: WKInterfaceController{
     }
     
     fileprivate func updateZoneButtons(){
-        guard let currentPulseZone = workoutSessionManager?.currentPulseZone else{
+        guard let currentPulseZone = workoutSessionManager.currentPulseZone else{
             print("Error: there is no currentPulseZone")
             return
         }
@@ -95,25 +99,25 @@ class SessionZonesInterfaceController: WKInterfaceController{
 // MARK: - IBActions
     
     @IBAction func zoneButton1Selected(){
-        workoutSessionManager?.currentPulseZone = pulseZone1
+        workoutSessionManager.currentPulseZone = pulseZone1
         updateZoneButtons()
         showSessionInfo()
     }
     
     @IBAction func zoneButton2Selected(){
-        workoutSessionManager?.currentPulseZone = pulseZone2
+        workoutSessionManager.currentPulseZone = pulseZone2
         updateZoneButtons()
         showSessionInfo()
     }
     
     @IBAction func zoneButton3Selected(){
-        workoutSessionManager?.currentPulseZone = pulseZone3
+        workoutSessionManager.currentPulseZone = pulseZone3
         updateZoneButtons()
         showSessionInfo()
     }
     
     @IBAction func zoneButton4Selected(){
-        workoutSessionManager?.currentPulseZone = pulseZone4
+        workoutSessionManager.currentPulseZone = pulseZone4
         updateZoneButtons()
         showSessionInfo()
     }

@@ -17,8 +17,6 @@ class SessionActionsInterfaceController: WKInterfaceController{
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        workoutSessionManager = (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager
-        
         initText()
     }
     
@@ -26,14 +24,18 @@ class SessionActionsInterfaceController: WKInterfaceController{
         updatePauseResumeButtonState()
     }
 
-// MARK: - Private Properties
+// MARK: - Private Computed Properties
     
-    fileprivate var workoutSessionManager: WorkoutSessionManager?
+    fileprivate var workoutSessionManager: WorkoutSessionManager{
+        get{
+            return ((WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager)!
+        }
+    }
     
 // MARK: - Private Methods
     
     fileprivate func initText(){
-        if let title = workoutSessionManager?.workoutProgram?.title{
+        if let title = workoutSessionManager.workoutProgram?.title{
              setTitle(title)
         }
         else{
@@ -46,10 +48,10 @@ class SessionActionsInterfaceController: WKInterfaceController{
     }
     
     fileprivate func updatePauseResumeButtonState(){
-        if workoutSessionManager?.sessionState == HKWorkoutSessionState.paused{
+        if workoutSessionManager.sessionState == HKWorkoutSessionState.paused{
             setResumeTitle()
         }
-        else if workoutSessionManager?.sessionState == HKWorkoutSessionState.running{
+        else if workoutSessionManager.sessionState == HKWorkoutSessionState.running{
             setPauseTitle()
         }
         else{
@@ -78,20 +80,20 @@ class SessionActionsInterfaceController: WKInterfaceController{
 // MARK: - IBActions
     
     @IBAction func stop(){
-        workoutSessionManager?.stopSession()
+        workoutSessionManager.stopSession()
         
         //TODO: show WorkoutSessionResult here
         WKInterfaceController.reloadRootControllers(withNames: ["Workouts"], contexts: [""])
     }
     
     @IBAction func pauseResume(){
-        if workoutSessionManager?.sessionState == HKWorkoutSessionState.paused{
-            workoutSessionManager?.resumeSession()
+        if workoutSessionManager.sessionState == HKWorkoutSessionState.paused{
+            workoutSessionManager.resumeSession()
             
             setPauseTitle()
         }
-        else if workoutSessionManager?.sessionState == HKWorkoutSessionState.running{
-            workoutSessionManager?.pauseSession()
+        else if workoutSessionManager.sessionState == HKWorkoutSessionState.running{
+            workoutSessionManager.pauseSession()
             
             setResumeTitle()
         }
