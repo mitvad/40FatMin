@@ -50,6 +50,7 @@
 		CD8DA6081DF2EE2F00ABA050 /* DefaultWorkoutPrograms.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */; };
 		CD8DA6091DF2EEC500ABA050 /* DefaultPulseZones.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */; };
 		CD8DA60B1DF35FBB00ABA050 /* AppFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */; };
+		CDE71BBC1DF8809D00E30763 /* Int+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE71BBB1DF8809D00E30763 /* Int+Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultPulseZones.json; sourceTree = "<group>"; };
 		CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultWorkoutPrograms.json; sourceTree = "<group>"; };
 		CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFileManager.swift; sourceTree = "<group>"; };
+		CDE71BBB1DF8809D00E30763 /* Int+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Util.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				CD5DDAAD1DF563FC00C69F25 /* UserDefaults+Keys.swift */,
+				CDE71BBB1DF8809D00E30763 /* Int+Util.swift */,
 				CD5DDAB41DF5C40000C69F25 /* NSNotification+Names.swift */,
 			);
 			path = Extensions;
@@ -533,6 +536,7 @@
 				CD86479B1DE73C610042349F /* ExtensionDelegate.swift in Sources */,
 				CD1340881DEB860B0091625A /* ZonesInterfaceController.swift in Sources */,
 				CD8647991DE73C610042349F /* WorkoutsInterfaceController.swift in Sources */,
+				CDE71BBC1DF8809D00E30763 /* Int+Util.swift in Sources */,
 				CD0F1EB91DF1A48900223E6F /* WorkoutProgramPart.swift in Sources */,
 				CD13408E1DEC3DBE0091625A /* SessionInfoInterfaceController.swift in Sources */,
 				CD0F1EC31DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift in Sources */,

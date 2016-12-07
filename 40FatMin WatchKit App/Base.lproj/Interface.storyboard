@@ -399,6 +399,10 @@
                                     </items>
                                     <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="0.0"/>
                                 </group>
+                                <label width="1" alignment="center" verticalAlignment="center" hidden="YES" text="Well done!" textAlignment="center" baselineAdjustment="alignCenters" minimumScaleFactor="0.59999999999999998" id="n7D-9D-7UE">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="22"/>
+                                </label>
                                 <group width="1" height="20" alignment="left" verticalAlignment="bottom" radius="10" spacing="0.0" id="cdZ-pM-6vT">
                                     <items>
                                         <group width="25" height="1" alignment="left" radius="0.0" id="b0E-TP-iL6">
@@ -491,6 +495,7 @@
                     </items>
                     <connections>
                         <outlet property="allParts" destination="cdZ-pM-6vT" id="LwN-84-Kll"/>
+                        <outlet property="congratulationLabel" destination="n7D-9D-7UE" id="L9U-uq-sz2"/>
                         <outlet property="content" destination="zrr-fu-7BQ" id="82q-zw-N7h"/>
                         <outlet property="distanceLabel" destination="2LZ-Zc-YPa" id="Tz1-ON-4zn"/>
                         <outlet property="distanceUnitLabel" destination="HHb-Ie-46W" id="irn-Vw-ZKk"/>

@@ -72,6 +72,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
         else{
             setTitle("")
         }
+        
+        congratulationLabel.setHidden(true)
     }
     
     fileprivate func updatePulseZone(_ pulseZone: PulseZone){
@@ -277,6 +279,36 @@ class SessionInfoInterfaceController: WKInterfaceController{
         content.setAlpha(0.6)
     }
     
+    fileprivate func programDidFinish(){
+        let randIndex = Int.random(1...3)
+        var congratulationString: String
+        
+        switch randIndex {
+        case 1:
+            congratulationString = NSLocalizedString("You did it!", comment: "Short congratulation text 1")
+        case 2:
+            congratulationString = NSLocalizedString("Well done!", comment: "Short congratulation text 2")
+        case 3:
+            congratulationString = NSLocalizedString("Good job!", comment: "Short congratulation text 3")
+        default:
+            congratulationString = NSLocalizedString("You did it!", comment: "Short congratulation text 1")
+        }
+        
+        animate(withDuration: 1.0){
+            self.congratulationLabel.setText(congratulationString)
+            self.congratulationLabel.setHidden(false)
+            self.allParts.setHidden(true)
+        }
+        
+        let when = DispatchTime.now() + 5.0
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.animate(withDuration: 0.7, animations: {
+                self.congratulationLabel.setText(NSLocalizedString("Completed!", comment: "Short congratulation text (permanently shown after random initial text)"))
+            })
+        }
+    }
+    
 // MARK: - IBOutlets
     
     @IBOutlet var content: WKInterfaceGroup!
@@ -304,6 +336,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
     @IBOutlet var part9: WKInterfaceGroup!
     @IBOutlet var part10: WKInterfaceGroup!
     @IBOutlet var part11: WKInterfaceGroup!
+    
+    @IBOutlet var congratulationLabel: WKInterfaceLabel!
     
 // MARK: - Deinit
     
@@ -354,6 +388,6 @@ extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
     }
     
     func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, programDidFinish success: Bool) {
-        // do some notification to user
+        programDidFinish()
     }
 }

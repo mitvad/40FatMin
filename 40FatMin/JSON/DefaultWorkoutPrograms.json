@@ -1,11 +1,18 @@
 {
     "programs": [
                  {
-                 "title": "Test",
+                 "title": "Test 1",
                  "parts": [
                            {"zoneType": "z1", "duration": 60},
                            {"zoneType": "z2", "duration": 120},
                            {"zoneType": "z3", "duration": 60}
+                           ]
+                 },
+                 {
+                 "title": "Test 2",
+                 "parts": [
+                           {"zoneType": "z1", "duration": 10},
+                           {"zoneType": "z2", "duration": 10}
                            ]
                  },
                  {
