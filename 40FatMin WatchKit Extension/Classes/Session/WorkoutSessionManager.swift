@@ -35,8 +35,8 @@ class WorkoutSessionManager: NSObject{
     
     weak var delegate: WorkoutSessionManagerDelegate?
     
-    var workoutProgram: WorkoutProgram?
-    var currentWorkoutProgramPart: WorkoutProgramPart?{
+    weak var workoutProgram: WorkoutProgram?
+    weak var currentWorkoutProgramPart: WorkoutProgramPart?{
         didSet{
             guard let pulseZones = ((WKExtension.shared().delegate as? ExtensionDelegate)?.pulseZones) else {return}
             
@@ -54,7 +54,7 @@ class WorkoutSessionManager: NSObject{
         }
     }
     
-    var currentPulseZone: PulseZone!{
+    weak var currentPulseZone: PulseZone!{
         didSet{
             if currentPulseZone != oldValue{
                 delegate?.workoutSessionManager?(self, pulseZoneDidChangeTo: currentPulseZone, from: oldValue)
@@ -140,7 +140,7 @@ class WorkoutSessionManager: NSObject{
     
 // MARK: - Private Properties
     
-    fileprivate var workout: Workout
+    fileprivate weak var workout: Workout!
 
     fileprivate var currentWorkoutSession: HKWorkoutSession?
     fileprivate var workoutSessions = [(start: Date, end: Date)]()

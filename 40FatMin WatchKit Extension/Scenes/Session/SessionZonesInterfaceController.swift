@@ -26,10 +26,10 @@ class SessionZonesInterfaceController: WKInterfaceController{
 
 // MARK: - Private Properties
 
-    fileprivate var pulseZone1: PulseZone?
-    fileprivate var pulseZone2: PulseZone?
-    fileprivate var pulseZone3: PulseZone?
-    fileprivate var pulseZone4: PulseZone?
+    fileprivate weak var pulseZone1: PulseZone?
+    fileprivate weak var pulseZone2: PulseZone?
+    fileprivate weak var pulseZone3: PulseZone?
+    fileprivate weak var pulseZone4: PulseZone?
 
 // MARK: - Private Computed Properties
     

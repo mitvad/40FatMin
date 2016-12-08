@@ -39,7 +39,7 @@ class ZonesInterfaceController: WKInterfaceController{
     
 // MARK: - Private Properties
     
-    fileprivate var workout: Workout!
+    fileprivate weak var workout: Workout!
     
 // MARK: - Private Methods
     

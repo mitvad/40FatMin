@@ -68,7 +68,7 @@ class WorkoutsInterfaceController: WKInterfaceController {
     
 // MARK: - Private Properties
     
-    fileprivate var workouts: Workouts!
+    fileprivate weak var workouts: Workouts!
 
 // MARK: - Private Methods
     
