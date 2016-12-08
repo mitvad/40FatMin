@@ -17,6 +17,8 @@ class SessionActionsInterfaceController: WKInterfaceController{
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
+        workoutSessionManager.multicastDelegate.addDelegate(self)
+        
         initText()
     }
     
@@ -49,22 +51,14 @@ class SessionActionsInterfaceController: WKInterfaceController{
     
     fileprivate func updatePauseResumeButtonState(){
         if workoutSessionManager.sessionState == HKWorkoutSessionState.paused{
-            setResumeTitle()
+            pauseResumeButton.setTitle(NSLocalizedString("Resume", comment: "Resume workout session (short button title)"))
         }
         else if workoutSessionManager.sessionState == HKWorkoutSessionState.running{
-            setPauseTitle()
+            pauseResumeButton.setTitle(NSLocalizedString("Pause", comment: "Pause workout session (short button title)"))
         }
         else{
             pauseResumeButton.setTitle("--")
         }
-    }
-    
-    fileprivate func setPauseTitle(){
-        pauseResumeButton.setTitle(NSLocalizedString("Pause", comment: "Pause workout session (short button title)"))
-    }
-    
-    fileprivate func setResumeTitle(){
-        pauseResumeButton.setTitle(NSLocalizedString("Resume", comment: "Resume workout session (short button title)"))
     }
     
     fileprivate func showSessionInfo(){
@@ -89,15 +83,18 @@ class SessionActionsInterfaceController: WKInterfaceController{
     @IBAction func pauseResume(){
         if workoutSessionManager.sessionState == HKWorkoutSessionState.paused{
             workoutSessionManager.resumeSession()
-            
-            setPauseTitle()
         }
         else if workoutSessionManager.sessionState == HKWorkoutSessionState.running{
             workoutSessionManager.pauseSession()
-            
-            setResumeTitle()
         }
         
         showSessionInfo()
+    }
+}
+
+extension SessionActionsInterfaceController: WorkoutSessionManagerDelegate{
+    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, sessionDidChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        
+        updatePauseResumeButtonState()
     }
 }

@@ -33,7 +33,7 @@ class WorkoutSessionManager: NSObject{
     
 // MARK: - Public Properties
     
-    weak var delegate: WorkoutSessionManagerDelegate?
+    var multicastDelegate = MulticastDelegate<WorkoutSessionManagerDelegate>()
     
     weak var workoutProgram: WorkoutProgram?
     weak var currentWorkoutProgramPart: WorkoutProgramPart?{
@@ -42,7 +42,7 @@ class WorkoutSessionManager: NSObject{
             
             guard let currentWorkoutProgramPart = currentWorkoutProgramPart else {
                 if oldValue != nil{
-                    delegate?.workoutSessionManager?(self, programDidFinish: true)
+                    multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, programDidFinish: true)}
                     
                     currentPulseZone = pulseZones.pulseZone(forType: PulseZoneType.z0)
                 }
@@ -57,7 +57,7 @@ class WorkoutSessionManager: NSObject{
     weak var currentPulseZone: PulseZone!{
         didSet{
             if currentPulseZone != oldValue{
-                delegate?.workoutSessionManager?(self, pulseZoneDidChangeTo: currentPulseZone, from: oldValue)
+                multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, pulseZoneDidChangeTo: currentPulseZone, from: oldValue)}
             }
         }
     }
@@ -181,7 +181,8 @@ class WorkoutSessionManager: NSObject{
 // MARK: - Private Methods
     
     fileprivate func initDefaults(){
-        self.delegate = nil
+        multicastDelegate.removeAllDelegates()
+        
         self.workoutProgram = nil
         self.currentWorkoutProgramPart = nil
         
@@ -285,7 +286,7 @@ class WorkoutSessionManager: NSObject{
         print("updateDistance \(distanceTotal)")
         
         DispatchQueue.main.async {
-            self.delegate?.workoutSessionManager?(self, distanceDidChangeTo: self.distanceTotal)
+            self.multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, distanceDidChangeTo: self.distanceTotal)}
         }
     }
     
@@ -303,7 +304,7 @@ class WorkoutSessionManager: NSObject{
         print("Heart rate: \(value)")
         
         DispatchQueue.main.async {
-            self.delegate?.workoutSessionManager?(self, heartRateDidChangeTo: value)
+            self.multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, heartRateDidChangeTo: value)}
         }
     }
     
@@ -335,6 +336,6 @@ extension WorkoutSessionManager: HKWorkoutSessionDelegate{
             break
         }
         
-        delegate?.workoutSessionManager?(self, sessionDidChangeTo: toState, from: fromState, date: dateForTimer)
+        multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, sessionDidChangeTo: toState, from: fromState, date: dateForTimer)}
     }
 }

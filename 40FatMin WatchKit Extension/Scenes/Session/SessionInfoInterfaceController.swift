@@ -23,7 +23,7 @@ class SessionInfoInterfaceController: WKInterfaceController{
         
         observerShowSessionInfo = NotificationCenter.default.addObserver(forName: Notification.Name.ShowSessionInfoInterfaceController, object: nil, queue: nil, using: { [unowned self] (notification) in self.becomeCurrentPage()})
         
-        workoutSessionManager.delegate = self
+        workoutSessionManager.multicastDelegate.addDelegate(self)
         
         workoutSessionManager.startSession()
         

@@ -29,6 +29,7 @@
 		CD5DDAB11DF5755C00C69F25 /* SessionActionsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAB01DF5755C00C69F25 /* SessionActionsInterfaceController.swift */; };
 		CD5DDAB31DF5757A00C69F25 /* SessionZonesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAB21DF5757A00C69F25 /* SessionZonesInterfaceController.swift */; };
 		CD5DDAB51DF5C40000C69F25 /* NSNotification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAB41DF5C40000C69F25 /* NSNotification+Names.swift */; };
+		CD7185AC1DF959B600BF0B63 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7185AB1DF959B600BF0B63 /* MulticastDelegate.swift */; };
 		CD8647741DE73C610042349F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8647731DE73C610042349F /* AppDelegate.swift */; };
 		CD8647761DE73C610042349F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8647751DE73C610042349F /* ViewController.swift */; };
 		CD8647791DE73C610042349F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8647771DE73C610042349F /* Main.storyboard */; };
@@ -119,6 +120,7 @@
 		CD5DDAB01DF5755C00C69F25 /* SessionActionsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionActionsInterfaceController.swift; sourceTree = "<group>"; };
 		CD5DDAB21DF5757A00C69F25 /* SessionZonesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionZonesInterfaceController.swift; sourceTree = "<group>"; };
 		CD5DDAB41DF5C40000C69F25 /* NSNotification+Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotification+Names.swift"; sourceTree = "<group>"; };
+		CD7185AB1DF959B600BF0B63 /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		CD8647701DE73C610042349F /* 40FatMin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 40FatMin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8647731DE73C610042349F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD8647751DE73C610042349F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */,
+				CD7185AB1DF959B600BF0B63 /* MulticastDelegate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				CD13408E1DEC3DBE0091625A /* SessionInfoInterfaceController.swift in Sources */,
 				CD0F1EC31DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift in Sources */,
 				CD0F1EC11DF1B15F00223E6F /* WorkoutSessionManager.swift in Sources */,
+				CD7185AC1DF959B600BF0B63 /* MulticastDelegate.swift in Sources */,
 				CD5DDAB51DF5C40000C69F25 /* NSNotification+Names.swift in Sources */,
 				CD0F1EAB1DF1974000223E6F /* Workouts.swift in Sources */,
 				CD595E7A1DEB7658003AD8EF /* CellWorkout.swift in Sources */,

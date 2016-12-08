@@ -17,6 +17,8 @@ class SessionZonesInterfaceController: WKInterfaceController{
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
+        workoutSessionManager.multicastDelegate.addDelegate(self)
+        
         initText()
     }
     
@@ -100,25 +102,28 @@ class SessionZonesInterfaceController: WKInterfaceController{
     
     @IBAction func zoneButton1Selected(){
         workoutSessionManager.currentPulseZone = pulseZone1
-        updateZoneButtons()
         showSessionInfo()
     }
     
     @IBAction func zoneButton2Selected(){
         workoutSessionManager.currentPulseZone = pulseZone2
-        updateZoneButtons()
         showSessionInfo()
     }
     
     @IBAction func zoneButton3Selected(){
         workoutSessionManager.currentPulseZone = pulseZone3
-        updateZoneButtons()
         showSessionInfo()
     }
     
     @IBAction func zoneButton4Selected(){
         workoutSessionManager.currentPulseZone = pulseZone4
-        updateZoneButtons()
         showSessionInfo()
+    }
+}
+
+extension SessionZonesInterfaceController: WorkoutSessionManagerDelegate{
+    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, pulseZoneDidChangeTo toPulseZone: PulseZone, from fromPulseZone: PulseZone) {
+        
+        updateZoneButtons()
     }
 }
