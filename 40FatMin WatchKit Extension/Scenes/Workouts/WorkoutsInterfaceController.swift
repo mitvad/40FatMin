@@ -27,7 +27,7 @@ class WorkoutsInterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         
-        animateAlpha(from: 0.0, to: 1.0, withDuration: 0.3)
+//        animateAlpha(from: 0.0, to: 1.0, withDuration: 0.3)
     }
     
     override func didDeactivate() {
@@ -35,7 +35,7 @@ class WorkoutsInterfaceController: WKInterfaceController {
     }
     
     override func willDisappear() {
-        animateAlpha(from: 1.0, to: 0.0, withDuration: 0.2)
+//        animateAlpha(from: 1.0, to: 0.0, withDuration: 0.2)
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {

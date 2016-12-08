@@ -19,7 +19,8 @@ class SessionZonesInterfaceController: WKInterfaceController{
         
         workoutSessionManager.multicastDelegate.addDelegate(self)
         
-        initText()
+        content.setHidden(true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){self.initContent()}
     }
     
     override func willActivate(){
@@ -42,6 +43,12 @@ class SessionZonesInterfaceController: WKInterfaceController{
     }
     
 // MARK: - Private Methods
+    
+    fileprivate func initContent(){
+        content.setHidden(false)
+        
+        initText()
+    }
     
     fileprivate func initText(){
         if let title = workoutSessionManager.workoutProgram?.title{
@@ -92,6 +99,8 @@ class SessionZonesInterfaceController: WKInterfaceController{
     }
     
 // MARK: - IBOutlets
+    
+    @IBOutlet var content: WKInterfaceGroup!
     
     @IBOutlet var zoneButton1: WKInterfaceButton!
     @IBOutlet var zoneButton2: WKInterfaceButton!

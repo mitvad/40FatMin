@@ -26,9 +26,13 @@ class ZoneInterfaceController: WKInterfaceController{
         
         if UserDefaults.standard.string(forKey: UserDefaults.KeyZoneSelectionScreen) == zone.type.rawValue{
             becomeCurrentPage()
+            
+            initContent()
         }
-        
-        initText()
+        else{
+            content.setHidden(true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){self.initContent()}
+        }
     }
     
     override func didAppear() {
@@ -41,6 +45,12 @@ class ZoneInterfaceController: WKInterfaceController{
     fileprivate weak var zone: PulseZone!
     
 // MARK: - Private Methods
+    
+    fileprivate func initContent(){
+        content.setHidden(false)
+        
+        self.initText()
+    }
     
     fileprivate func initText(){
         setTitle("< \(NSLocalizedString("Zones", comment: "Pulse Zones"))")
@@ -67,7 +77,7 @@ class ZoneInterfaceController: WKInterfaceController{
     }
     
 // MARK: - IBOutlets
-    
+    @IBOutlet var content: WKInterfaceGroup!
     @IBOutlet var zoneTitleLabel: WKInterfaceLabel!
     @IBOutlet var zonePulseTitleLabel: WKInterfaceLabel!
     @IBOutlet var zonePulseRangeLabel: WKInterfaceLabel!

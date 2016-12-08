@@ -31,12 +31,13 @@ class ProgramInterfaceController: WKInterfaceController{
         
         if UserDefaults.standard.string(forKey: UserDefaults.KeyProgramSelectionScreen) == self.program.title{
             becomeCurrentPage()
+            
+            initContent()
         }
-        
-        setTitle("< \(workout.title)")
-        
-        initText()
-        initParts()
+        else{
+            content.setHidden(true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){self.initContent()}
+        }
     }
     
     override func didAppear() {
@@ -49,6 +50,15 @@ class ProgramInterfaceController: WKInterfaceController{
     fileprivate weak var program: WorkoutProgram!
     
 // MARK: - Private Methods
+    
+    fileprivate func initContent(){
+        content.setHidden(false)
+        
+        setTitle("< \(workout.title)")
+        
+        initText()
+        initParts()
+    }
     
     fileprivate func initText(){
         programTitleLabel.setText(program.title)
@@ -98,6 +108,8 @@ class ProgramInterfaceController: WKInterfaceController{
     }
     
 // MARK: - IBOutlets
+    
+    @IBOutlet var content: WKInterfaceGroup!
     
     @IBOutlet var part1: WKInterfaceGroup!
     @IBOutlet var part2: WKInterfaceGroup!

@@ -303,6 +303,13 @@ class WorkoutSessionManager: NSObject{
         
         print("Heart rate: \(value)")
         
+        if value < currentPulseZone.range.lowerBound{
+            WKInterfaceDevice.current().play(.directionDown)
+        }
+        else if value > currentPulseZone.range.upperBound{
+            WKInterfaceDevice.current().play(.directionUp)
+        }
+        
         DispatchQueue.main.async {
             self.multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, heartRateDidChangeTo: value)}
         }

@@ -25,12 +25,13 @@ class ZonesInterfaceController: WKInterfaceController{
         
         if UserDefaults.standard.string(forKey: UserDefaults.KeyProgramSelectionScreen) == "Zones"{
             becomeCurrentPage()
+            
+            initContent()
         }
-        
-        setTitle("< \(workout.title)")
-        
-        initText()
-        initZones()
+        else{
+            content.setHidden(true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){self.initContent()}
+        }
     }
     
     override func didAppear() {
@@ -42,6 +43,15 @@ class ZonesInterfaceController: WKInterfaceController{
     fileprivate weak var workout: Workout!
     
 // MARK: - Private Methods
+    
+    fileprivate func initContent(){
+        content.setHidden(false)
+        
+        setTitle("< \(workout.title)")
+        
+        initText()
+        initZones()
+    }
     
     fileprivate func initText(){
         
@@ -80,6 +90,8 @@ class ZonesInterfaceController: WKInterfaceController{
     }
     
 // MARK: - IBOutlets
+    
+    @IBOutlet var content: WKInterfaceGroup!
     
     @IBOutlet var headerLabel: WKInterfaceLabel!
     @IBOutlet var selectButton: WKInterfaceButton!
