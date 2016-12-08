@@ -23,10 +23,6 @@ class SessionActionsInterfaceController: WKInterfaceController{
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){self.initContent()}
     }
     
-    override func willActivate(){
-        updatePauseResumeButtonState()
-    }
-
 // MARK: - Private Computed Properties
     
     fileprivate var workoutSessionManager: WorkoutSessionManager{

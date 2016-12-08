@@ -23,10 +23,6 @@ class SessionZonesInterfaceController: WKInterfaceController{
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){self.initContent()}
     }
     
-    override func willActivate(){
-        updateZoneButtons()
-    }
-
 // MARK: - Private Properties
 
     fileprivate weak var pulseZone1: PulseZone?
@@ -48,6 +44,8 @@ class SessionZonesInterfaceController: WKInterfaceController{
         content.setHidden(false)
         
         initText()
+        
+        updateZoneButtons()
     }
     
     fileprivate func initText(){
