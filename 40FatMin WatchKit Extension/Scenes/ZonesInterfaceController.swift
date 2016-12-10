@@ -47,7 +47,7 @@ class ZonesInterfaceController: WKInterfaceController{
     fileprivate func initContent(){
         content.setHidden(false)
         
-        setTitle("< \(workout.title)")
+        setTitle("‹\(workout.title)")
         
         initText()
         initZones()

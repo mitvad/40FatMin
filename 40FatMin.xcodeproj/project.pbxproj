@@ -22,6 +22,7 @@
 		CD1340881DEB860B0091625A /* ZonesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1340871DEB860B0091625A /* ZonesInterfaceController.swift */; };
 		CD13408A1DEB89A00091625A /* ZoneInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1340891DEB89A00091625A /* ZoneInterfaceController.swift */; };
 		CD13408E1DEC3DBE0091625A /* SessionInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */; };
+		CD4FB66E1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FB66D1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift */; };
 		CD595E7A1DEB7658003AD8EF /* CellWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD595E791DEB7658003AD8EF /* CellWorkout.swift */; };
 		CD5DDAAA1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */; };
 		CD5DDAAB1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */; };
@@ -114,6 +115,7 @@
 		CD1340871DEB860B0091625A /* ZonesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZonesInterfaceController.swift; sourceTree = "<group>"; };
 		CD1340891DEB89A00091625A /* ZoneInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoneInterfaceController.swift; sourceTree = "<group>"; };
 		CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInfoInterfaceController.swift; sourceTree = "<group>"; };
+		CD4FB66D1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimerInterfaceController.swift; sourceTree = "<group>"; };
 		CD595E791DEB7658003AD8EF /* CellWorkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWorkout.swift; sourceTree = "<group>"; };
 		CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseZoneType.swift; sourceTree = "<group>"; };
 		CD5DDAAD1DF563FC00C69F25 /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 		CD5DDAAF1DF574A100C69F25 /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				CD4FB66D1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift */,
 				CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */,
 				CD5DDAB01DF5755C00C69F25 /* SessionActionsInterfaceController.swift */,
 				CD5DDAB21DF5757A00C69F25 /* SessionZonesInterfaceController.swift */,
@@ -534,6 +537,7 @@
 				CD0F1EB51DF1A31900223E6F /* WorkoutPrograms.swift in Sources */,
 				CD13408A1DEB89A00091625A /* ZoneInterfaceController.swift in Sources */,
 				CD0F1EB71DF1A33500223E6F /* WorkoutProgram.swift in Sources */,
+				CD4FB66E1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift in Sources */,
 				CD0F1EB31DF19D9200223E6F /* PulseZone.swift in Sources */,
 				CD5DDAAE1DF563FC00C69F25 /* UserDefaults+Keys.swift in Sources */,
 				CD86479B1DE73C610042349F /* ExtensionDelegate.swift in Sources */,

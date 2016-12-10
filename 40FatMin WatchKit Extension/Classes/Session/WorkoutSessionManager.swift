@@ -304,10 +304,10 @@ class WorkoutSessionManager: NSObject{
         print("Heart rate: \(value)")
         
         if value < currentPulseZone.range.lowerBound{
-            WKInterfaceDevice.current().play(.directionDown)
+            WKInterfaceDevice.current().play(.stop)
         }
         else if value > currentPulseZone.range.upperBound{
-            WKInterfaceDevice.current().play(.directionUp)
+            WKInterfaceDevice.current().play(.start)
         }
         
         DispatchQueue.main.async {

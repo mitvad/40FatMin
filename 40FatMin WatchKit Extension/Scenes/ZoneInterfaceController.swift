@@ -53,7 +53,7 @@ class ZoneInterfaceController: WKInterfaceController{
     }
     
     fileprivate func initText(){
-        setTitle("< \(NSLocalizedString("Zones", comment: "Pulse Zones"))")
+        setTitle("‹\(NSLocalizedString("Zones", comment: "Pulse Zones"))")
         
         zoneTitleLabel.setTextColor(zone.type.backgroundColor)
         zoneTitleLabel.setText(zone.type.title)

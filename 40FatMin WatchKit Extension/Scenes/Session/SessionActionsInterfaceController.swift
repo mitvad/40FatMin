@@ -20,7 +20,7 @@ class SessionActionsInterfaceController: WKInterfaceController{
         workoutSessionManager.multicastDelegate.addDelegate(self)
         
         content.setHidden(true)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){self.initContent()}
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0){self.initContent()}
     }
     
 // MARK: - Private Computed Properties

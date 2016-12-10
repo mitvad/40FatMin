@@ -54,7 +54,7 @@ class ProgramInterfaceController: WKInterfaceController{
     fileprivate func initContent(){
         content.setHidden(false)
         
-        setTitle("< \(workout.title)")
+        setTitle("‹\(workout.title)")
         
         initText()
         initParts()
@@ -129,14 +129,12 @@ class ProgramInterfaceController: WKInterfaceController{
 // MARK: - IBActions
     
     @IBAction func startSession() {
-        if let workoutSessionManager = (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager{
-            workoutSessionManager.reinit(workout: workout, workoutProgram: program)
-        }
-        else{
-            (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager = WorkoutSessionManager(workout: workout, workoutProgram: program)
-        }
-        
-        WKInterfaceController.reloadRootControllers(withNames: ["SessionActions", "SessionInfo", "SessionZones"], contexts: ["SessionActions", "Session", "SessionZones"])
+        let context = (workout: workout!, program: program!)
+        WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "CountdownTimer", context: context as AnyObject)])
+        // For some unknown reason both two lines below crashes the editor and compiler!
+//        WKInterfaceController.reloadRootControllers(withNames: ["CountdownTimer"], contexts: [context])
+//        WKInterfaceController.reloadRootControllers(withNames: ["CountdownTimer"], contexts: [(workout: workout, program: program)])
+
     }
     
 }

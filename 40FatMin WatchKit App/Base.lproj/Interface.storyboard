@@ -17,13 +17,15 @@
                         <table alignment="left" id="Ug3-aW-eda">
                             <items>
                                 <tableRow identifier="Workout" id="9w9-Gs-hDs" customClass="CellWorkout" customModule="_0FatMin_WatchKit_Extension">
-                                    <group key="rootItem" width="1" alignment="left" radius="8" id="8Bd-jB-3Hd">
+                                    <group key="rootItem" width="1" height="50" alignment="left" id="8Bd-jB-3Hd">
                                         <items>
                                             <label alignment="left" verticalAlignment="center" text="Indoor Run" minimumScaleFactor="0.80000000000000004" id="mSH-Lt-AtO">
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="font" type="system" pointSize="18"/>
                                             </label>
                                         </items>
                                         <color key="backgroundColor" red="0.97281676530000005" green="0.56682729720000002" blue="0.0025966779789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <variation key="device=watch42mm" height="52"/>
                                     </group>
                                     <connections>
                                         <outlet property="content" destination="8Bd-jB-3Hd" id="OGc-Gb-FCn"/>
@@ -53,7 +55,7 @@
                                 </label>
                                 <group alignment="center" spacing="4" id="AxC-e6-GzX">
                                     <items>
-                                        <group width="30" height="30" alignment="left" radius="8" id="FYw-Lt-pGD">
+                                        <group width="30" height="30" alignment="left" radius="6" id="FYw-Lt-pGD">
                                             <items>
                                                 <label alignment="center" verticalAlignment="center" text="Z1" textAlignment="center" id="ywG-ol-cOs">
                                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
@@ -61,7 +63,7 @@
                                             </items>
                                             <color key="backgroundColor" red="0.64900000000000002" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </group>
-                                        <group width="30" height="30" alignment="left" radius="8" id="m7t-YS-hjz">
+                                        <group width="30" height="30" alignment="left" radius="6" id="m7t-YS-hjz">
                                             <items>
                                                 <label alignment="center" verticalAlignment="center" text="Z2" textAlignment="center" id="K5O-mc-bYE">
                                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
@@ -69,7 +71,7 @@
                                             </items>
                                             <color key="backgroundColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </group>
-                                        <group width="30" height="30" alignment="left" radius="8" id="PCS-H5-zmu">
+                                        <group width="30" height="30" alignment="left" radius="6" id="PCS-H5-zmu">
                                             <items>
                                                 <label alignment="center" verticalAlignment="center" text="Z3" textAlignment="center" id="4Xg-rP-bBd">
                                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
@@ -77,7 +79,7 @@
                                             </items>
                                             <color key="backgroundColor" red="0.64500000000000002" green="0.0" blue="0.64500000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </group>
-                                        <group width="30" height="30" alignment="left" radius="8" id="4Mx-HX-p3v">
+                                        <group width="30" height="30" alignment="left" radius="6" id="4Mx-HX-p3v">
                                             <items>
                                                 <label alignment="center" verticalAlignment="center" text="Z4" textAlignment="center" id="6Hk-Ub-lIQ">
                                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
@@ -87,10 +89,11 @@
                                         </group>
                                     </items>
                                 </group>
-                                <button width="1" alignment="center" verticalAlignment="bottom" title="SELECT" id="uFT-71-wkK">
+                                <button width="1" height="52" alignment="center" verticalAlignment="bottom" title="SELECT" id="uFT-71-wkK">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="23"/>
+                                    <variation key="device=watch38mm" height="50"/>
                                     <connections>
                                         <action selector="selectZone" destination="cqV-WM-pmf" id="hna-aI-8dV"/>
                                     </connections>
@@ -128,7 +131,7 @@
                                 </label>
                                 <group width="1" alignment="left" layout="vertical" id="FwI-Gm-Jfo">
                                     <items>
-                                        <group width="1" height="20" alignment="left" radius="10" spacing="0.0" id="RIH-f4-S0R">
+                                        <group width="1" height="24" alignment="left" radius="12" spacing="0.0" id="RIH-f4-S0R">
                                             <items>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="YzI-dy-yqA">
                                                     <items>
@@ -195,12 +198,13 @@
                                         <label alignment="right" text="40 min" id="dX6-zT-NVM"/>
                                     </items>
                                 </group>
-                                <button width="1" alignment="center" verticalAlignment="bottom" title="START" id="mfr-sq-vbQ">
+                                <button width="1" height="50" alignment="center" verticalAlignment="bottom" title="START" id="mfr-sq-vbQ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="23"/>
+                                    <variation key="device=watch42mm" height="52"/>
                                     <connections>
-                                        <action selector="startSession" destination="fAM-x7-5e4" id="McL-Tp-Gx9"/>
+                                        <action selector="startSession" destination="fAM-x7-5e4" id="BUh-HT-LXA"/>
                                     </connections>
                                 </button>
                             </items>
@@ -225,6 +229,47 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="670" y="345"/>
+        </scene>
+        <!--CountdownTimer-->
+        <scene sceneID="32p-D4-u7v">
+            <objects>
+                <controller identifier="CountdownTimer" id="cdu-1v-67z" customClass="CountdownTimerInterfaceController" customModule="_0FatMin_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="center" verticalAlignment="center" layout="vertical" id="YHs-yf-9dZ">
+                            <items>
+                                <label width="1" alignment="center" verticalAlignment="center" hidden="YES" text="Ready" textAlignment="center" minimumScaleFactor="0.5" id="KJr-eq-hgr">
+                                    <color key="textColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="42"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="center" hidden="YES" text="3" id="SYt-CQ-97S">
+                                    <color key="textColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="72"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="center" hidden="YES" text="2" id="NFd-MZ-nxC">
+                                    <color key="textColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="72"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="center" hidden="YES" text="1" id="0fJ-KG-A4O">
+                                    <color key="textColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="72"/>
+                                </label>
+                                <label width="1" alignment="center" verticalAlignment="center" hidden="YES" text="Go!" textAlignment="center" minimumScaleFactor="0.5" id="i95-3O-3cP">
+                                    <color key="textColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="42"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="count1Label" destination="0fJ-KG-A4O" id="J5n-bV-cOm"/>
+                        <outlet property="count2Label" destination="NFd-MZ-nxC" id="snt-9G-CD1"/>
+                        <outlet property="count3Label" destination="SYt-CQ-97S" id="QqA-iI-Nb8"/>
+                        <outlet property="goLabel" destination="i95-3O-3cP" id="sMk-7q-NLx"/>
+                        <outlet property="readyLabel" destination="KJr-eq-hgr" id="5SO-OV-0kX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="670" y="624"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -260,12 +305,13 @@
                                     <color key="textColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="boldSystem" pointSize="24"/>
                                 </label>
-                                <button width="1" alignment="center" verticalAlignment="bottom" title="START" id="Jks-v1-hCY">
+                                <button width="1" height="52" alignment="center" verticalAlignment="bottom" title="START" id="Jks-v1-hCY">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                    <variation key="device=watch38mm" height="50"/>
                                     <connections>
-                                        <action selector="startSession" destination="SYV-Gq-U9k" id="nmx-oX-eFZ"/>
+                                        <action selector="startSession" destination="SYV-Gq-U9k" id="3O4-ei-cVL"/>
                                     </connections>
                                 </button>
                             </items>
@@ -281,21 +327,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="454" y="624"/>
-        </scene>
-        <!--Timer-->
-        <scene sceneID="XCe-1E-f8e">
-            <objects>
-                <controller identifier="Timer" id="pjk-vj-VKW">
-                    <items>
-                        <timer alignment="center" verticalAlignment="center" previewedSeconds="3" id="DZ2-IR-sF3">
-                            <color key="textColor" red="1" green="0.58654993772506714" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="font" type="boldSystem" pointSize="62"/>
-                            <calendarUnit key="units" second="YES"/>
-                        </timer>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="670" y="624"/>
         </scene>
         <!--SessionActions-->
         <scene sceneID="YEW-hh-7zT">
@@ -317,27 +348,31 @@
                                 </group>
                                 <group width="1" alignment="center" verticalAlignment="center" spacing="4" id="vbF-zZ-Zf2">
                                     <items>
-                                        <group width="65" height="65" alignment="center" radius="32" id="Jvm-S6-jmZ">
+                                        <group width="70" height="70" alignment="center" radius="35" id="Jvm-S6-jmZ">
                                             <items>
-                                                <button width="65" height="65" alignment="left" title=" " id="8BP-h4-6aX">
+                                                <button width="70" height="70" alignment="left" title=" " id="8BP-h4-6aX">
                                                     <color key="titleColor" red="0.97955745459999999" green="0.068956233559999996" blue="0.31090652940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="15"/>
+                                                    <variation key="device=watch38mm" height="64" width="64"/>
                                                     <connections>
                                                         <action selector="stop" destination="1Ub-pv-nAp" id="PAb-3A-jWB"/>
                                                     </connections>
                                                 </button>
                                             </items>
+                                            <variation key="device=watch38mm" height="64" width="64"/>
                                         </group>
-                                        <group width="65" height="65" alignment="center" radius="32" id="O9P-BT-n2t">
+                                        <group width="70" height="70" alignment="center" radius="35" id="O9P-BT-n2t">
                                             <items>
-                                                <button width="65" height="65" alignment="right" title=" " id="TEe-it-3kC">
+                                                <button width="70" height="70" alignment="right" title=" " id="TEe-it-3kC">
                                                     <color key="titleColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="15"/>
+                                                    <variation key="device=watch38mm" height="65" width="65"/>
                                                     <connections>
                                                         <action selector="pauseResume" destination="1Ub-pv-nAp" id="0zi-tw-5gK"/>
                                                     </connections>
                                                 </button>
                                             </items>
+                                            <variation key="device=watch38mm" height="65" width="65"/>
                                         </group>
                                     </items>
                                 </group>
@@ -366,40 +401,57 @@
                                             <items>
                                                 <timer alignment="left" minimumScaleFactor="0.80000000000000004" previewedSeconds="7202" id="DSQ-Nj-Fg5">
                                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="font" type="system" pointSize="24"/>
+                                                    <fontDescription key="font" type="system" pointSize="27"/>
+                                                    <variation key="device=watch38mm">
+                                                        <fontDescription key="font" type="system" pointSize="24"/>
+                                                    </variation>
                                                 </timer>
                                                 <group alignment="left" id="rhE-Jh-Qld">
                                                     <items>
                                                         <label alignment="left" verticalAlignment="bottom" text="20.50" minimumScaleFactor="0.80000000000000004" id="2LZ-Zc-YPa">
                                                             <color key="textColor" red="0.18600802950000001" green="0.78482560349999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="font" type="system" pointSize="24"/>
+                                                            <fontDescription key="font" type="system" pointSize="27"/>
+                                                            <variation key="device=watch38mm">
+                                                                <fontDescription key="font" type="system" pointSize="24"/>
+                                                            </variation>
                                                         </label>
                                                         <label alignment="left" verticalAlignment="bottom" text="KM" minimumScaleFactor="0.80000000000000004" id="HHb-Ie-46W">
                                                             <color key="textColor" red="0.18600802951388884" green="0.78482560346156027" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="font" type="system" pointSize="18"/>
+                                                            <fontDescription key="font" type="system" pointSize="17"/>
                                                         </label>
                                                     </items>
                                                 </group>
                                             </items>
                                         </group>
-                                        <group width="44" height="76" alignment="right" layout="vertical" spacing="1" id="pDn-nn-FlV">
+                                        <group width="52" height="81" alignment="right" layout="vertical" spacing="1" id="pDn-nn-FlV">
                                             <items>
-                                                <label alignment="center" text="145" minimumScaleFactor="0.80000000000000004" id="c0d-yZ-yIf">
-                                                    <fontDescription key="font" type="boldSystem" pointSize="12"/>
+                                                <label alignment="center" text="145+10" minimumScaleFactor="0.80000000000000004" id="c0d-yZ-yIf">
+                                                    <fontDescription key="font" type="boldSystem" pointSize="14"/>
+                                                    <variation key="device=watch38mm">
+                                                        <fontDescription key="font" type="boldSystem" pointSize="12"/>
+                                                    </variation>
                                                 </label>
-                                                <group width="44" height="44" alignment="right" verticalAlignment="center" radius="22" id="LyS-TC-FdK">
+                                                <group width="48" height="48" alignment="right" verticalAlignment="center" radius="24" id="LyS-TC-FdK">
                                                     <items>
                                                         <label alignment="center" verticalAlignment="center" text="Z2" id="HvG-5S-7tq">
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <fontDescription key="font" type="boldSystem" pointSize="18"/>
+                                                            <fontDescription key="font" type="boldSystem" pointSize="20"/>
+                                                            <variation key="device=watch38mm">
+                                                                <fontDescription key="font" type="boldSystem" pointSize="18"/>
+                                                            </variation>
                                                         </label>
                                                     </items>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <variation key="device=watch38mm" height="44" width="44"/>
                                                 </group>
-                                                <label alignment="center" verticalAlignment="bottom" text="123" minimumScaleFactor="0.80000000000000004" id="G1p-WF-L8w">
-                                                    <fontDescription key="font" type="boldSystem" pointSize="12"/>
+                                                <label alignment="center" verticalAlignment="bottom" text="123+10" minimumScaleFactor="0.80000000000000004" id="G1p-WF-L8w">
+                                                    <fontDescription key="font" type="boldSystem" pointSize="14"/>
+                                                    <variation key="device=watch38mm">
+                                                        <fontDescription key="font" type="boldSystem" pointSize="12"/>
+                                                    </variation>
                                                 </label>
                                             </items>
+                                            <variation key="device=watch38mm" height="76" width="44"/>
                                         </group>
                                     </items>
                                     <edgeInsets key="margins" left="1" right="1" top="0.0" bottom="0.0"/>
@@ -408,7 +460,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="font" type="boldSystem" pointSize="22"/>
                                 </label>
-                                <group width="1" height="20" alignment="left" verticalAlignment="bottom" radius="10" spacing="0.0" id="cdZ-pM-6vT">
+                                <group width="1" height="24" alignment="left" verticalAlignment="bottom" radius="12" spacing="0.0" id="cdZ-pM-6vT">
                                     <items>
                                         <group width="25" height="1" alignment="left" radius="0.0" id="b0E-TP-iL6">
                                             <items>
@@ -482,13 +534,16 @@
                                     <items>
                                         <label alignment="center" verticalAlignment="center" text="120" id="rEc-V5-Y6n">
                                             <color key="textColor" red="0.97955745459999999" green="0.068956233559999996" blue="0.31090652940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="font" type="boldSystem" pointSize="28"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="34"/>
+                                            <variation key="device=watch38mm">
+                                                <fontDescription key="font" type="boldSystem" pointSize="28"/>
+                                            </variation>
                                         </label>
                                         <label alignment="center" verticalAlignment="center" text="BPM" id="iKb-bS-ZGY">
                                             <color key="textColor" red="0.97955745459999999" green="0.068956233559999996" blue="0.31090652940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="font" type="system" pointSize="16"/>
                                         </label>
-                                        <group width="35" height="35" alignment="center" id="tMu-qT-iXg">
+                                        <group width="35" height="35" alignment="center" verticalAlignment="center" id="tMu-qT-iXg">
                                             <items>
                                                 <imageView width="30" height="30" alignment="center" verticalAlignment="center" image="heart" contentMode="scaleAspectFit" id="mtM-Ji-nfk"/>
                                             </items>
@@ -540,21 +595,25 @@
                                             <items>
                                                 <button width="65" height="65" alignment="left" title=" " id="6MJ-Nq-LZq">
                                                     <fontDescription key="font" type="boldSystem" pointSize="26"/>
+                                                    <variation key="device=watch42mm" height="70" width="70"/>
                                                     <connections>
                                                         <action selector="zoneButton1Selected" destination="59i-UR-5aN" id="zFl-aN-sOe"/>
                                                     </connections>
                                                 </button>
                                             </items>
+                                            <variation key="device=watch42mm" height="70" radius="35" width="70"/>
                                         </group>
                                         <group width="65" height="65" alignment="center" radius="32" id="tgb-oX-pDo">
                                             <items>
                                                 <button width="65" height="65" alignment="right" title=" " id="jZf-4B-9dL">
                                                     <fontDescription key="font" type="boldSystem" pointSize="26"/>
+                                                    <variation key="device=watch42mm" height="70" width="70"/>
                                                     <connections>
                                                         <action selector="zoneButton2Selected" destination="59i-UR-5aN" id="OyR-xm-fkm"/>
                                                     </connections>
                                                 </button>
                                             </items>
+                                            <variation key="device=watch42mm" height="70" radius="35" width="70"/>
                                         </group>
                                     </items>
                                 </group>
@@ -565,21 +624,25 @@
                                                 <button width="65" height="65" alignment="left" title=" " id="dP9-Fj-DzI">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="26"/>
+                                                    <variation key="device=watch42mm" height="70" width="70"/>
                                                     <connections>
                                                         <action selector="zoneButton3Selected" destination="59i-UR-5aN" id="CxU-C3-CB1"/>
                                                     </connections>
                                                 </button>
                                             </items>
+                                            <variation key="device=watch42mm" height="70" radius="35" width="70"/>
                                         </group>
                                         <group width="65" height="65" alignment="center" radius="32" id="H2w-95-uni">
                                             <items>
                                                 <button width="65" height="65" alignment="right" title=" " id="jpY-Rx-Jxr">
                                                     <fontDescription key="font" type="boldSystem" pointSize="26"/>
+                                                    <variation key="device=watch42mm" height="70" width="70"/>
                                                     <connections>
                                                         <action selector="zoneButton4Selected" destination="59i-UR-5aN" id="ZqR-ed-p10"/>
                                                     </connections>
                                                 </button>
                                             </items>
+                                            <variation key="device=watch42mm" height="70" radius="35" width="70"/>
                                         </group>
                                     </items>
                                 </group>
