@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WorkoutProgramPart{
+class WorkoutProgramPart: NSObject{
     
 // MARK: - Initializers
     

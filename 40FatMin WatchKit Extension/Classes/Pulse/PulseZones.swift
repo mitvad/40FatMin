@@ -30,6 +30,18 @@ class PulseZones{
         return PulseZone.Z0
     }
     
+    func pulseZone(forPulse pulseValue: Double) -> PulseZone?{
+        for zone in zones{
+            if zone.key != PulseZoneType.z0{
+                if zone.value.range.contains(pulseValue){
+                    return zone.value
+                }
+            }
+        }
+        
+        return nil
+    }
+    
 // MARK: - Private Methods
     
     fileprivate func readPulseZones(_ data: Data?){

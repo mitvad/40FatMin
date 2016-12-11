@@ -86,14 +86,11 @@ class ZoneInterfaceController: WKInterfaceController{
 // MARK: - IBActions
     
     @IBAction func startSession() {
-        if let workoutSessionManager = (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager{
-            workoutSessionManager.reinit(workout: workout, pulseZone: zone)
-        }
-        else{
-            (WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager = WorkoutSessionManager(workout: workout, pulseZone: zone)
-        }
-        
-        WKInterfaceController.reloadRootControllers(withNames: ["SessionActions", "SessionInfo", "SessionZones"], contexts: ["SessionActions", "Session", "SessionZones"])
+        let context = (workout: workout!, pulseZone: zone!)
+        WKInterfaceController.reloadRootControllers(withNamesAndContexts: [(name: "CountdownTimer", context: context as AnyObject)])
+        // For some unknown reason both two lines below crashes the editor and compiler!
+        //        WKInterfaceController.reloadRootControllers(withNames: ["CountdownTimer"], contexts: [context])
+        //        WKInterfaceController.reloadRootControllers(withNames: ["CountdownTimer"], contexts: [(workout: workout, program: program)])
     }
     
 }

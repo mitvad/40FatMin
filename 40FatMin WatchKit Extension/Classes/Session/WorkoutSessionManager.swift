@@ -62,6 +62,25 @@ class WorkoutSessionManager: NSObject{
         }
     }
     
+    fileprivate var sessionStartDateCache: Date?
+    var sessionStartDate: Date{
+        get{
+            if let sessionStartDateCache = sessionStartDateCache{
+                return sessionStartDateCache
+            }
+            
+            var duration = 0.0
+            
+            for (start, end) in workoutSessions{
+                duration += end.timeIntervalSince(start)
+            }
+            
+            self.sessionStartDateCache = Date(timeInterval: -duration, since: Date())
+            
+            return self.sessionStartDateCache!
+        }
+    }
+    
 // MARK: - Public Computed Properties
     
     var sessionState: HKWorkoutSessionState{
@@ -117,9 +136,6 @@ class WorkoutSessionManager: NSObject{
         if let session = self.currentWorkoutSession{
             healthStore.end(session)
         }
-        
-        workoutProgram = nil
-        currentWorkoutProgramPart = nil
     }
     
     func pauseSession(){
@@ -166,15 +182,13 @@ class WorkoutSessionManager: NSObject{
         }
     }
     
-    fileprivate var dateForTimer: Date{
+    fileprivate var isProgramPartShouldChange: Bool{
         get{
-            var duration = 0.0
+            guard let currentWorkoutProgramPart = self.currentWorkoutProgramPart else {return false}
             
-            for (start, end) in workoutSessions{
-                duration += end.timeIntervalSince(start)
-            }
+            let sessionDuration = Date().timeIntervalSince(self.sessionStartDate)
             
-            return Date(timeInterval: -duration, since: Date())
+            return !currentWorkoutProgramPart.contains(time: sessionDuration)
         }
     }
     
@@ -188,6 +202,7 @@ class WorkoutSessionManager: NSObject{
         
         currentWorkoutSession = nil
         workoutSessions = [(start: Date, end: Date)]()
+        sessionStartDateCache = nil
         
         heartRateQuery = nil
         
@@ -207,6 +222,8 @@ class WorkoutSessionManager: NSObject{
             guard let start = session.startDate else {return}
             
             workoutSessions.append((start: start, end: Date()))
+            
+            sessionStartDateCache = nil
         }
     }
     
@@ -303,11 +320,36 @@ class WorkoutSessionManager: NSObject{
         
         print("Heart rate: \(value)")
         
-        if value < currentPulseZone.range.lowerBound{
-            WKInterfaceDevice.current().play(.stop)
+        if isProgramPartShouldChange{
+            changeCurrentProgramPart()
+            
+            WKInterfaceDevice.current().play(.success)
         }
-        else if value > currentPulseZone.range.upperBound{
-            WKInterfaceDevice.current().play(.start)
+        else{
+            var heartRateIsOut = false
+            var isAbove = false
+            var actualPulseZone = self.currentPulseZone
+            
+            if value < self.currentPulseZone.range.lowerBound{
+                WKInterfaceDevice.current().play(.stop)
+                
+                heartRateIsOut = true
+                isAbove = false
+            }
+            else if value > currentPulseZone.range.upperBound{
+                WKInterfaceDevice.current().play(.start)
+                
+                heartRateIsOut = true
+                isAbove = true
+            }
+            
+            if heartRateIsOut{
+                actualPulseZone = ((WKExtension.shared().delegate as? ExtensionDelegate)?.pulseZones)!.pulseZone(forPulse: value)
+            }
+            
+            DispatchQueue.main.async {
+                self.multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, heartRateIsOutOfPulseZoneRange: heartRateIsOut, isAbovePulseZoneRange: isAbove, actualPulseZone: actualPulseZone)}
+            }
         }
         
         DispatchQueue.main.async {
@@ -315,6 +357,17 @@ class WorkoutSessionManager: NSObject{
         }
     }
     
+    fileprivate func changeCurrentProgramPart(){
+        guard let workoutProgram = self.workoutProgram else {return}
+        
+        let sessionDuration = Date().timeIntervalSince(self.sessionStartDate)
+        
+        self.currentWorkoutProgramPart = workoutProgram.part(forTime: sessionDuration)
+        
+        DispatchQueue.main.async {
+            self.multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, programPartDidChangeTo: self.currentWorkoutProgramPart)}
+        }
+    }
 }
 
 // MARK: - Extension HKWorkoutSessionDelegate
@@ -329,12 +382,12 @@ extension WorkoutSessionManager: HKWorkoutSessionDelegate{
         
         print("Workout state changed from: \(fromState.rawValue) to: \(toState.rawValue)")
         
-        var dateForTimer = date
+        var sessionStartDate = date
         
         switch toState {
         case .running:
             sessionDidStart(date)
-            dateForTimer = self.dateForTimer
+            sessionStartDate = self.sessionStartDate
         case .ended:
             sessionDidEnd()
         case .paused:
@@ -343,6 +396,6 @@ extension WorkoutSessionManager: HKWorkoutSessionDelegate{
             break
         }
         
-        multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, sessionDidChangeTo: toState, from: fromState, date: dateForTimer)}
+        multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, sessionDidChangeTo: toState, from: fromState, date: sessionStartDate)}
     }
 }

@@ -11,8 +11,8 @@
                  {
                  "title": "Test 2",
                  "parts": [
-                           {"zoneType": "z1", "duration": 10},
-                           {"zoneType": "z2", "duration": 10}
+                           {"zoneType": "z1", "duration": 40},
+                           {"zoneType": "z2", "duration": 40}
                            ]
                  },
                  {

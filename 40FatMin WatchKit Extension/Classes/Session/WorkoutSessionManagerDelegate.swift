@@ -14,9 +14,13 @@ import HealthKit
     
     @objc optional func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, pulseZoneDidChangeTo toPulseZone: PulseZone, from fromPulseZone: PulseZone)
     
+    @objc optional func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, programPartDidChangeTo toProgramPart: WorkoutProgramPart?)
+    
     @objc optional func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, heartRateDidChangeTo toHeartRate: Double)
     
     @objc optional func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, distanceDidChangeTo toDistance: Double)
+    
+    @objc optional func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, heartRateIsOutOfPulseZoneRange isOut: Bool, isAbovePulseZoneRange isAbove: Bool, actualPulseZone pulseZone: PulseZone?)
     
     @objc optional func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, programDidFinish success: Bool)
 }

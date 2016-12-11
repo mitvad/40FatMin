@@ -55,7 +55,7 @@ class CountdownTimerInterfaceController: WKInterfaceController{
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0){
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.9){
             self.count3Label.setHidden(true)
             self.count2Label.setHidden(false)
             self.count2Label.setAlpha(0.0)
@@ -65,7 +65,7 @@ class CountdownTimerInterfaceController: WKInterfaceController{
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4.0){
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.7){
             self.count2Label.setHidden(true)
             self.count1Label.setHidden(false)
             self.count1Label.setAlpha(0.0)
@@ -75,7 +75,7 @@ class CountdownTimerInterfaceController: WKInterfaceController{
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5.0){
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4.4){
             self.count1Label.setHidden(true)
             
             self.animate(withDuration: 0.5){
@@ -83,7 +83,7 @@ class CountdownTimerInterfaceController: WKInterfaceController{
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 6.0){
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5.0){
             self.goLabel.setHidden(true)
             
             self.startSession()

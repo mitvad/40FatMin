@@ -39,24 +39,13 @@ class SessionInfoInterfaceController: WKInterfaceController{
     
     fileprivate var currentProgramPartGroup: (passed: WKInterfaceGroup, leftover: WKInterfaceGroup, width: CGFloat)?
     
-    fileprivate var sessionStartDate: Date?
+    fileprivate var messageIsOnScreen: Bool = false
     
 // MARK: - Private Computed Properties
     
     fileprivate var workoutSessionManager: WorkoutSessionManager{
         get{
             return ((WKExtension.shared().delegate as? ExtensionDelegate)?.workoutSessionManager)!
-        }
-    }
-    
-    fileprivate var isPulseZoneShouldChangeAutomatically: Bool{
-        get{
-            guard let currentProgramPart = workoutSessionManager.currentWorkoutProgramPart else {return false}
-            guard let sessionStartDate = sessionStartDate else {return false}
-            
-            let sessionDuration = Date().timeIntervalSince(sessionStartDate)
-            
-            return !currentProgramPart.contains(time: sessionDuration)
         }
     }
     
@@ -74,6 +63,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
     fileprivate func updatePulseZone(_ pulseZone: PulseZone){
+        hideMessage(true, isAnimate: false)
+        
         animate(withDuration: 0.7){
             self.pulseZoneGroup.setBackgroundColor(pulseZone.type.backgroundColor)
             self.pulseZoneTitleLabel.setTextColor(pulseZone.type.textColor)
@@ -156,9 +147,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
     fileprivate func updateCurrentProgramPart(){
         guard let currentProgramPart = workoutSessionManager.currentWorkoutProgramPart else {return}
         guard let currentProgramPartGroup = currentProgramPartGroup else {return}
-        guard let sessionStartDate = sessionStartDate else {return}
         
-        let sessionDuration = Date().timeIntervalSince(sessionStartDate)
+        let sessionDuration = Date().timeIntervalSince(workoutSessionManager.sessionStartDate)
         let passedTime = sessionDuration - currentProgramPart.startTime
         let passedWidth = currentProgramPartGroup.width * CGFloat(passedTime) / CGFloat(currentProgramPart.duration)
         
@@ -166,17 +156,6 @@ class SessionInfoInterfaceController: WKInterfaceController{
             currentProgramPartGroup.passed.setWidth(passedWidth)
             currentProgramPartGroup.leftover.setWidth(currentProgramPartGroup.width - passedWidth)
         }
-    }
-    
-    fileprivate func changeCurrentProgramPart(){
-        guard let program = workoutSessionManager.workoutProgram else {return}
-        guard let sessionStartDate = sessionStartDate else {return}
-        
-        let sessionDuration = Date().timeIntervalSince(sessionStartDate)
-        
-        workoutSessionManager.currentWorkoutProgramPart = program.part(forTime: sessionDuration)
-        
-        updateProgramParts()
     }
     
     fileprivate func updateHeartRate(_ heartRate: Double){
@@ -256,8 +235,6 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
     fileprivate func sessionDidStart(_ sessionStartDate: Date){
-        self.sessionStartDate = sessionStartDate
-        
         sessionTimer.setDate(sessionStartDate)
         sessionTimer.start()
         
@@ -267,13 +244,85 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
     fileprivate func sessionDidStop(){
-        self.sessionStartDate = nil
-        
         sessionTimer.stop()
         
         updateHeartRate(0.0)
         
         content.setAlpha(0.6)
+    }
+    
+    fileprivate func heartRateIsOutOfPulseZoneRange(_ isOut: Bool, _ isAbove: Bool, _ actualPulseZone: PulseZone?){
+        if isOut && !messageIsOnScreen{
+            if isAbove{
+                self.messageLabel.setText(NSLocalizedString("Slow Down!", comment: "Short message text when the pulse is above the current pulse zone"))
+            }
+            else{
+                self.messageLabel.setText(NSLocalizedString("Sped Up!", comment: "Short message text when the pulse is lower the current pulse zone"))
+            }
+            
+            hideMessage(false, isAnimate: true)
+            animatePulseZone(actualPulseZone)
+        }
+        else if !isOut && messageIsOnScreen{
+            hideMessage(true, isAnimate: false)
+        }
+        else if isOut && messageIsOnScreen{
+            if isAbove{
+                self.messageLabel.setText(NSLocalizedString("Slow Down!", comment: "Short message text when the pulse is above the current pulse zone"))
+            }
+            else{
+                self.messageLabel.setText(NSLocalizedString("Sped Up!", comment: "Short message text when the pulse is lower the current pulse zone"))
+            }
+            
+            animateMessage()
+            animatePulseZone(actualPulseZone)
+        }
+    }
+    
+    fileprivate func animatePulseZone(_ actualPulseZone: PulseZone?){
+        guard let actualPulseZone = actualPulseZone else {return}
+        guard actualPulseZone != workoutSessionManager.currentPulseZone else {return}
+        
+        for phase in 0..<3{
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) * 1.0){
+                self.animate(withDuration: 0.4){
+                    self.pulseZoneGroup.setBackgroundColor(actualPulseZone.type.backgroundColor)
+                }
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (Double(phase) * 1.0 + 0.4)){
+                self.animate(withDuration: 0.2){
+                    self.pulseZoneGroup.setBackgroundColor(self.workoutSessionManager.currentPulseZone.type.backgroundColor)
+                }
+            }
+        }
+    }
+    
+    fileprivate func animateMessage(){
+        for phase in 0..<3{
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) * 1.0){
+                self.animate(withDuration: 0.4){
+                    self.messageLabel.setAlpha(0.0)
+                }
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (Double(phase) * 1.0 + 0.4)){
+                self.animate(withDuration: 0.2){
+                    self.messageLabel.setAlpha(1.0)
+                }
+            }
+        }
+    }
+    
+    fileprivate func hideMessage(_ isHidden: Bool, isAnimate: Bool){
+        messageIsOnScreen = !isHidden
+        
+        self.programInformationGroup.setHidden(!isHidden)
+        self.messageLabel.setHidden(isHidden)
+        
+        if isAnimate{
+            animateMessage()
+        }
     }
     
     fileprivate func programDidFinish(){
@@ -291,8 +340,9 @@ class SessionInfoInterfaceController: WKInterfaceController{
             congratulationString = NSLocalizedString("You did it!", comment: "Short congratulation text 1")
         }
         
+        self.congratulationLabel.setText(congratulationString)
+        
         animate(withDuration: 1.0){
-            self.congratulationLabel.setText(congratulationString)
             self.congratulationLabel.setHidden(false)
             self.allParts.setHidden(true)
         }
@@ -300,8 +350,11 @@ class SessionInfoInterfaceController: WKInterfaceController{
         let when = DispatchTime.now() + 5.0
         
         DispatchQueue.main.asyncAfter(deadline: when) {
+            self.congratulationLabel.setText(NSLocalizedString("Completed!", comment: "Short congratulation text (permanently shown after random initial text)"))
+            self.congratulationLabel.setHidden(true)
+            
             self.animate(withDuration: 0.7, animations: {
-                self.congratulationLabel.setText(NSLocalizedString("Completed!", comment: "Short congratulation text (permanently shown after random initial text)"))
+                self.congratulationLabel.setHidden(false)
             })
         }
     }
@@ -336,6 +389,10 @@ class SessionInfoInterfaceController: WKInterfaceController{
     
     @IBOutlet var congratulationLabel: WKInterfaceLabel!
     
+    @IBOutlet var programInformationGroup: WKInterfaceGroup!
+    
+    @IBOutlet var messageLabel: WKInterfaceLabel!
+    
 // MARK: - Deinit
     
     deinit {
@@ -353,16 +410,16 @@ extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
         updatePulseZone(toPulseZone)
     }
     
+    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, programPartDidChangeTo toProgramPart: WorkoutProgramPart?) {
+        
+        updateProgramParts()
+    }
+    
     func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, heartRateDidChangeTo toHeartRate: Double) {
         
         updateHeartRate(toHeartRate)
         
-        if isPulseZoneShouldChangeAutomatically{
-            changeCurrentProgramPart()
-        }
-        else{
-            updateCurrentProgramPart()
-        }
+        updateCurrentProgramPart()
     }
     
     func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, distanceDidChangeTo toDistance: Double) {
@@ -378,6 +435,11 @@ extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
         else if fromState == .running{
             sessionDidStop()
         }
+    }
+    
+    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, heartRateIsOutOfPulseZoneRange isOut: Bool, isAbovePulseZoneRange isAbove: Bool, actualPulseZone pulseZone: PulseZone?) {
+        
+        heartRateIsOutOfPulseZoneRange(isOut, isAbove, pulseZone)
     }
     
     func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, programDidFinish success: Bool) {
