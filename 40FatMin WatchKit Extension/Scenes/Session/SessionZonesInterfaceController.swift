@@ -82,7 +82,7 @@ class SessionZonesInterfaceController: WKInterfaceController{
         func applyChanges(_ zoneButton: WKInterfaceButton, _ pulseZone: inout PulseZone?, _ index: Int){
             
             zoneButton.setAttributedTitle(NSAttributedString(string: zones[index].type.shortTitle, attributes: [NSForegroundColorAttributeName: zones[index].type.textColor]))
-            zoneButton.setBackgroundColor(zones[index].type.backgroundColor)
+            zoneButton.setBackgroundImage(zones[index].type.backgroundImage)
             pulseZone = zones[index]
         }
         

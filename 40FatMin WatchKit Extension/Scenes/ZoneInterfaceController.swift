@@ -58,7 +58,7 @@ class ZoneInterfaceController: WKInterfaceController{
         zoneTitleLabel.setTextColor(zone.type.backgroundColor)
         zoneTitleLabel.setText(zone.type.title)
         
-        startButton.setBackgroundColor(zone.type.backgroundColor)
+        startButton.setBackgroundImage(zone.type.backgroundButtonImage)
         
         let attributedTitle = NSAttributedString(string: NSLocalizedString("START", comment: "START button title"), attributes: [NSForegroundColorAttributeName: zone.type.textColor])
         
@@ -66,7 +66,7 @@ class ZoneInterfaceController: WKInterfaceController{
         
         zonePulseTitleLabel.setText(NSLocalizedString("Pulse:", comment: "Pulse title"))
         
-        zonePulseRangeLabel.setTextColor(zone.type.backgroundColor)
+        zonePulseRangeLabel.setTextColor(zone.type.backgroundColor2)
         
         if zone.type == PulseZoneType.z0{
             zonePulseRangeLabel.setText(NSLocalizedString("Any Pulse", comment: "Any pulse that user want"))

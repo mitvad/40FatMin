@@ -56,15 +56,67 @@ enum PulseZoneType: String{
         get{
             switch self {
             case .z0:
-                return UIColor.init(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+//                return UIColor.init(red: 0.902, green: 0.902, blue: 0.902, alpha: 1.000) // e6e6e6
+                return UIColor.init(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000) // ffffff
             case .z1:
-                return UIColor.init(red: 0.649, green: 1.000, blue: 0.000, alpha: 1.000)
+                return UIColor.init(red: 0.649, green: 1.000, blue: 0.000, alpha: 1.000) // a5ff00
             case .z2:
-                return UIColor.init(red: 1.000, green: 0.587, blue: 0.000, alpha: 1.000)
+                return UIColor.init(red: 1.000, green: 0.587, blue: 0.000, alpha: 1.000) // ff9600
             case .z3:
-                return UIColor.init(red: 0.645, green: 0.000, blue: 0.645, alpha: 1.000)
+                return UIColor.init(red: 0.645, green: 0.000, blue: 0.645, alpha: 1.000) // a400a4
             case .z4:
-                return UIColor.init(red: 0.980, green: 0.069, blue: 0.311, alpha: 1.000)
+                return UIColor.init(red: 0.980, green: 0.069, blue: 0.311, alpha: 1.000) // fa124f
+            }
+        }
+    }
+    
+    var backgroundColor2: UIColor{
+        get{
+            switch self {
+            case .z0:
+                return UIColor.init(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000) // ffffff
+            case .z1:
+                return UIColor.init(red: 0.784, green: 1.000, blue: 0.400, alpha: 1.000) // c8ff66
+            case .z2:
+                return UIColor.init(red: 1.000, green: 0.651, blue: 0.149, alpha: 1.000) // ffa626
+            case .z3:
+                return UIColor.init(red: 0.851, green: 0.212, blue: 0.851, alpha: 1.000) // d936d9
+            case .z4:
+                return UIColor.init(red: 0.980, green: 0.196, blue: 0.404, alpha: 1.000) // fa3267
+            }
+        }
+    }
+    
+    var backgroundImage: UIImage?{
+        get{
+            switch self {
+            case .z0:
+                return UIImage(named: "z0-background")
+            case .z1:
+                return UIImage(named: "z1-background")
+            case .z2:
+                return UIImage(named: "z2-background")
+            case .z3:
+                return UIImage(named: "z3-background")
+            case .z4:
+                return UIImage(named: "z4-background")
+            }
+        }
+    }
+    
+    var backgroundButtonImage: UIImage?{
+        get{
+            switch self {
+            case .z0:
+                return UIImage(named: "z0-button-background")
+            case .z1:
+                return UIImage(named: "z1-button-background")
+            case .z2:
+                return UIImage(named: "z2-button-background")
+            case .z3:
+                return UIImage(named: "z3-button-background")
+            case .z4:
+                return UIImage(named: "z4-button-background")
             }
         }
     }

@@ -57,7 +57,7 @@ class ZonesInterfaceController: WKInterfaceController{
         
         headerLabel.setText(NSLocalizedString("Zones", comment: "Pulse Zones"))
         
-        selectButton.setBackgroundColor(PulseZoneType.z2.backgroundColor)
+        selectButton.setBackgroundImage(PulseZoneType.z2.backgroundButtonImage)
         
         let attributedTitle = NSAttributedString(string: NSLocalizedString("SELECT", comment: "SELECT button title"), attributes: [NSForegroundColorAttributeName: PulseZoneType.z2.textColor])
         
@@ -84,7 +84,7 @@ class ZonesInterfaceController: WKInterfaceController{
                 zoneLabels[zone]??.setText(zone.shortTitle)
                 zoneLabels[zone]??.setTextColor(zone.textColor)
                 
-                zoneGroups[zone]??.setBackgroundColor(zone.backgroundColor)
+                zoneGroups[zone]??.setBackgroundImage(zone.backgroundImage)
             }
         }
     }

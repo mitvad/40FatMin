@@ -66,10 +66,10 @@ class SessionInfoInterfaceController: WKInterfaceController{
         hideMessage(true, isAnimate: false)
         
         animate(withDuration: 0.7){
-            self.pulseZoneGroup.setBackgroundColor(pulseZone.type.backgroundColor)
+            self.pulseZoneGroup.setBackgroundImage(pulseZone.type.backgroundImage)
             self.pulseZoneTitleLabel.setTextColor(pulseZone.type.textColor)
             self.pulseZoneLowerLabel.setTextColor(pulseZone.type.backgroundColor)
-            self.pulseZoneUpperLabel.setTextColor(pulseZone.type.backgroundColor)
+            self.pulseZoneUpperLabel.setTextColor(pulseZone.type.backgroundColor2)
             
             self.pulseZoneTitleLabel.setText(pulseZone.type.shortTitle)
             
@@ -105,7 +105,7 @@ class SessionInfoInterfaceController: WKInterfaceController{
                     
                     group.setHidden(false)
                     
-                    group.setBackgroundColor(program.parts[partIndex].pulseZoneType.backgroundColor)
+                    group.setBackgroundImage(program.parts[partIndex].pulseZoneType.backgroundImage)
                     
                     if program.parts[partIndex] === currentProgramPart{
                         let width = contentFrame.width * CGFloat(program.parts[partIndex].duration) / CGFloat(program.duration)
@@ -117,7 +117,7 @@ class SessionInfoInterfaceController: WKInterfaceController{
                         
                         if let currentGroupLeftover = partGroups[groupIndex + 1]{
                             currentGroupLeftover.setHidden(false)
-                            currentGroupLeftover.setBackgroundColor(program.parts[partIndex].pulseZoneType.backgroundColor)
+                            currentGroupLeftover.setBackgroundImage(program.parts[partIndex].pulseZoneType.backgroundImage)
                             currentGroupLeftover.setWidth(0)
                             currentGroupLeftover.setAlpha(alpha)
                             
@@ -284,15 +284,15 @@ class SessionInfoInterfaceController: WKInterfaceController{
         guard actualPulseZone != workoutSessionManager.currentPulseZone else {return}
         
         for phase in 0..<3{
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) * 1.0){
-                self.animate(withDuration: 0.4){
-                    self.pulseZoneGroup.setBackgroundColor(actualPulseZone.type.backgroundColor)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 0.4){
+                self.animate(withDuration: 0.2){
+                    self.pulseZoneGroup.setBackgroundImage(actualPulseZone.type.backgroundImage)
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (Double(phase) * 1.0 + 0.4)){
-                self.animate(withDuration: 0.2){
-                    self.pulseZoneGroup.setBackgroundColor(self.workoutSessionManager.currentPulseZone.type.backgroundColor)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 1.0){
+                self.animate(withDuration: 0.4){
+                    self.pulseZoneGroup.setBackgroundImage(self.workoutSessionManager.currentPulseZone.type.backgroundImage)
                 }
             }
         }
@@ -300,13 +300,13 @@ class SessionInfoInterfaceController: WKInterfaceController{
     
     fileprivate func animateMessage(){
         for phase in 0..<3{
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) * 1.0){
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase)){
                 self.animate(withDuration: 0.4){
                     self.messageLabel.setAlpha(0.0)
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + (Double(phase) * 1.0 + 0.4)){
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 0.4){
                 self.animate(withDuration: 0.2){
                     self.messageLabel.setAlpha(1.0)
                 }

@@ -63,7 +63,7 @@ class ProgramInterfaceController: WKInterfaceController{
     fileprivate func initText(){
         programTitleLabel.setText(program.title)
         
-        startButton.setBackgroundColor(PulseZoneType.z2.backgroundColor)
+        startButton.setBackgroundImage(PulseZoneType.z2.backgroundButtonImage)
         
         let attributedTitle = NSAttributedString(string: NSLocalizedString("START", comment: "START button title"), attributes: [NSForegroundColorAttributeName: PulseZoneType.z2.textColor])
         
@@ -98,7 +98,7 @@ class ProgramInterfaceController: WKInterfaceController{
                     
                     part.setWidth(contentFrame.width * CGFloat(program.parts[index].duration) / CGFloat(program.duration))
                     
-                    part.setBackgroundColor(program.parts[index].pulseZoneType.backgroundColor)
+                    part.setBackgroundImage(program.parts[index].pulseZoneType.backgroundImage)
                 }
                 else{
                     part.setHidden(true)

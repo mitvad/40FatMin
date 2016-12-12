@@ -17,19 +17,35 @@
                         <table alignment="left" id="Ug3-aW-eda">
                             <items>
                                 <tableRow identifier="Workout" id="9w9-Gs-hDs" customClass="CellWorkout" customModule="_0FatMin_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="42" alignment="left" id="8Bd-jB-3Hd">
+                                    <group key="rootItem" width="1" height="42" alignment="left" backgroundImage="z2-button-background" id="8Bd-jB-3Hd">
                                         <items>
                                             <label alignment="left" verticalAlignment="center" text="Indoor Run" minimumScaleFactor="0.80000000000000004" id="mSH-Lt-AtO">
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="font" type="system" pointSize="18"/>
                                             </label>
                                         </items>
-                                        <color key="backgroundColor" red="0.97281676530000005" green="0.56682729720000002" blue="0.0025966779789999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <variation key="device=watch42mm" height="46"/>
                                     </group>
                                     <connections>
                                         <outlet property="content" destination="8Bd-jB-3Hd" id="OGc-Gb-FCn"/>
                                         <outlet property="workoutName" destination="mSH-Lt-AtO" id="DyP-Zr-Cc5"/>
+                                    </connections>
+                                </tableRow>
+                                <tableRow identifier="Workout2" id="AIg-xT-qob" customClass="CellWorkout2" customModule="_0FatMin_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="42" alignment="left" id="Yvw-FX-p2h">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Indoor Run" minimumScaleFactor="0.80000000000000004" id="EDz-gR-V9P">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="font" type="system" pointSize="18"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <variation key="device=watch42mm" height="46"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="content" destination="Yvw-FX-p2h" id="AQQ-43-qIU"/>
+                                        <outlet property="workoutName" destination="EDz-gR-V9P" id="ew8-zm-7lB"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -89,7 +105,7 @@
                                         </group>
                                     </items>
                                 </group>
-                                <button width="1" height="46" alignment="center" verticalAlignment="bottom" title="SELECT" id="uFT-71-wkK">
+                                <button width="1" height="46" alignment="center" verticalAlignment="bottom" title="SELECT" backgroundImage="z2-button-background" id="uFT-71-wkK">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="boldSystem" pointSize="23"/>
@@ -198,7 +214,7 @@
                                         <label alignment="right" text="40 min" id="dX6-zT-NVM"/>
                                     </items>
                                 </group>
-                                <button width="1" height="42" alignment="center" verticalAlignment="bottom" title="START" id="mfr-sq-vbQ">
+                                <button width="1" height="42" alignment="center" verticalAlignment="bottom" title="START" backgroundImage="z2-button-background" id="mfr-sq-vbQ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="boldSystem" pointSize="23"/>
