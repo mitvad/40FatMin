@@ -23,6 +23,8 @@
 		CD13408A1DEB89A00091625A /* ZoneInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1340891DEB89A00091625A /* ZoneInterfaceController.swift */; };
 		CD13408E1DEC3DBE0091625A /* SessionInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */; };
 		CD3140EF1DFE10C6000FC989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD86478A1DE73C610042349F /* Assets.xcassets */; };
+		CD4E95D51E0015E900953D03 /* SummaryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95D41E0015E900953D03 /* SummaryInterfaceController.swift */; };
+		CD4E95D71E007B6D00953D03 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95D61E007B6D00953D03 /* UIUtil.swift */; };
 		CD4FB66E1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FB66D1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift */; };
 		CD515D7E1DFEA9110053BB2F /* CellWorkout2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD515D7D1DFEA9110053BB2F /* CellWorkout2.swift */; };
 		CD595E7A1DEB7658003AD8EF /* CellWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD595E791DEB7658003AD8EF /* CellWorkout.swift */; };
@@ -117,6 +119,8 @@
 		CD1340871DEB860B0091625A /* ZonesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZonesInterfaceController.swift; sourceTree = "<group>"; };
 		CD1340891DEB89A00091625A /* ZoneInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoneInterfaceController.swift; sourceTree = "<group>"; };
 		CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInfoInterfaceController.swift; sourceTree = "<group>"; };
+		CD4E95D41E0015E900953D03 /* SummaryInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryInterfaceController.swift; sourceTree = "<group>"; };
+		CD4E95D61E007B6D00953D03 /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
 		CD4FB66D1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimerInterfaceController.swift; sourceTree = "<group>"; };
 		CD515D7D1DFEA9110053BB2F /* CellWorkout2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWorkout2.swift; sourceTree = "<group>"; };
 		CD595E791DEB7658003AD8EF /* CellWorkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWorkout.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */,
+				CD4E95D61E007B6D00953D03 /* UIUtil.swift */,
 				CD7185AB1DF959B600BF0B63 /* MulticastDelegate.swift */,
 			);
 			path = Utils;
@@ -279,6 +284,7 @@
 				CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */,
 				CD5DDAB01DF5755C00C69F25 /* SessionActionsInterfaceController.swift */,
 				CD5DDAB21DF5757A00C69F25 /* SessionZonesInterfaceController.swift */,
+				CD4E95D41E0015E900953D03 /* SummaryInterfaceController.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				CD5DDAB11DF5755C00C69F25 /* SessionActionsInterfaceController.swift in Sources */,
 				CD86479D1DE73C610042349F /* NotificationController.swift in Sources */,
 				CD1340861DEB82F90091625A /* ProgramInterfaceController.swift in Sources */,
+				CD4E95D71E007B6D00953D03 /* UIUtil.swift in Sources */,
 				CD5DDAB31DF5757A00C69F25 /* SessionZonesInterfaceController.swift in Sources */,
 				CD0F1EB11DF19D7B00223E6F /* PulseZones.swift in Sources */,
 				CD5DDAAB1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */,
@@ -550,6 +557,7 @@
 				CD1340881DEB860B0091625A /* ZonesInterfaceController.swift in Sources */,
 				CD8647991DE73C610042349F /* WorkoutsInterfaceController.swift in Sources */,
 				CDE71BBC1DF8809D00E30763 /* Int+Util.swift in Sources */,
+				CD4E95D51E0015E900953D03 /* SummaryInterfaceController.swift in Sources */,
 				CD0F1EB91DF1A48900223E6F /* WorkoutProgramPart.swift in Sources */,
 				CD13408E1DEC3DBE0091625A /* SessionInfoInterfaceController.swift in Sources */,
 				CD0F1EC31DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift in Sources */,

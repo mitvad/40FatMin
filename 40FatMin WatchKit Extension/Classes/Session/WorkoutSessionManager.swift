@@ -35,6 +35,8 @@ class WorkoutSessionManager: NSObject{
     
     var multicastDelegate = MulticastDelegate<WorkoutSessionManagerDelegate>()
     
+    weak var workout: Workout!
+    
     weak var workoutProgram: WorkoutProgram?
     weak var currentWorkoutProgramPart: WorkoutProgramPart?{
         didSet{
@@ -80,6 +82,8 @@ class WorkoutSessionManager: NSObject{
             return self.sessionStartDateCache!
         }
     }
+    
+    private(set) var distanceTotal = 0.0
     
 // MARK: - Public Computed Properties
     
@@ -136,6 +140,8 @@ class WorkoutSessionManager: NSObject{
         if let session = self.currentWorkoutSession{
             healthStore.end(session)
         }
+        
+        WKInterfaceDevice.current().play(.success)
     }
     
     func pauseSession(){
@@ -154,10 +160,24 @@ class WorkoutSessionManager: NSObject{
         currentPulseZone = zone
     }
     
+    func workoutStartDate() -> Date{
+        if !workoutSessions.isEmpty{
+            return workoutSessions.first!.start
+        }
+        
+        return Date()
+    }
+    
+    func workoutEndDate() -> Date{
+        if !workoutSessions.isEmpty{
+            return workoutSessions.last!.end
+        }
+        
+        return Date()
+    }
+    
 // MARK: - Private Properties
     
-    fileprivate weak var workout: Workout!
-
     fileprivate var currentWorkoutSession: HKWorkoutSession?
     fileprivate var workoutSessions = [(start: Date, end: Date)]()
     
@@ -166,7 +186,6 @@ class WorkoutSessionManager: NSObject{
     
     fileprivate var distanceQuery: HKAnchoredObjectQuery?
     fileprivate var distanceUnit = HKUnit(from: "m")
-    fileprivate var distanceTotal = 0.0
     
 // MARK: - Private Computed Properties
     

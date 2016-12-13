@@ -81,8 +81,7 @@ class SessionActionsInterfaceController: WKInterfaceController{
     @IBAction func stop(){
         workoutSessionManager.stopSession()
         
-        //TODO: show WorkoutSessionResult here
-        WKInterfaceController.reloadRootControllers(withNames: ["Workouts"], contexts: [""])
+        WKInterfaceController.reloadRootControllers(withNames: ["Summary"], contexts: [""])
     }
     
     @IBAction func pauseResume(){
