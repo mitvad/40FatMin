@@ -17,7 +17,7 @@
                         <table alignment="left" id="Ug3-aW-eda">
                             <items>
                                 <tableRow identifier="Workout" id="9w9-Gs-hDs" customClass="CellWorkout" customModule="_0FatMin_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="42" alignment="left" backgroundImage="z2-button-background" id="8Bd-jB-3Hd">
+                                    <group key="rootItem" width="1" height="42" alignment="left" radius="6" id="8Bd-jB-3Hd">
                                         <items>
                                             <label alignment="left" verticalAlignment="center" text="Indoor Run" minimumScaleFactor="0.80000000000000004" id="mSH-Lt-AtO">
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,22 +30,6 @@
                                     <connections>
                                         <outlet property="content" destination="8Bd-jB-3Hd" id="OGc-Gb-FCn"/>
                                         <outlet property="workoutName" destination="mSH-Lt-AtO" id="DyP-Zr-Cc5"/>
-                                    </connections>
-                                </tableRow>
-                                <tableRow identifier="Workout2" id="AIg-xT-qob" customClass="CellWorkout2" customModule="_0FatMin_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="42" alignment="left" id="Yvw-FX-p2h">
-                                        <items>
-                                            <label alignment="left" verticalAlignment="center" text="Indoor Run" minimumScaleFactor="0.80000000000000004" id="EDz-gR-V9P">
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="font" type="system" weight="semibold" pointSize="15"/>
-                                            </label>
-                                        </items>
-                                        <color key="backgroundColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <variation key="device=watch42mm" height="46"/>
-                                    </group>
-                                    <connections>
-                                        <outlet property="content" destination="Yvw-FX-p2h" id="AQQ-43-qIU"/>
-                                        <outlet property="workoutName" destination="EDz-gR-V9P" id="ew8-zm-7lB"/>
                                     </connections>
                                 </tableRow>
                             </items>

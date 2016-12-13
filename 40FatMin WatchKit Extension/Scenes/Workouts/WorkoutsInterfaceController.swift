@@ -73,19 +73,19 @@ class WorkoutsInterfaceController: WKInterfaceController {
 // MARK: - Private Methods
     
     fileprivate func initWorkoutsTable(){
-        var rowTypes = Array.init(repeating: "Workout2", count: workouts.allWorkouts.count - 1)
-        rowTypes.insert("Workout", at: 0)
+        let rowTypes = Array.init(repeating: "Workout", count: workouts.allWorkouts.count)
         
         workoutsTable.setRowTypes(rowTypes)
         
         for (index, workout) in workouts.allWorkouts.enumerated(){
-            if  index == 0{
-                let row = workoutsTable.rowController(at: index) as! CellWorkout
-                row.workoutName.setText(workout.title)
+            let row = workoutsTable.rowController(at: index) as! CellWorkout
+            row.workoutName.setText(workout.title)
+            
+            if index == 0{
+                row.content.setBackgroundImage(PulseZoneType.z2.backgroundButtonImage)
             }
             else{
-                let row = workoutsTable.rowController(at: index) as! CellWorkout2
-                row.workoutName.setText(workout.title)
+                row.content.setBackgroundColor(PulseZoneType.z2.backgroundColor)
             }
         }
     }
