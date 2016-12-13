@@ -25,6 +25,9 @@
 		CD3140EF1DFE10C6000FC989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD86478A1DE73C610042349F /* Assets.xcassets */; };
 		CD4E95D51E0015E900953D03 /* SummaryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95D41E0015E900953D03 /* SummaryInterfaceController.swift */; };
 		CD4E95D71E007B6D00953D03 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95D61E007B6D00953D03 /* UIUtil.swift */; };
+		CD4E95D91E00968C00953D03 /* WorkoutSessionQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95D81E00968C00953D03 /* WorkoutSessionQueries.swift */; };
+		CD4E95DB1E0096CD00953D03 /* HeartRateQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95DA1E0096CD00953D03 /* HeartRateQuery.swift */; };
+		CD4E95DD1E009F5A00953D03 /* DistanceQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95DC1E009F5A00953D03 /* DistanceQuery.swift */; };
 		CD4FB66E1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4FB66D1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift */; };
 		CD595E7A1DEB7658003AD8EF /* CellWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD595E791DEB7658003AD8EF /* CellWorkout.swift */; };
 		CD5DDAAA1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */; };
@@ -120,6 +123,9 @@
 		CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionInfoInterfaceController.swift; sourceTree = "<group>"; };
 		CD4E95D41E0015E900953D03 /* SummaryInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryInterfaceController.swift; sourceTree = "<group>"; };
 		CD4E95D61E007B6D00953D03 /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
+		CD4E95D81E00968C00953D03 /* WorkoutSessionQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutSessionQueries.swift; sourceTree = "<group>"; };
+		CD4E95DA1E0096CD00953D03 /* HeartRateQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateQuery.swift; sourceTree = "<group>"; };
+		CD4E95DC1E009F5A00953D03 /* DistanceQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceQuery.swift; sourceTree = "<group>"; };
 		CD4FB66D1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimerInterfaceController.swift; sourceTree = "<group>"; };
 		CD595E791DEB7658003AD8EF /* CellWorkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellWorkout.swift; sourceTree = "<group>"; };
 		CD5DDAA91DF47D8A00C69F25 /* PulseZoneType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseZoneType.swift; sourceTree = "<group>"; };
@@ -250,6 +256,9 @@
 			children = (
 				CD0F1EC01DF1B15F00223E6F /* WorkoutSessionManager.swift */,
 				CD0F1EC21DF1B1CA00223E6F /* WorkoutSessionManagerDelegate.swift */,
+				CD4E95D81E00968C00953D03 /* WorkoutSessionQueries.swift */,
+				CD4E95DA1E0096CD00953D03 /* HeartRateQuery.swift */,
+				CD4E95DC1E009F5A00953D03 /* DistanceQuery.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -539,6 +548,7 @@
 				CD1340861DEB82F90091625A /* ProgramInterfaceController.swift in Sources */,
 				CD4E95D71E007B6D00953D03 /* UIUtil.swift in Sources */,
 				CD5DDAB31DF5757A00C69F25 /* SessionZonesInterfaceController.swift in Sources */,
+				CD4E95DB1E0096CD00953D03 /* HeartRateQuery.swift in Sources */,
 				CD0F1EB11DF19D7B00223E6F /* PulseZones.swift in Sources */,
 				CD5DDAAB1DF47D8A00C69F25 /* PulseZoneType.swift in Sources */,
 				CD8DA60B1DF35FBB00ABA050 /* AppFileManager.swift in Sources */,
@@ -548,6 +558,7 @@
 				CD0F1EB71DF1A33500223E6F /* WorkoutProgram.swift in Sources */,
 				CD4FB66E1DF9A7FC00818F45 /* CountdownTimerInterfaceController.swift in Sources */,
 				CD0F1EB31DF19D9200223E6F /* PulseZone.swift in Sources */,
+				CD4E95DD1E009F5A00953D03 /* DistanceQuery.swift in Sources */,
 				CD5DDAAE1DF563FC00C69F25 /* UserDefaults+Keys.swift in Sources */,
 				CD86479B1DE73C610042349F /* ExtensionDelegate.swift in Sources */,
 				CD1340881DEB860B0091625A /* ZonesInterfaceController.swift in Sources */,
@@ -563,6 +574,7 @@
 				CD0F1EAB1DF1974000223E6F /* Workouts.swift in Sources */,
 				CD595E7A1DEB7658003AD8EF /* CellWorkout.swift in Sources */,
 				CD0F1EAD1DF1975500223E6F /* Workout.swift in Sources */,
+				CD4E95D91E00968C00953D03 /* WorkoutSessionQueries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,7 +51,7 @@ class SummaryInterfaceController: WKInterfaceController{
         
         totalDistanceTitleLabel.setText(NSLocalizedString("TOTAL DISTANCE", comment: "Total distance title for Summary (prefered in uppercase)"))
         
-        let localizedDistance = LocalizedDistance(workoutSessionManager.distanceTotal)
+        let localizedDistance = LocalizedDistance(workoutSessionManager.queries.distanceQuery.distanceTotal)
         totalDistanceValueLabel.setText(localizedDistance.value)
         totalDistanceUnitLabel.setText(localizedDistance.unit)
         
