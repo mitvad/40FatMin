@@ -63,7 +63,7 @@ class SummaryInterfaceController: WKInterfaceController{
         //
         
         activeCaloriesTitleLabel.setText(NSLocalizedString("ACTIVE CALORIES", comment: "Active calories title for Summary (prefered in uppercase)"))
-        activeCaloriesValueLabel.setText("0")
+        activeCaloriesValueLabel.setText(String(format: "%.0f", workoutSessionManager.queries.activeCaloriesQuery.totalValue))
         activeCaloriesUnitLabel.setText(NSLocalizedString("CAL", comment: "Calories unit (short in uppercase)"))
         
     }

@@ -21,4 +21,10 @@ extension UserDefaults{
             return "KeyZoneSelectionScreen"
         }
     }
+    
+    static var SessionMetricsDisplayState: String{
+        get{
+            return "SessionMetricsDisplayState"
+        }
+    }
 }

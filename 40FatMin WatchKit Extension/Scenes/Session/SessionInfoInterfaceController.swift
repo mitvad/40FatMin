@@ -31,6 +31,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
         updateProgramParts()
         updateHeartRate(0.0)
         updateDistance(0.0)
+        updateActiveCalories(0.0)
+        updateMetricsDisplay()
     }
     
 // MARK: - Private Properties
@@ -201,6 +203,13 @@ class SessionInfoInterfaceController: WKInterfaceController{
         }
     }
     
+    fileprivate func updateActiveCalories(_ value: Double){
+        animate(withDuration: 0.3){
+            self.activeCaloriesLabel.setText(String(format: "%.0f", value))
+            self.activeCaloriesUnitLabel.setText(NSLocalizedString("CAL", comment: "Calories unit (short in uppercase)"))
+        }
+    }
+    
     fileprivate func sessionDidStart(_ sessionStartDate: Date){
         sessionTimer.setDate(sessionStartDate)
         sessionTimer.start()
@@ -326,13 +335,40 @@ class SessionInfoInterfaceController: WKInterfaceController{
         }
     }
     
+    fileprivate func updateMetricsDisplay(){
+        
+        func animateMetrics(time: Bool, distance: Bool, cal: Bool){
+            self.animate(withDuration: 0.3){
+                self.sessionTimer.setHidden(!time)
+                self.distanceGroup.setHidden(!distance)
+                self.activeCaloriesGroup.setHidden(!cal)
+            }
+        }
+        
+        let state = UserDefaults.standard.integer(forKey: UserDefaults.SessionMetricsDisplayState)
+        
+        switch state {
+        case 1:
+            animateMetrics(time: true, distance: false, cal: true)
+        case 2:
+            animateMetrics(time: false, distance: true, cal: true)
+        default:
+            animateMetrics(time: true, distance: true, cal: false)
+        }
+    }
+    
 // MARK: - IBOutlets
     
     @IBOutlet var content: WKInterfaceGroup!
     
+    @IBOutlet var distanceGroup: WKInterfaceGroup!
+    @IBOutlet var activeCaloriesGroup: WKInterfaceGroup!
+    
     @IBOutlet var sessionTimer: WKInterfaceTimer!
     @IBOutlet var distanceLabel: WKInterfaceLabel!
     @IBOutlet var distanceUnitLabel: WKInterfaceLabel!
+    @IBOutlet var activeCaloriesLabel: WKInterfaceLabel!
+    @IBOutlet var activeCaloriesUnitLabel: WKInterfaceLabel!
     @IBOutlet var heartRateLabel: WKInterfaceLabel!
     @IBOutlet var heartRateImage: WKInterfaceImage!
     
@@ -359,6 +395,23 @@ class SessionInfoInterfaceController: WKInterfaceController{
     @IBOutlet var programInformationGroup: WKInterfaceGroup!
     
     @IBOutlet var messageLabel: WKInterfaceLabel!
+    
+// MARK: - IBActions
+    
+    @IBAction func handleGesture(gestureRecognizer : WKGestureRecognizer){
+        var state = UserDefaults.standard.integer(forKey: UserDefaults.SessionMetricsDisplayState)
+        
+        if state >= 2{
+            state = 0
+        }
+        else{
+            state += 1
+        }
+        
+        UserDefaults.standard.set(state, forKey: UserDefaults.SessionMetricsDisplayState)
+        
+        updateMetricsDisplay()
+    }
     
 // MARK: - Deinit
     
@@ -392,6 +445,10 @@ extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
     func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, distanceDidChangeTo toDistance: Double) {
         
         updateDistance(toDistance)
+    }
+    
+    func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, activeCaloriesDidChangeTo toActiveCalories: Double) {
+        updateActiveCalories(toActiveCalories)
     }
     
     func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, sessionDidChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {

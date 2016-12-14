@@ -25,6 +25,7 @@ class WorkoutSessionManager: NSObject{
         
         queries.heartRateQuery.updateHandler = { [unowned self] value in self.updateHeartRate(value)}
         queries.distanceQuery.updateHandler = { [unowned self] value in self.updateDistance(value)}
+        queries.activeCaloriesQuery.updateHandler = { [unowned self] value in self.updateActiveCalories(value)}
     }
     
     convenience init(workout: Workout, workoutProgram: WorkoutProgram){
@@ -245,6 +246,12 @@ class WorkoutSessionManager: NSObject{
         queries.stop()
         
         currentWorkoutSession = nil
+    }
+    
+    fileprivate func updateActiveCalories(_ value: Double){
+        DispatchQueue.main.async {
+            self.multicastDelegate.invoke{delegate in delegate.workoutSessionManager?(self, activeCaloriesDidChangeTo: value)}
+        }
     }
     
     fileprivate func updateDistance(_ value: Double){

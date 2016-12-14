@@ -15,27 +15,32 @@ class WorkoutSessionQueries{
     init() {
         self.heartRateQuery = HeartRateQuery()
         self.distanceQuery = DistanceQuery()
+        self.activeCaloriesQuery = ActiveCaloriesQuery()
     }
     
 // MARK: - Public Properties
     
     private(set) var heartRateQuery: HeartRateQuery
     private(set) var distanceQuery: DistanceQuery
+    private(set) var activeCaloriesQuery: ActiveCaloriesQuery
     
 // MARK: - Public Methods
     
     func start(_ sessionStartDate: Date){
         heartRateQuery.start(sessionStartDate)
         distanceQuery.start(sessionStartDate)
+        activeCaloriesQuery.start(sessionStartDate)
     }
     
     func stop(){
         heartRateQuery.stop()
         distanceQuery.stop()
+        activeCaloriesQuery.stop()
     }
     
     func reset(){
         heartRateQuery.reset()
         distanceQuery.reset()
+        activeCaloriesQuery.reset()
     }
 }

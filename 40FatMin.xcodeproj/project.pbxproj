@@ -58,6 +58,7 @@
 		CD8DA6081DF2EE2F00ABA050 /* DefaultWorkoutPrograms.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */; };
 		CD8DA6091DF2EEC500ABA050 /* DefaultPulseZones.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */; };
 		CD8DA60B1DF35FBB00ABA050 /* AppFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */; };
+		CD90679F1E014D440026CC92 /* ActiveCaloriesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD90679E1E014D440026CC92 /* ActiveCaloriesQuery.swift */; };
 		CDE71BBC1DF8809D00E30763 /* Int+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE71BBB1DF8809D00E30763 /* Int+Util.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,6 +157,7 @@
 		CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultPulseZones.json; sourceTree = "<group>"; };
 		CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultWorkoutPrograms.json; sourceTree = "<group>"; };
 		CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFileManager.swift; sourceTree = "<group>"; };
+		CD90679E1E014D440026CC92 /* ActiveCaloriesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveCaloriesQuery.swift; path = "40FatMin WatchKit Extension/Classes/Session/ActiveCaloriesQuery.swift"; sourceTree = SOURCE_ROOT; };
 		CDE71BBB1DF8809D00E30763 /* Int+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Util.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,6 +261,7 @@
 				CD4E95D81E00968C00953D03 /* WorkoutSessionQueries.swift */,
 				CD4E95DA1E0096CD00953D03 /* HeartRateQuery.swift */,
 				CD4E95DC1E009F5A00953D03 /* DistanceQuery.swift */,
+				CD90679E1E014D440026CC92 /* ActiveCaloriesQuery.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				CD0F1EB31DF19D9200223E6F /* PulseZone.swift in Sources */,
 				CD4E95DD1E009F5A00953D03 /* DistanceQuery.swift in Sources */,
 				CD5DDAAE1DF563FC00C69F25 /* UserDefaults+Keys.swift in Sources */,
+				CD90679F1E014D440026CC92 /* ActiveCaloriesQuery.swift in Sources */,
 				CD86479B1DE73C610042349F /* ExtensionDelegate.swift in Sources */,
 				CD1340881DEB860B0091625A /* ZonesInterfaceController.swift in Sources */,
 				CD8647991DE73C610042349F /* WorkoutsInterfaceController.swift in Sources */,
