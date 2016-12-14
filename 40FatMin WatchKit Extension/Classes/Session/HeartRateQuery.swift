@@ -60,11 +60,11 @@ class HeartRateQuery{
                                                     predicate: datePredicate,
                                                     anchor: nil,
                                                     limit: HKObjectQueryNoLimit)
-        { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+        { [unowned self] (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
             self.updateHeartRate(sampleObjects, error)
         }
         
-        self.query!.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+        self.query!.updateHandler = { [unowned self] (query, samples, deleteObjects, newAnchor, error) -> Void in
             self.updateHeartRate(samples, error)
         }
         
@@ -92,6 +92,6 @@ class HeartRateQuery{
         
         print("Heart rate: \(value)")
         
-        updateHandler?(value)
+        self.updateHandler?(value)
     }
 }

@@ -19,6 +19,8 @@ class WorkoutSessionManager: NSObject{
         self.currentPulseZone = pulseZone
         self.queries = WorkoutSessionQueries()
         
+        workoutSessions = [(start: Date, end: Date)]()
+        
         super.init()
         
         queries.heartRateQuery.updateHandler = { [unowned self] value in self.updateHeartRate(value)}
@@ -127,12 +129,10 @@ class WorkoutSessionManager: NSObject{
         configuration.locationType = .indoor
         
         do {
-            let session = try HKWorkoutSession(configuration: configuration)
+            self.currentWorkoutSession = try HKWorkoutSession(configuration: configuration)
             
-            session.delegate = self
-            healthStore.start(session)
-            
-            self.currentWorkoutSession = session
+            self.currentWorkoutSession!.delegate = self
+            healthStore.start(self.currentWorkoutSession!)
         }
         catch let error as NSError {
             // Perform proper error handling here...
@@ -183,7 +183,7 @@ class WorkoutSessionManager: NSObject{
 // MARK: - Private Properties
     
     fileprivate var currentWorkoutSession: HKWorkoutSession?
-    fileprivate var workoutSessions = [(start: Date, end: Date)]()
+    fileprivate var workoutSessions: [(start: Date, end: Date)]
     
 // MARK: - Private Computed Properties
     
@@ -218,8 +218,9 @@ class WorkoutSessionManager: NSObject{
         self.currentWorkoutProgramPart = nil
         
         currentWorkoutSession = nil
-        workoutSessions = [(start: Date, end: Date)]()
         sessionStartDateCache = nil
+        
+        workoutSessions.removeAll()
         
         queries.reset()
     }

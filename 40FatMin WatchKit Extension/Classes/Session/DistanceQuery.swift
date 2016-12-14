@@ -62,11 +62,11 @@ class DistanceQuery{
                                               predicate: datePredicate,
                                               anchor: nil,
                                               limit: HKObjectQueryNoLimit)
-        { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+        { [unowned self] (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
             self.updateDistance(sampleObjects, error)
         }
         
-        query!.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+        query!.updateHandler = { [unowned self] (query, samples, deleteObjects, newAnchor, error) -> Void in
             self.updateDistance(samples, error)
         }
         
@@ -94,7 +94,7 @@ class DistanceQuery{
         
         print("updateDistance \(distanceTotal)")
         
-        updateHandler?(distanceTotal)
+        self.updateHandler?(distanceTotal)
     }
     
 }
