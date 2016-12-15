@@ -36,6 +36,7 @@
 		CD5DDAB31DF5757A00C69F25 /* SessionZonesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAB21DF5757A00C69F25 /* SessionZonesInterfaceController.swift */; };
 		CD5DDAB51DF5C40000C69F25 /* NSNotification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5DDAB41DF5C40000C69F25 /* NSNotification+Names.swift */; };
 		CD7185AC1DF959B600BF0B63 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7185AB1DF959B600BF0B63 /* MulticastDelegate.swift */; };
+		CD8544B61E02DD000088081C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD9067A01E029FBB0026CC92 /* Assets.xcassets */; };
 		CD8647741DE73C610042349F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8647731DE73C610042349F /* AppDelegate.swift */; };
 		CD8647761DE73C610042349F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8647751DE73C610042349F /* ViewController.swift */; };
 		CD8647791DE73C610042349F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8647771DE73C610042349F /* Main.storyboard */; };
@@ -521,6 +522,7 @@
 			files = (
 				CD8647A11DE73C610042349F /* Assets.xcassets in Resources */,
 				CD8DA6081DF2EE2F00ABA050 /* DefaultWorkoutPrograms.json in Resources */,
+				CD8544B61E02DD000088081C /* Assets.xcassets in Resources */,
 				CD8DA6091DF2EEC500ABA050 /* DefaultPulseZones.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
