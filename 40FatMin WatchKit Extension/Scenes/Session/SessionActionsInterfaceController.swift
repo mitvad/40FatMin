@@ -46,21 +46,20 @@ class SessionActionsInterfaceController: WKInterfaceController{
         else{
             setTitle("")
         }
-        
-        stopButton.setTitle(NSLocalizedString("Stop", comment: "Stop workout session (short button title)"))
+        stopButton.setBackgroundImage(UIImage(named: "stop-button"))
         
         updatePauseResumeButtonState()
     }
     
     fileprivate func updatePauseResumeButtonState(){
         if workoutSessionManager.sessionState == HKWorkoutSessionState.paused{
-            pauseResumeButton.setTitle(NSLocalizedString("Resume", comment: "Resume workout session (short button title)"))
+            pauseResumeButton.setBackgroundImage(UIImage(named: "resume-button"))
         }
         else if workoutSessionManager.sessionState == HKWorkoutSessionState.running{
-            pauseResumeButton.setTitle(NSLocalizedString("Pause", comment: "Pause workout session (short button title)"))
+            pauseResumeButton.setBackgroundImage(UIImage(named: "pause-button"))
         }
         else{
-            pauseResumeButton.setTitle("--")
+            pauseResumeButton.setBackgroundImage(nil)
         }
     }
     

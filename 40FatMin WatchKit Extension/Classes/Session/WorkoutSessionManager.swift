@@ -181,6 +181,14 @@ class WorkoutSessionManager: NSObject{
         return Date()
     }
     
+    func saveWorkoutToHealthStore(){
+        
+    }
+    
+    func discardWorkout(){
+        
+    }
+    
 // MARK: - Private Properties
     
     fileprivate var currentWorkoutSession: HKWorkoutSession?

@@ -350,7 +350,7 @@
                                     <items>
                                         <group width="70" height="70" alignment="center" radius="35" id="Jvm-S6-jmZ">
                                             <items>
-                                                <button width="70" height="70" alignment="left" title=" " id="8BP-h4-6aX">
+                                                <button width="70" height="70" alignment="left" title=" " backgroundImage="stop-button" id="8BP-h4-6aX">
                                                     <color key="titleColor" red="0.97955745459999999" green="0.068956233559999996" blue="0.31090652940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="15"/>
                                                     <variation key="device=watch38mm" height="64" width="64"/>
@@ -363,8 +363,9 @@
                                         </group>
                                         <group width="70" height="70" alignment="center" radius="35" id="O9P-BT-n2t">
                                             <items>
-                                                <button width="70" height="70" alignment="right" title=" " id="TEe-it-3kC">
+                                                <button width="70" height="70" alignment="right" title=" " backgroundImage="pause-button" id="TEe-it-3kC">
                                                     <color key="titleColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="font" type="boldSystem" pointSize="15"/>
                                                     <variation key="device=watch38mm" height="65" width="65"/>
                                                     <connections>

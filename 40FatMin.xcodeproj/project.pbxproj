@@ -22,7 +22,6 @@
 		CD1340881DEB860B0091625A /* ZonesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1340871DEB860B0091625A /* ZonesInterfaceController.swift */; };
 		CD13408A1DEB89A00091625A /* ZoneInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1340891DEB89A00091625A /* ZoneInterfaceController.swift */; };
 		CD13408E1DEC3DBE0091625A /* SessionInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD13408D1DEC3DBE0091625A /* SessionInfoInterfaceController.swift */; };
-		CD3140EF1DFE10C6000FC989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD86478A1DE73C610042349F /* Assets.xcassets */; };
 		CD4E95D51E0015E900953D03 /* SummaryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95D41E0015E900953D03 /* SummaryInterfaceController.swift */; };
 		CD4E95D71E007B6D00953D03 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95D61E007B6D00953D03 /* UIUtil.swift */; };
 		CD4E95D91E00968C00953D03 /* WorkoutSessionQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4E95D81E00968C00953D03 /* WorkoutSessionQueries.swift */; };
@@ -44,7 +43,6 @@
 		CD86477E1DE73C610042349F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD86477C1DE73C610042349F /* LaunchScreen.storyboard */; };
 		CD8647831DE73C610042349F /* 40FatMin WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CD8647821DE73C610042349F /* 40FatMin WatchKit App.app */; };
 		CD8647891DE73C610042349F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8647871DE73C610042349F /* Interface.storyboard */; };
-		CD86478B1DE73C610042349F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD86478A1DE73C610042349F /* Assets.xcassets */; };
 		CD8647921DE73C610042349F /* 40FatMin WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CD8647911DE73C610042349F /* 40FatMin WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CD8647991DE73C610042349F /* WorkoutsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8647981DE73C610042349F /* WorkoutsInterfaceController.swift */; };
 		CD86479B1DE73C610042349F /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86479A1DE73C610042349F /* ExtensionDelegate.swift */; };
@@ -59,6 +57,7 @@
 		CD8DA6091DF2EEC500ABA050 /* DefaultPulseZones.json in Resources */ = {isa = PBXBuildFile; fileRef = CD8DA6001DF2D58B00ABA050 /* DefaultPulseZones.json */; };
 		CD8DA60B1DF35FBB00ABA050 /* AppFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */; };
 		CD90679F1E014D440026CC92 /* ActiveCaloriesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD90679E1E014D440026CC92 /* ActiveCaloriesQuery.swift */; };
+		CD9067A11E029FBB0026CC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD9067A01E029FBB0026CC92 /* Assets.xcassets */; };
 		CDE71BBC1DF8809D00E30763 /* Int+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE71BBB1DF8809D00E30763 /* Int+Util.swift */; };
 /* End PBXBuildFile section */
 
@@ -144,7 +143,6 @@
 		CD86477F1DE73C610042349F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD8647821DE73C610042349F /* 40FatMin WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "40FatMin WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8647881DE73C610042349F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		CD86478A1DE73C610042349F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD86478C1DE73C610042349F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD8647911DE73C610042349F /* 40FatMin WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "40FatMin WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8647971DE73C610042349F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -158,6 +156,7 @@
 		CD8DA6021DF2D5B400ABA050 /* DefaultWorkoutPrograms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DefaultWorkoutPrograms.json; sourceTree = "<group>"; };
 		CD8DA60A1DF35FBB00ABA050 /* AppFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFileManager.swift; sourceTree = "<group>"; };
 		CD90679E1E014D440026CC92 /* ActiveCaloriesQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveCaloriesQuery.swift; path = "40FatMin WatchKit Extension/Classes/Session/ActiveCaloriesQuery.swift"; sourceTree = SOURCE_ROOT; };
+		CD9067A01E029FBB0026CC92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDE71BBB1DF8809D00E30763 /* Int+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Util.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,7 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				CD8647871DE73C610042349F /* Interface.storyboard */,
-				CD86478A1DE73C610042349F /* Assets.xcassets */,
+				CD9067A01E029FBB0026CC92 /* Assets.xcassets */,
 				CD86478C1DE73C610042349F /* Info.plist */,
 			);
 			path = "40FatMin WatchKit App";
@@ -511,7 +510,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD86478B1DE73C610042349F /* Assets.xcassets in Resources */,
+				CD9067A11E029FBB0026CC92 /* Assets.xcassets in Resources */,
 				CD8647891DE73C610042349F /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,7 +521,6 @@
 			files = (
 				CD8647A11DE73C610042349F /* Assets.xcassets in Resources */,
 				CD8DA6081DF2EE2F00ABA050 /* DefaultWorkoutPrograms.json in Resources */,
-				CD3140EF1DFE10C6000FC989 /* Assets.xcassets in Resources */,
 				CD8DA6091DF2EEC500ABA050 /* DefaultPulseZones.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -806,6 +804,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = personal.mitin.vadym.40FatMin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -820,6 +819,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = personal.mitin.vadym.40FatMin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
