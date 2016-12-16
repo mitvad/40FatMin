@@ -179,19 +179,19 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
     fileprivate func animateHeart() {
-        self.animate(withDuration: 0.5) {
-            self.heartRateImage.setWidth(35)
-            self.heartRateImage.setHeight(35)
+        func animate(delay: Double, duration: TimeInterval, size: CGFloat){
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+                self.animate(withDuration: duration){
+                    self.heartRateImage.setWidth(size)
+                    self.heartRateImage.setHeight(size)
+                }
+            }
         }
         
-        let when = DispatchTime.now() + 0.5
-        
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            self.animate(withDuration: 0.7, animations: {
-                self.heartRateImage.setWidth(30)
-                self.heartRateImage.setHeight(30)
-            })
-        }
+        animate(delay: 0.0, duration: 0.5, size: 35)
+        animate(delay: 0.5, duration: 0.7, size: 30)
+        animate(delay: 1.2, duration: 0.5, size: 34)
+        animate(delay: 1.7, duration: 0.7, size: 30)
     }
     
     fileprivate func updateDistance(_ distance: Double){
@@ -236,11 +236,12 @@ class SessionInfoInterfaceController: WKInterfaceController{
                 self.messageLabel.setText(NSLocalizedString("Sped Up!", comment: "Short message text when the pulse is lower the current pulse zone"))
             }
             
-            hideMessage(false, isAnimate: true)
-            animatePulseZone(actualPulseZone)
+            hideMessage(false, isAnimate: false)
+            
+            animateMessage(actualPulseZone)
         }
         else if !isOut && messageIsOnScreen{
-            hideMessage(true, isAnimate: false)
+            hideMessage(true, isAnimate: true)
         }
         else if isOut && messageIsOnScreen{
             if isAbove{
@@ -250,41 +251,34 @@ class SessionInfoInterfaceController: WKInterfaceController{
                 self.messageLabel.setText(NSLocalizedString("Sped Up!", comment: "Short message text when the pulse is lower the current pulse zone"))
             }
             
-            animateMessage()
-            animatePulseZone(actualPulseZone)
+            animateMessage(actualPulseZone)
         }
     }
     
-    fileprivate func animatePulseZone(_ actualPulseZone: PulseZone?){
+    fileprivate func animateMessage(_ actualPulseZone: PulseZone?){
         guard let actualPulseZone = actualPulseZone else {return}
         guard actualPulseZone != workoutSessionManager.currentPulseZone else {return}
         
+        self.messageLabel.setAlpha(0.0)
+        
         for phase in 0..<3{
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 0.4){
-                self.animate(withDuration: 0.2){
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase)){
+                self.animate(withDuration: 0.4){
+                    self.messageLabel.setAlpha(1.0)
                     self.pulseZoneGroup.setBackgroundImage(actualPulseZone.type.backgroundImage)
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 1.0){
-                self.animate(withDuration: 0.4){
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 0.4){
+                self.animate(withDuration: 0.2){
+                    self.messageLabel.setAlpha(0.0)
                     self.pulseZoneGroup.setBackgroundImage(self.workoutSessionManager.currentPulseZone.type.backgroundImage)
                 }
             }
-        }
-    }
-    
-    fileprivate func animateMessage(){
-        for phase in 0..<3{
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase)){
-                self.animate(withDuration: 0.4){
-                    self.messageLabel.setAlpha(0.0)
-                }
-            }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 0.4){
-                self.animate(withDuration: 0.2){
-                    self.messageLabel.setAlpha(1.0)
+            if phase == 2{
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 1.0){
+                    self.hideMessage(true, isAnimate: true)
                 }
             }
         }
@@ -293,11 +287,15 @@ class SessionInfoInterfaceController: WKInterfaceController{
     fileprivate func hideMessage(_ isHidden: Bool, isAnimate: Bool){
         messageIsOnScreen = !isHidden
         
-        self.programInformationGroup.setHidden(!isHidden)
-        self.messageLabel.setHidden(isHidden)
-        
         if isAnimate{
-            animateMessage()
+            self.animate(withDuration: 0.4){
+                self.programInformationGroup.setHidden(!isHidden)
+                self.messageLabel.setHidden(isHidden)
+            }
+        }
+        else{
+            self.programInformationGroup.setHidden(!isHidden)
+            self.messageLabel.setHidden(isHidden)
         }
     }
     
