@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
@@ -49,46 +49,57 @@
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" id="mcu-Ds-m1a">
                             <items>
-                                <label alignment="center" text="Zone" minimumScaleFactor="0.80000000000000004" id="BYl-0q-iFJ">
+                                <label alignment="center" text="Pulse Zones" minimumScaleFactor="0.69999999999999996" id="BYl-0q-iFJ">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" type="boldSystem" pointSize="30"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="24"/>
                                 </label>
                                 <group alignment="center" spacing="4" id="AxC-e6-GzX">
                                     <items>
-                                        <group width="30" height="30" alignment="left" radius="6" id="FYw-Lt-pGD">
+                                        <group width="34" height="34" alignment="left" radius="15" id="FYw-Lt-pGD">
                                             <items>
-                                                <label alignment="center" verticalAlignment="center" text="Z1" textAlignment="center" id="ywG-ol-cOs">
+                                                <label alignment="center" verticalAlignment="center" text="Z1" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="ywG-ol-cOs">
                                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
                                                 </label>
                                             </items>
                                             <color key="backgroundColor" red="0.64900000000000002" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <variation key="device=watch38mm" height="30" width="30"/>
+                                            <variation key="device=watch42mm" radius="17"/>
                                         </group>
-                                        <group width="30" height="30" alignment="left" radius="6" id="m7t-YS-hjz">
+                                        <group width="34" height="34" alignment="left" radius="15" id="m7t-YS-hjz">
                                             <items>
-                                                <label alignment="center" verticalAlignment="center" text="Z2" textAlignment="center" id="K5O-mc-bYE">
+                                                <label alignment="center" verticalAlignment="center" text="Z2" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="K5O-mc-bYE">
                                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
                                                 </label>
                                             </items>
                                             <color key="backgroundColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <variation key="device=watch38mm" height="30" width="30"/>
+                                            <variation key="device=watch42mm" radius="17"/>
                                         </group>
-                                        <group width="30" height="30" alignment="left" radius="6" id="PCS-H5-zmu">
+                                        <group width="34" height="34" alignment="left" radius="15" id="PCS-H5-zmu">
                                             <items>
-                                                <label alignment="center" verticalAlignment="center" text="Z3" textAlignment="center" id="4Xg-rP-bBd">
+                                                <label alignment="center" verticalAlignment="center" text="Z3" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="4Xg-rP-bBd">
                                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
                                                 </label>
                                             </items>
                                             <color key="backgroundColor" red="0.64500000000000002" green="0.0" blue="0.64500000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <variation key="device=watch38mm" height="30" width="30"/>
+                                            <variation key="device=watch42mm" radius="17"/>
                                         </group>
-                                        <group width="30" height="30" alignment="left" radius="6" id="4Mx-HX-p3v">
+                                        <group width="34" height="34" alignment="left" radius="15" id="4Mx-HX-p3v">
                                             <items>
-                                                <label alignment="center" verticalAlignment="center" text="Z4" textAlignment="center" id="6Hk-Ub-lIQ">
+                                                <label alignment="center" verticalAlignment="center" text="Z4" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="6Hk-Ub-lIQ">
                                                     <fontDescription key="font" type="boldSystem" pointSize="20"/>
                                                 </label>
                                             </items>
                                             <color key="backgroundColor" red="0.97999999999999998" green="0.069000000000000006" blue="0.311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <variation key="device=watch38mm" height="30" width="30"/>
+                                            <variation key="device=watch42mm" radius="17"/>
                                         </group>
                                     </items>
                                 </group>
+                                <label alignment="right" text="Time free" minimumScaleFactor="0.80000000000000004" id="Our-mj-hoW">
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                                </label>
                                 <button width="1" height="46" alignment="center" verticalAlignment="bottom" title="SELECT" id="uFT-71-wkK">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -103,6 +114,7 @@
                     </items>
                     <connections>
                         <outlet property="content" destination="mcu-Ds-m1a" id="VBb-Kw-UL7"/>
+                        <outlet property="durationLabel" destination="Our-mj-hoW" id="uzK-8Q-IdQ"/>
                         <outlet property="headerLabel" destination="BYl-0q-iFJ" id="2ny-ey-PXm"/>
                         <outlet property="selectButton" destination="uFT-71-wkK" id="dIh-ZV-ykM"/>
                         <outlet property="z1Group" destination="FYw-Lt-pGD" id="HTI-4E-pR8"/>
@@ -125,9 +137,9 @@
                     <items>
                         <group width="1" height="1" alignment="center" layout="vertical" id="79O-pv-vcv">
                             <items>
-                                <label alignment="center" text="40 Fat Min" baselineAdjustment="alignCenters" minimumScaleFactor="0.59999999999999998" id="11j-PK-UJq">
+                                <label alignment="center" text="Beginner" baselineAdjustment="alignCenters" minimumScaleFactor="0.69999999999999996" id="11j-PK-UJq">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="font" type="boldSystem" pointSize="30"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="24"/>
                                 </label>
                                 <group width="1" alignment="left" layout="vertical" id="FwI-Gm-Jfo">
                                     <items>
@@ -135,67 +147,89 @@
                                             <items>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="YzI-dy-yqA">
                                                     <items>
-                                                        <label alignment="left" text=" " id="ddZ-Wx-U7Z"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="ddZ-Wx-U7Z">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" red="0.64893537759780884" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </group>
                                                 <group width="60" height="1" alignment="left" radius="0.0" id="1ZW-kG-CWE">
                                                     <items>
-                                                        <label alignment="left" text=" " id="jOv-kD-KuU"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="jOv-kD-KuU">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </group>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="gew-sq-bRb">
                                                     <items>
-                                                        <label alignment="left" text=" " id="vFZ-ZE-PSp"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="vFZ-ZE-PSp">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" red="0.71272736787796021" green="0.16214063763618469" blue="0.70635682344436646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </group>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="HFY-Wc-I4W">
                                                     <items>
-                                                        <label alignment="left" text=" " id="h4R-aO-D04"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="h4R-aO-D04">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" red="0.97955745458602905" green="0.068956233561038971" blue="0.31090652942657471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </group>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="G2g-Jf-HwN">
                                                     <items>
-                                                        <label alignment="left" text=" " id="1mA-6I-PL3"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="1mA-6I-PL3">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </group>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="eui-lH-2Pp">
                                                     <items>
-                                                        <label alignment="left" text=" " id="9zn-gQ-Bkg"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="9zn-gQ-Bkg">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </group>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="h2S-Vy-uNU">
                                                     <items>
-                                                        <label alignment="left" text=" " id="dNr-sw-ih5"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="dNr-sw-ih5">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </group>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="Qzy-g7-278">
                                                     <items>
-                                                        <label alignment="left" text=" " id="oBz-3A-FCG"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="oBz-3A-FCG">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </group>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="G7d-3F-I3j">
                                                     <items>
-                                                        <label alignment="left" text=" " id="Tby-Hp-ZrL"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="Tby-Hp-ZrL">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </group>
                                                 <group width="25" height="1" alignment="left" radius="0.0" id="f1F-ny-eLp">
                                                     <items>
-                                                        <label alignment="left" text=" " id="PCw-Ry-Az5"/>
+                                                        <label alignment="center" verticalAlignment="center" text=" " minimumScaleFactor="0.80000000000000004" id="PCw-Ry-Az5">
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
                                                     </items>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </group>
                                             </items>
                                         </group>
-                                        <label alignment="right" text="40 min" id="dX6-zT-NVM"/>
+                                        <label alignment="right" text="Time: 40 min" minimumScaleFactor="0.80000000000000004" id="dX6-zT-NVM">
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                                        </label>
                                     </items>
                                 </group>
                                 <button width="1" height="42" alignment="center" verticalAlignment="bottom" title="START" id="mfr-sq-vbQ">
@@ -214,14 +248,24 @@
                         <outlet property="content" destination="79O-pv-vcv" id="RHK-0q-7Rn"/>
                         <outlet property="part1" destination="YzI-dy-yqA" id="aQV-6s-mUN"/>
                         <outlet property="part10" destination="f1F-ny-eLp" id="1m8-t1-jJA"/>
+                        <outlet property="part10Label" destination="PCw-Ry-Az5" id="Lde-rR-7W1"/>
+                        <outlet property="part1Label" destination="ddZ-Wx-U7Z" id="lKx-XO-32n"/>
                         <outlet property="part2" destination="1ZW-kG-CWE" id="yGb-lj-kFu"/>
+                        <outlet property="part2Label" destination="jOv-kD-KuU" id="xPc-Mz-IbG"/>
                         <outlet property="part3" destination="gew-sq-bRb" id="wQL-Zt-YG2"/>
+                        <outlet property="part3Label" destination="vFZ-ZE-PSp" id="F6w-Kn-hMm"/>
                         <outlet property="part4" destination="HFY-Wc-I4W" id="GAn-Qq-Lwz"/>
+                        <outlet property="part4Label" destination="h4R-aO-D04" id="Or1-OF-J8i"/>
                         <outlet property="part5" destination="G2g-Jf-HwN" id="nbi-L6-jKh"/>
+                        <outlet property="part5Label" destination="1mA-6I-PL3" id="bcE-v4-bxV"/>
                         <outlet property="part6" destination="eui-lH-2Pp" id="c7c-Ed-1PL"/>
+                        <outlet property="part6Label" destination="9zn-gQ-Bkg" id="p8O-8q-1se"/>
                         <outlet property="part7" destination="h2S-Vy-uNU" id="5dn-PO-A1i"/>
+                        <outlet property="part7Label" destination="dNr-sw-ih5" id="b8p-VT-eY0"/>
                         <outlet property="part8" destination="Qzy-g7-278" id="zuy-Fv-qnd"/>
+                        <outlet property="part8Label" destination="oBz-3A-FCG" id="eub-Af-hso"/>
                         <outlet property="part9" destination="G7d-3F-I3j" id="tbp-XM-5Ai"/>
+                        <outlet property="part9Label" destination="Tby-Hp-ZrL" id="inR-X8-0Ua"/>
                         <outlet property="programDurationLabel" destination="dX6-zT-NVM" id="tQ5-mX-9fq"/>
                         <outlet property="programTitleLabel" destination="11j-PK-UJq" id="D4X-1g-vgA"/>
                         <outlet property="startButton" destination="mfr-sq-vbQ" id="8eV-T0-j24"/>
@@ -298,12 +342,12 @@
                                     <color key="textColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="boldSystem" pointSize="30"/>
                                 </label>
-                                <label width="1" alignment="center" text="Puls:" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="BUw-Pl-xox">
+                                <label alignment="center" text="Pulse: 124 - 135" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="rX2-vR-1Rw">
+                                    <color key="textColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="font" type="boldSystem" pointSize="18"/>
                                 </label>
-                                <label width="1" alignment="center" text="124-135" textAlignment="center" minimumScaleFactor="0.80000000000000004" id="rX2-vR-1Rw">
-                                    <color key="textColor" red="1" green="0.58699999999999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" type="boldSystem" pointSize="24"/>
+                                <label alignment="right" text="Beginner" textAlignment="right" minimumScaleFactor="0.80000000000000004" id="BUw-Pl-xox">
+                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
                                 </label>
                                 <button width="1" height="46" alignment="center" verticalAlignment="bottom" title="START" id="Jks-v1-hCY">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,8 +364,8 @@
                     <connections>
                         <outlet property="content" destination="BK6-Tq-DoO" id="jRa-oC-5FQ"/>
                         <outlet property="startButton" destination="Jks-v1-hCY" id="hSZ-tS-PCk"/>
+                        <outlet property="zonePulseLevelLabel" destination="BUw-Pl-xox" id="gr0-kZ-70G"/>
                         <outlet property="zonePulseRangeLabel" destination="rX2-vR-1Rw" id="3yN-Vf-S2u"/>
-                        <outlet property="zonePulseTitleLabel" destination="BUw-Pl-xox" id="dam-gg-cKl"/>
                         <outlet property="zoneTitleLabel" destination="cd9-In-EQ9" id="Axl-LE-E0R"/>
                     </connections>
                 </controller>

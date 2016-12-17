@@ -52,6 +52,23 @@ enum PulseZoneType: String{
         }
     }
     
+    var userLevel: String{
+        get{
+            switch self {
+            case .z0:
+                return NSLocalizedString("Free Run", comment: "User level short description for Z0 (zone for free running without limits)")
+            case .z1:
+                return NSLocalizedString("Warming Up", comment: "User level short description for Z1 (zone for warming up exercises)")
+            case .z2:
+                return NSLocalizedString("Beginner", comment: "User level short description for Z2 (zone for beginners)")
+            case .z3:
+                return NSLocalizedString("Advanced", comment: "User level short description for Z2 (zone for advanced runners)")
+            case .z4:
+                return NSLocalizedString("Professional", comment: "User level short description for Z2 (zone only for professional runners)")
+            }
+        }
+    }
+    
     var backgroundColor: UIColor{
         get{
             switch self {

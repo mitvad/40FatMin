@@ -55,7 +55,9 @@ class ZonesInterfaceController: WKInterfaceController{
     
     fileprivate func initText(){
         
-        headerLabel.setText(NSLocalizedString("Zones", comment: "Pulse Zones"))
+        headerLabel.setText(NSLocalizedString("Pulse Zones", comment: "Pulse Zones"))
+        
+        durationLabel.setText(NSLocalizedString("Time free", comment: "Time free"))
         
         selectButton.setBackgroundImage(PulseZoneType.z2.backgroundButtonImage)
         
@@ -105,6 +107,8 @@ class ZonesInterfaceController: WKInterfaceController{
     @IBOutlet var z2Group: WKInterfaceGroup!
     @IBOutlet var z3Group: WKInterfaceGroup!
     @IBOutlet var z4Group: WKInterfaceGroup!
+    
+    @IBOutlet var durationLabel: WKInterfaceLabel!
     
 // MARK: - IBActions
     

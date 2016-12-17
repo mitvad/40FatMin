@@ -100,6 +100,17 @@ class WorkoutSessionManager: NSObject{
         }
     }
     
+    var shouldShowSummary: Bool{
+        get{
+            if queries.distanceQuery.distanceTotal <= 100 || queries.activeCaloriesQuery.totalValue <= 5 || Date().timeIntervalSince(sessionStartDate) <= 60{
+                return false
+            }
+            else{
+                return true
+            }
+        }
+    }
+    
 // MARK: - Public Methods
     
     func reinit(workout: Workout, pulseZone: PulseZone){

@@ -64,22 +64,22 @@ class ZoneInterfaceController: WKInterfaceController{
         
         startButton.setAttributedTitle(attributedTitle)
         
-        zonePulseTitleLabel.setText(NSLocalizedString("Pulse:", comment: "Pulse title"))
+        zonePulseLevelLabel.setText(zone.type.userLevel)
         
         zonePulseRangeLabel.setTextColor(zone.type.backgroundColor2)
         
         if zone.type == PulseZoneType.z0{
-            zonePulseRangeLabel.setText(NSLocalizedString("Any Pulse", comment: "Any pulse that user want"))
+            zonePulseRangeLabel.setText(NSLocalizedString("No pulse limits", comment: "Any pulse that user want"))
         }
         else{
-            zonePulseRangeLabel.setText(String(format: NSLocalizedString("%d-%d", comment: "Zone pulse range"), Int(zone.range.lowerBound), Int(zone.range.upperBound)))
+            zonePulseRangeLabel.setText(String(format: NSLocalizedString("Pulse: %d-%d", comment: "Zone pulse range"), Int(zone.range.lowerBound), Int(zone.range.upperBound)))
         }
     }
     
 // MARK: - IBOutlets
     @IBOutlet var content: WKInterfaceGroup!
     @IBOutlet var zoneTitleLabel: WKInterfaceLabel!
-    @IBOutlet var zonePulseTitleLabel: WKInterfaceLabel!
+    @IBOutlet var zonePulseLevelLabel: WKInterfaceLabel!
     @IBOutlet var zonePulseRangeLabel: WKInterfaceLabel!
     @IBOutlet var startButton: WKInterfaceButton!
     

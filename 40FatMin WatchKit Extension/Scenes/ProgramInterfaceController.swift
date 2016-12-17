@@ -90,6 +90,7 @@ class ProgramInterfaceController: WKInterfaceController{
     
     fileprivate func initParts(){
         let partGroups = [part1, part2, part3, part4, part5, part6, part7, part8, part9, part10]
+        let partLabels = [part1Label, part2Label, part3Label, part4Label, part5Label, part6Label, part7Label, part8Label, part9Label, part10Label]
         
         for (index, part) in partGroups.enumerated(){
             if let part = part{
@@ -99,6 +100,8 @@ class ProgramInterfaceController: WKInterfaceController{
                     part.setWidth(contentFrame.width * CGFloat(program.parts[index].duration) / CGFloat(program.duration))
                     
                     part.setBackgroundImage(program.parts[index].pulseZoneType.backgroundImage)
+                    
+                    partLabels[index]?.setText(program.parts[index].pulseZoneType.shortTitle)
                 }
                 else{
                     part.setHidden(true)
@@ -121,6 +124,17 @@ class ProgramInterfaceController: WKInterfaceController{
     @IBOutlet var part8: WKInterfaceGroup!
     @IBOutlet var part9: WKInterfaceGroup!
     @IBOutlet var part10: WKInterfaceGroup!
+    
+    @IBOutlet var part1Label: WKInterfaceLabel!
+    @IBOutlet var part2Label: WKInterfaceLabel!
+    @IBOutlet var part3Label: WKInterfaceLabel!
+    @IBOutlet var part4Label: WKInterfaceLabel!
+    @IBOutlet var part5Label: WKInterfaceLabel!
+    @IBOutlet var part6Label: WKInterfaceLabel!
+    @IBOutlet var part7Label: WKInterfaceLabel!
+    @IBOutlet var part8Label: WKInterfaceLabel!
+    @IBOutlet var part9Label: WKInterfaceLabel!
+    @IBOutlet var part10Label: WKInterfaceLabel!
     
     @IBOutlet var programTitleLabel: WKInterfaceLabel!
     @IBOutlet var startButton: WKInterfaceButton!

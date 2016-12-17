@@ -78,9 +78,16 @@ class SessionActionsInterfaceController: WKInterfaceController{
 // MARK: - IBActions
     
     @IBAction func stop(){
+        content.setHidden(true)
+        
         workoutSessionManager.stopSession()
         
-        WKInterfaceController.reloadRootControllers(withNames: ["Summary"], contexts: [""])
+        if workoutSessionManager.shouldShowSummary{
+            WKInterfaceController.reloadRootControllers(withNames: ["Summary"], contexts: [""])
+        }
+        else{
+            WKInterfaceController.reloadRootControllers(withNames: ["Workouts"], contexts: [""])
+        }
     }
     
     @IBAction func pauseResume(){

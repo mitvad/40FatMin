@@ -228,53 +228,55 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
     fileprivate func heartRateIsOutOfPulseZoneRange(_ isOut: Bool, _ isAbove: Bool, _ actualPulseZone: PulseZone?){
-        if isOut && !messageIsOnScreen{
+        func setUpMessage(){
+            var pulseZoneLimitLabel: WKInterfaceLabel
+            
             if isAbove{
                 self.messageLabel.setText(NSLocalizedString("Slow Down!", comment: "Short message text when the pulse is above the current pulse zone"))
+                
+                pulseZoneLimitLabel = pulseZoneUpperLabel
             }
             else{
                 self.messageLabel.setText(NSLocalizedString("Sped Up!", comment: "Short message text when the pulse is lower the current pulse zone"))
+                
+                pulseZoneLimitLabel = pulseZoneLowerLabel
             }
             
+            animateMessage(actualPulseZone, pulseZoneLimitLabel)
+        }
+        
+        if isOut && !messageIsOnScreen{
             hideMessage(false, isAnimate: false)
             
-            animateMessage(actualPulseZone)
+            setUpMessage()
         }
         else if !isOut && messageIsOnScreen{
             hideMessage(true, isAnimate: true)
         }
         else if isOut && messageIsOnScreen{
-            if isAbove{
-                self.messageLabel.setText(NSLocalizedString("Slow Down!", comment: "Short message text when the pulse is above the current pulse zone"))
-            }
-            else{
-                self.messageLabel.setText(NSLocalizedString("Sped Up!", comment: "Short message text when the pulse is lower the current pulse zone"))
-            }
-            
-            animateMessage(actualPulseZone)
+            setUpMessage()
         }
     }
     
-    fileprivate func animateMessage(_ actualPulseZone: PulseZone?){
+    fileprivate func animateMessage(_ actualPulseZone: PulseZone?, _ pulseZoneLimitLabel: WKInterfaceLabel){
         guard let actualPulseZone = actualPulseZone else {return}
         guard actualPulseZone != workoutSessionManager.currentPulseZone else {return}
         
         self.messageLabel.setAlpha(0.0)
         
+        func animate(delay: Double, duration: TimeInterval, alpha: CGFloat, type: PulseZoneType){
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+                self.animate(withDuration: duration){
+                    self.messageLabel.setAlpha(alpha)
+                    self.pulseZoneGroup.setBackgroundImage(type.backgroundImage)
+                    pulseZoneLimitLabel.setTextColor(type.backgroundColor)
+                }
+            }
+        }
+        
         for phase in 0..<3{
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase)){
-                self.animate(withDuration: 0.4){
-                    self.messageLabel.setAlpha(1.0)
-                    self.pulseZoneGroup.setBackgroundImage(actualPulseZone.type.backgroundImage)
-                }
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 0.4){
-                self.animate(withDuration: 0.2){
-                    self.messageLabel.setAlpha(0.0)
-                    self.pulseZoneGroup.setBackgroundImage(self.workoutSessionManager.currentPulseZone.type.backgroundImage)
-                }
-            }
+            animate(delay: Double(phase), duration: 0.4, alpha: 1.0, type: actualPulseZone.type)
+            animate(delay: Double(phase) + 0.4, duration: 0.2, alpha: 0.0, type: self.workoutSessionManager.currentPulseZone.type)
             
             if phase == 2{
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(phase) + 1.0){
