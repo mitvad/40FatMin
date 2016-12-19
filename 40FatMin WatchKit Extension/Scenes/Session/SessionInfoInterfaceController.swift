@@ -43,6 +43,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
     
     fileprivate var messageIsOnScreen: Bool = false
     
+    fileprivate var stopMessageAnimation: Bool = false
+    
 // MARK: - Private Computed Properties
     
     fileprivate var workoutSessionManager: WorkoutSessionManager{
@@ -228,6 +230,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
     }
     
     fileprivate func heartRateIsOutOfPulseZoneRange(_ isOut: Bool, _ isAbove: Bool, _ actualPulseZone: PulseZone?){
+        stopMessageAnimation = false
+        
         func setUpMessage(){
             var pulseZoneLimitLabel: WKInterfaceLabel
             
@@ -266,11 +270,19 @@ class SessionInfoInterfaceController: WKInterfaceController{
         
         func animate(delay: Double, duration: TimeInterval, alpha: CGFloat, type: PulseZoneType){
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
-                self.animate(withDuration: duration){
-                    self.messageLabel.setAlpha(alpha)
-                    self.pulseZoneGroup.setBackgroundImage(type.backgroundImage)
-                    pulseZoneLimitLabel.setTextColor(type.backgroundColor)
+                if self.stopMessageAnimation{
+                    self.hideMessage(true, isAnimate: false)
+                    self.pulseZoneGroup.setBackgroundImage(self.workoutSessionManager.currentPulseZone.type.backgroundImage)
+                    pulseZoneLimitLabel.setTextColor(self.workoutSessionManager.currentPulseZone.type.backgroundColor)
                 }
+                else{
+                    self.animate(withDuration: duration){
+                        self.messageLabel.setAlpha(alpha)
+                        self.pulseZoneGroup.setBackgroundImage(type.backgroundImage)
+                        pulseZoneLimitLabel.setTextColor(type.backgroundColor)
+                    }
+                }
+                
             }
         }
         
@@ -426,6 +438,8 @@ class SessionInfoInterfaceController: WKInterfaceController{
 
 extension SessionInfoInterfaceController: WorkoutSessionManagerDelegate{
     func workoutSessionManager(_ workoutSessionManager: WorkoutSessionManager, pulseZoneDidChangeTo toPulseZone: PulseZone, from fromPulseZone: PulseZone) {
+        
+        stopMessageAnimation = true
         
         updatePulseZone(toPulseZone)
     }
