@@ -94,6 +94,7 @@ class SummaryInterfaceController: WKInterfaceController{
 // MARK: - IBActions
     
     @IBAction func saveWorkout(){
+        WKInterfaceDevice.current().play(.success)
         goToWorkouts()
     }
     
